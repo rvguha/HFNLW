@@ -1,0 +1,37 @@
+{
+  "query_id": "q004",
+  "question": "I need speech recognition for low-resource African languages.",
+  "judge": "anthropic/claude-opus-5",
+  "width": 100,
+  "corpus": "hf-wide-2026-08-29",
+  "relevant": [
+    {
+      "url": "https://huggingface.co/Sunbird/asr-whisper-51-african-languages",
+      "name": "asr whisper 51 african languages",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/ghananlpcommunity/ghana-speech-id",
+      "name": "ghana speech id",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/changelinglab/PhoneticXeus",
+      "name": "PhoneticXeus",
+      "score": 0,
+      "relevance": "relevant"
+    },
+    {
+      "url": "https://huggingface.co/openai/whisper-large-v2",
+      "name": "whisper large v2",
+      "score": 0,
+      "relevance": "relevant"
+    }
+  ],
+  "retrieved": 4,
+  "seconds": 13.7,
+  "cost_usd": 1.32599,
+  "tokens": 259824
+}

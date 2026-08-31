@@ -1,0 +1,37 @@
+{
+  "query_id": "q002",
+  "question": "Which models have documented knowledge of Indian legal material?",
+  "judge": "openai/gpt-5.6-sol",
+  "width": 100,
+  "corpus": "hf-wide-2026-08-29",
+  "relevant": [
+    {
+      "url": "https://huggingface.co/opennyaiorg/en_legal_ner_trf",
+      "name": "en legal ner trf",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/law-ai/InLegalTrans-En2Indic-1B",
+      "name": "InLegalTrans En2Indic 1B",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/GSMS-B/Indian-Legal-Llama-3.2-3B",
+      "name": "Indian Legal Llama 3.2 3B",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/subrit/Joker-Sultan-270M",
+      "name": "Joker Sultan 270M",
+      "score": 90,
+      "relevance": "strong"
+    }
+  ],
+  "retrieved": 4,
+  "seconds": 7.2,
+  "cost_usd": 1.08586,
+  "tokens": 171952
+}

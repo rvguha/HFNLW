@@ -1,0 +1,208 @@
+# Selection policy. Versioned: every change bumps `policy_version`, which is
+# recorded in manifests/snapshot.json and in every selection decision.
+policy_version: "1.0"
+random_seed: 20260828
+
+# Phased delivery (design doc s13), plus one rung past it. `--profile` picks one.
+#
+# Review-sample sizes grow sublinearly on purpose: the sample exists to find
+# systematic faults, and stratified coverage of every modality, language band,
+# and confidence level saturates well before the corpus does.
+profiles:
+  pilot:         {target_count: 100,   review_sample: 25}
+  corpus_v1:     {target_count: 1000,  review_sample: 60}
+  demonstration: {target_count: 2500,  review_sample: 100}
+  expansion:     {target_count: 5000,  review_sample: 150}
+  # Beyond the design doc's stated 1,000-5,000 range. The pipeline scales, but
+  # two things were tuned for the smaller ceiling and should be revisited here:
+  # the 10% publisher cap admits 1,000 records from a single publisher, and
+  # near-duplicate detection is O(n^2) within architecture buckets.
+  wide:          {target_count: 10000, review_sample: 200}
+
+# Fetch this multiple of each quota as a candidate pool before ranking (s2.4).
+oversample_factor: 4
+
+# Strata are sampling devices, not an ontology (s2.1). `target` is the share of
+# the 2,500-record demonstration; quotas for other profiles scale proportionally.
+strata:
+  - name: text_generation_chat
+    target: 650
+    description: General LLMs, instruction models, multilingual and code-capable models
+    queries:
+      - {pipeline_tag: text-generation, sort: downloads}
+      - {pipeline_tag: text-generation, sort: likes}
+      - {pipeline_tag: text2text-generation, sort: downloads}
+      - {pipeline_tag: text-generation, sort: downloads, tags: [code]}
+      - {pipeline_tag: text-generation, sort: downloads, tags: [multilingual]}
+
+  - name: embedding_retrieval
+    target: 250
+    description: Dense, sparse, reranking, and multilingual retrieval
+    queries:
+      - {pipeline_tag: sentence-similarity, sort: downloads}
+      - {pipeline_tag: feature-extraction, sort: downloads}
+      - {library: sentence-transformers, sort: likes}
+      - {search: reranker, sort: downloads}
+
+  - name: specialized_nlp
+    target: 300
+    description: Classification, NER, QA, summarization, translation
+    queries:
+      - {pipeline_tag: token-classification, sort: downloads}
+      - {pipeline_tag: text-classification, sort: downloads}
+      - {pipeline_tag: question-answering, sort: downloads}
+      - {pipeline_tag: summarization, sort: downloads}
+      - {pipeline_tag: translation, sort: downloads}
+      - {pipeline_tag: zero-shot-classification, sort: likes}
+
+  - name: vision_multimodal
+    target: 350
+    description: Classification, detection, VLMs, document understanding
+    queries:
+      - {pipeline_tag: image-classification, sort: downloads}
+      - {pipeline_tag: object-detection, sort: downloads}
+      - {pipeline_tag: image-text-to-text, sort: downloads}
+      - {pipeline_tag: image-segmentation, sort: likes}
+      - {pipeline_tag: document-question-answering, sort: downloads}
+      - {pipeline_tag: video-text-to-text, sort: likes}
+
+  - name: image_video_generation
+    target: 250
+    description: Diffusion and generative-media pipelines
+    queries:
+      - {pipeline_tag: text-to-image, sort: downloads}
+      - {pipeline_tag: image-to-image, sort: downloads}
+      - {pipeline_tag: text-to-video, sort: likes}
+      - {library: diffusers, sort: likes}
+
+  - name: speech_audio_music
+    target: 250
+    description: ASR, TTS, diarization, audio classification, music models
+    queries:
+      - {pipeline_tag: automatic-speech-recognition, sort: downloads}
+      - {pipeline_tag: text-to-speech, sort: downloads}
+      - {pipeline_tag: audio-classification, sort: downloads}
+      - {pipeline_tag: text-to-audio, sort: likes}
+      - {search: diarization, sort: downloads}
+
+  - name: scientific_domain
+    target: 300
+    description: Biomedical, legal, financial, climate, chemistry, education
+    queries:
+      - {search: biomedical, sort: downloads}
+      - {search: clinical, sort: downloads}
+      - {search: protein, sort: downloads}
+      - {search: chemistry, sort: likes}
+      - {search: legal, sort: downloads}
+      - {search: finance, sort: downloads}
+      - {search: climate, sort: likes}
+      - {search: math, sort: likes}
+
+  - name: trending_recent
+    target: 150
+    description: New releases missed by historical popularity
+    queries:
+      - {sort: trendingScore}
+      - {sort: createdAt}
+      - {sort: lastModified}
+
+# Ranking (s2.2). Weights must sum to 1.0 before the duplication penalty.
+ranking:
+  weights:
+    downloads: 0.35
+    likes: 0.20
+    trending: 0.15
+    recency: 0.10
+    documentation: 0.10
+    diversity: 0.10
+  # recency_score = 0.5 ** (age_days / half_life_days)
+  recency_half_life_days: 365
+  duplication_penalty: 0.50
+
+# Diversity constraints (s2.3).
+caps:
+  publisher_max_fraction: 0.10
+  family_max_records: 4
+  # Fraction of each stratum's quota held back for diversity fill-in.
+  diversity_reserve_fraction: 0.15
+  min_non_english_fraction: 0.15
+  min_small_model_fraction: 0.20   # <= 3B parameters, or unknown-but-small library
+  small_model_max_parameters: 3000000000
+
+# Deterministic documentation-quality proxy computed at discovery time, before
+# any card is downloaded (s2.2). Card-derived quality is recomputed after fetch
+# and recorded as documentation_quality_post in selection.jsonl.
+documentation_signals:
+  has_pipeline_tag: 0.15
+  has_library: 0.10
+  has_license: 0.15
+  has_language: 0.15
+  has_datasets: 0.15
+  has_base_model: 0.10
+  has_eval_results: 0.20
+
+# Exclusion and suppression (s1.2, s6). Matched case-insensitively against the
+# repository name (the part after the owner).
+patterns:
+  quantization: ['gguf', 'gptq', 'awq', 'exl2', 'exl3', 'mlx', 'int4', 'int8', 'nf4',
+                 '4bit', '8bit', 'w4a16', 'w8a8', 'bnb', 'quantized', 'imatrix']
+  format_conversion: ['onnx', 'openvino', 'tensorrt', 'coreml', 'ct2', 'ctranslate2',
+                      'ggml', 'tflite', 'safetensors-only', 'fp16', 'bf16', 'fp8']
+  checkpoint: ['checkpoint-\d+', 'step-?\d{3,}', 'ckpt-?\d+', '-iter-?\d+', 'epoch-?\d+',
+               'tiny-random', '^dummy[-_]', '[-_]dummy$', 'test-model', 'debug-model']
+  # Owners that publish only CI fixtures and test artifacts.
+  excluded_owners: ['internal-testing', '^tests?$', 'hf-tiny-model-private']
+  mirror: ['-mirror$', '^mirror-', '-copy$', '-reupload$', '-backup$']
+
+card:
+  # Cards longer than this are section-selected before enrichment (s7.5).
+  max_clean_chars_for_enrichment: 24000
+  # Cards shorter than this have no usable description (excluded_empty_card).
+  min_clean_chars: 240
+  # The generated Hub template is ~2,900 characters of "[More Information
+  # Needed]", so it clears any length threshold while saying nothing. Real cards
+  # that leave a field or two blank carry one or two placeholders; untouched
+  # templates carry six to forty.
+  max_placeholders: 5
+  max_download_bytes: 2000000
+  concurrency: 12
+  max_attempts: 4
+
+enrichment:
+  # anthropic = first-party API (ANTHROPIC_API_KEY).
+  # openrouter = OpenAI-compatible gateway (OPENROUTER_API_KEY), same prompt and
+  # same schema; `hfcorpus enrich --backend ...` overrides this per run.
+  backend: openrouter
+  model: "claude-opus-5"                  # first-party model id
+  # Open-weights extractor, and the same model already ranking on the serving
+  # side. Design doc s11 asks for a capable small model for routine extraction.
+  # Quality here is measured, not assumed: the evidence validator's drop rate,
+  # the taxonomy mapping rate, and the golden-query scores all report it, and
+  # because the model is part of the cache key a re-run on a different model
+  # forks a new derived version instead of overwriting the comparison.
+  openrouter_model: "openai/gpt-oss-20b"
+  prompt_version: "1.0"
+  # effort applies to the first-party backend; temperature to OpenRouter, where
+  # the parameter is still accepted (s7.4 asks for near zero).
+  effort: "low"
+  temperature: 0
+  # Reasoning effort for models that expose it. Measured over 50 records against
+  # the provider default: medium returned more subject areas (65 vs 58), more of
+  # them mapped to the taxonomy (57 vs 49), and fewer unsupported claims (109 vs
+  # 122), at 2.3x the throughput. Low is 3x faster again but sprays claims --
+  # 2.6x as many proposed, 847 of them failing quote validation -- so it costs
+  # accuracy the validator then has to catch. Part of the cache key.
+  reasoning_effort: "medium"
+  # Headroom for reasoning models: gpt-oss averages ~3.7k output tokens per
+  # record and the long tail ran past an 8k cap, which surfaced as truncated
+  # JSON and finish_reason=length rather than as anything about the card.
+  max_tokens: 24000
+  # Per-request ceiling. Observed median latency is 6s and p90 is 70s, but the
+  # tail reaches 600s, and a stuck request holds one of the 16 worker slots for
+  # the client's full default timeout. Cutting the tail and retrying keeps the
+  # pool moving; a genuinely slow record gets its one retry like any other.
+  request_timeout_seconds: 180
+  # gpt-oss spends ~14s per record on reasoning tokens, so throughput here is
+  # bounded by round trips rather than by anything local. Raise with an eye on
+  # the provider's rate limits: a 429 storm costs more wall clock than it saves.
+  concurrency: 16

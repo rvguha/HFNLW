@@ -1,0 +1,21 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+data/.cache/
+# Collections named with a `url` are fetched at runtime; the bundled corpus
+# lives under src/askhub/corpus instead of this writable directory.
+data/*.xml
+data/*.rss
+data/*.atom
+data/*.jsonl
+data/.sources-state.json
+dist/
+build/
+.DS_Store
+
+# Derived: query embeddings cached so a weight sweep does not re-bill.
+benchmarks/.query-embeddings.json

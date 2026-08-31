@@ -1,0 +1,67 @@
+{
+  "query_id": "q001",
+  "question": "I need a small model for biomedical named-entity recognition.",
+  "judge": "openai/gpt-5.6-sol",
+  "width": 100,
+  "corpus": "hf-wide-2026-08-29",
+  "relevant": [
+    {
+      "url": "https://huggingface.co/d4data/biomedical-ner-all",
+      "name": "biomedical ner all",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/OpenMed/OpenMed-NER-DNADetect-TinyMed-65M",
+      "name": "OpenMed NER DNADetect TinyMed 65M",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/grazh/biomedical-ner-all-finetuned-ner-macrobat-v1",
+      "name": "biomedical ner all finetuned ner macrobat v1",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/OpenMed/OpenMed-NER-DNADetect-ElectraMed-33M",
+      "name": "OpenMed NER DNADetect ElectraMed 33M",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/OpenMed/OpenMed-NER-PathologyDetect-ElectraMed-33M",
+      "name": "OpenMed NER PathologyDetect ElectraMed 33M",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/OpenMed/OpenMed-NER-DiseaseDetect-TinyMed-65M",
+      "name": "OpenMed NER DiseaseDetect TinyMed 65M",
+      "score": 0,
+      "relevance": "relevant"
+    },
+    {
+      "url": "https://huggingface.co/OpenMed/OpenMed-NER-GenomeDetect-ElectraMed-33M",
+      "name": "OpenMed NER GenomeDetect ElectraMed 33M",
+      "score": 0,
+      "relevance": "relevant"
+    },
+    {
+      "url": "https://huggingface.co/OpenMed/OpenMed-NER-DNADetect-BioClinical-108M",
+      "name": "OpenMed NER DNADetect BioClinical 108M",
+      "score": 0,
+      "relevance": "relevant"
+    },
+    {
+      "url": "https://huggingface.co/OpenMed/OpenMed-NER-SpeciesDetect-TinyMed-82M",
+      "name": "OpenMed NER SpeciesDetect TinyMed 82M",
+      "score": 0,
+      "relevance": "relevant"
+    }
+  ],
+  "retrieved": 9,
+  "seconds": 11.2,
+  "cost_usd": 1.201423,
+  "tokens": 175757
+}

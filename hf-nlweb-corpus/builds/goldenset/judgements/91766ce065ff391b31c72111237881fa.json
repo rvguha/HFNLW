@@ -1,0 +1,61 @@
+{
+  "query_id": "q026",
+  "question": "Models supporting Indian languages such as Hindi, Tamil, or Telugu.",
+  "judge": "openai/gpt-5.6-sol",
+  "width": 100,
+  "corpus": "hf-wide-2026-08-29",
+  "relevant": [
+    {
+      "url": "https://huggingface.co/anktechsol/anki-2.5",
+      "name": "anki 2.5",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/Aditya02/IndicF5",
+      "name": "IndicF5",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/sarvamai/sarvam-1-v0.5",
+      "name": "sarvam 1 v0.5",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/sarvamai/sarvam-1",
+      "name": "sarvam 1",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/sarvamai/sarvam-m",
+      "name": "sarvam m",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/sarvamai/sarvam-translate",
+      "name": "sarvam translate",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/SVECTOR-CORPORATION/Akshara-8B-Llama-Multilingual-V0.1",
+      "name": "Akshara 8B Llama Multilingual V0.1",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/FrontiersMind/Nandi-Mini-600M-Early-Checkpoint",
+      "name": "Nandi Mini 600M Early Checkpoint",
+      "score": 90,
+      "relevance": "strong"
+    }
+  ],
+  "retrieved": 9,
+  "seconds": 7.6,
+  "cost_usd": 1.079287,
+  "tokens": 169654
+}

@@ -1,0 +1,43 @@
+# Subject-area taxonomy. Emitted as schema.org DefinedTerm nodes in `about`,
+# with `inDefinedTermSet` pointing at this set. Versioned independently of the
+# selection policy so a taxonomy refinement does not invalidate a snapshot.
+version: "1.0"
+id: "https://guha.com/ns/hf-corpus/subjects/1.0"
+name: "Hugging Face demonstration corpus subject areas"
+
+# The enrichment model is asked to choose from `terms` where one fits, and may
+# propose a free-text label otherwise. Free-text labels are kept but marked
+# `corpus:taxonomyStatus: proposed` so they never silently join the vocabulary.
+terms:
+  - {id: biomedicine, name: Biomedicine, aliases: [biomedical, medical, clinical, healthcare, radiology, oncology]}
+  - {id: molecular-biology, name: Molecular biology, aliases: [genomics, proteomics, protein, dna, rna, gene]}
+  - {id: chemistry, name: Chemistry, aliases: [chemical, molecule, smiles, materials science]}
+  - {id: law, name: Law, aliases: [legal, jurisprudence, contracts, case law, statutes]}
+  - {id: finance, name: Finance, aliases: [financial, banking, accounting, markets, economics]}
+  - {id: climate-earth-science, name: Climate and earth science, aliases: [climate, geospatial, remote sensing, weather, meteorology]}
+  - {id: mathematics, name: Mathematics, aliases: [math, theorem proving, arithmetic, symbolic reasoning]}
+  - {id: software-engineering, name: Software engineering, aliases: [code, programming, sql, code generation]}
+  - {id: education, name: Education, aliases: [tutoring, pedagogy, exam, student]}
+  - {id: physics, name: Physics, aliases: [astronomy, astrophysics, particle physics]}
+  - {id: agriculture, name: Agriculture, aliases: [farming, crop, plant disease]}
+  - {id: music, name: Music, aliases: [musical, song, instrument, carnatic, singing voice]}
+  - {id: speech-and-audio, name: Speech and audio, aliases: [speech, audio, acoustic, phoneme]}
+  - {id: document-understanding, name: Document understanding, aliases: [ocr, invoice, receipt, layout, forms]}
+  - {id: information-retrieval, name: Information retrieval, aliases: [retrieval, search, ranking, rag, embeddings]}
+  - {id: multilingual-nlp, name: Multilingual language processing, aliases: [multilingual, cross-lingual, low-resource language]}
+  - {id: safety-and-moderation, name: Safety and content moderation, aliases: [toxicity, moderation, guardrail, safety classifier]}
+  - {id: robotics, name: Robotics, aliases: [manipulation, embodied, control policy]}
+  - {id: cybersecurity, name: Cybersecurity, aliases: [malware, intrusion, vulnerability, phishing]}
+  - {id: social-science, name: Social science, aliases: [sentiment, psychology, sociology, political science]}
+
+# Evidence types the extractor must distinguish (s7.2). `establishes_specialty`
+# decides whether a subject claim may appear in `about` at all; `max_confidence`
+# is the ceiling the deterministic validator enforces regardless of what the
+# model returned.
+evidence_types:
+  trained_on:       {establishes_specialty: true,  max_confidence: high}
+  fine_tuned_on:    {establishes_specialty: true,  max_confidence: high}
+  architecture:     {establishes_specialty: true,  max_confidence: high}
+  evaluated_on:     {establishes_specialty: true,  max_confidence: medium}
+  intended_for:     {establishes_specialty: true,  max_confidence: medium}
+  merely_mentioned: {establishes_specialty: false, max_confidence: low}

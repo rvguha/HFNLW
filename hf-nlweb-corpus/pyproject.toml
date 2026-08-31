@@ -1,0 +1,43 @@
+[project]
+name = "hf-nlweb-corpus"
+version = "0.1.0"
+description = "Build a grounded, provenance-preserving schema.org corpus of Hugging Face models for an NLWeb ask interface"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = [
+  "huggingface_hub>=0.34,<2",
+  # Enrichment backends: the first-party Anthropic API, or OpenRouter through
+  # its OpenAI-compatible surface. Only the configured one is ever constructed.
+  "anthropic>=0.69,<2",
+  "openai>=1.40,<3",
+  "pydantic>=2.8,<3",
+  "pyyaml>=6,<7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.8,<1"]
+
+[project.scripts]
+hfcorpus = "hfcorpus.cli:main"
+
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.ruff.lint.per-file-ignores]
+# The typographic variants are the subject under test; they have to be literal.
+"tests/test_evidence.py" = ["RUF001"]

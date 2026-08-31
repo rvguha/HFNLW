@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ask the Hugging Face Hub</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Ask the Hugging Face Hub</h1>
+    </header>
+    <nav class="tabs" aria-label="Catalog navigation">
+      <button type="button" class="tab" data-scope="models" aria-selected="true">Models</button>
+    </nav>
+    <form id="form">
+      <input id="query" required autofocus placeholder="Ask what a model is documented to do…" aria-label="Question">
+      <button id="submit">Ask</button>
+      <button type="button" id="clear" class="clear" hidden>Clear</button>
+    </form>
+    <details id="samples" class="samples" open>
+      <summary id="samples-title">Sample queries</summary>
+      <div id="sample-queries" class="sample-queries"></div>
+    </details>
+    <button type="button" id="usage-open" class="usage-open" aria-haspopup="dialog" aria-controls="usage-dialog" hidden>View query usage <span id="usage-open-total"></span></button>
+    <div id="thread" aria-live="polite"></div>
+    <dialog id="usage-dialog" class="usage-dialog" aria-labelledby="usage-title">
+      <button type="button" id="usage-close" class="dialog-close" aria-label="Close">&times;</button>
+      <section id="usage">
+        <div class="usage-head">
+          <h2 id="usage-title">Query usage</h2>
+          <span id="usage-total"></span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Model</th><th>Calls</th><th>Prompt</th><th>Completion</th><th>Total</th><th>Cost (USD)</th></tr></thead>
+            <tbody id="usage-rows"></tbody>
+          </table>
+        </div>
+      </section>
+    </dialog>
+  </main>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

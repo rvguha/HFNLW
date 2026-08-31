@@ -1,0 +1,43 @@
+{
+  "query_id": "q004",
+  "question": "I need speech recognition for low-resource African languages.",
+  "judge": "openai/gpt-5.6-sol",
+  "width": 100,
+  "corpus": "hf-wide-2026-08-29",
+  "relevant": [
+    {
+      "url": "https://huggingface.co/Sunbird/asr-whisper-51-african-languages",
+      "name": "asr whisper 51 african languages",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/audarai/Audar-ASR-V1-Turbo",
+      "name": "Audar ASR V1 Turbo",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/openai/whisper-base",
+      "name": "whisper base",
+      "score": 0,
+      "relevance": "relevant"
+    },
+    {
+      "url": "https://huggingface.co/ghananlpcommunity/ghana-speech-id",
+      "name": "ghana speech id",
+      "score": 0,
+      "relevance": "relevant"
+    },
+    {
+      "url": "https://huggingface.co/openai/whisper-small",
+      "name": "whisper small",
+      "score": 0,
+      "relevance": "relevant"
+    }
+  ],
+  "retrieved": 5,
+  "seconds": 13.0,
+  "cost_usd": 1.088795,
+  "tokens": 169925
+}

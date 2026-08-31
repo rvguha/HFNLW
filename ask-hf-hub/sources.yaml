@@ -1,0 +1,12 @@
+# Where each collection comes from.
+#
+# An entry with a `url` is downloaded at startup and rechecked on the refresh
+# timer, so publishing a new corpus build does not need a release. An entry with
+# only a `file` ships with the application and is read from its bundled corpus.
+#
+# The section a collection sits in is its kind, which is what the UI's scope
+# filter uses.
+
+models:
+- name: huggingface
+  file: huggingface.jsonl

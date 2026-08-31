@@ -1,0 +1,67 @@
+{
+  "query_id": "q003",
+  "question": "Find multilingual embedding models evaluated on non-English retrieval.",
+  "judge": "anthropic/claude-opus-5",
+  "width": 100,
+  "corpus": "hf-wide-2026-08-29",
+  "relevant": [
+    {
+      "url": "https://huggingface.co/Snowflake/snowflake-arctic-embed-l-v2.0",
+      "name": "snowflake arctic embed l v2.0",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/Snowflake/snowflake-arctic-embed-m-v2.0",
+      "name": "snowflake arctic embed m v2.0",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/Alibaba-NLP/gte-multilingual-base",
+      "name": "gte multilingual base",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/LiquidAI/LFM2.5-Embedding-350M",
+      "name": "LFM2.5 Embedding 350M",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/lightonai/mDenseOn",
+      "name": "mDenseOn",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/retrieva-jp/amber-large",
+      "name": "amber large",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/AkshitaS/bhasha-embed-v0",
+      "name": "bhasha embed v0",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/LiquidAI/LFM2.5-ColBERT-350M",
+      "name": "LFM2.5 ColBERT 350M",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/ibm-granite/granite-embedding-311m-multilingual-r2",
+      "name": "granite embedding 311m multilingual r2",
+      "score": 90,
+      "relevance": "strong"
+    }
+  ],
+  "retrieved": 9,
+  "seconds": 12.9,
+  "cost_usd": 1.50271,
+  "tokens": 292666
+}

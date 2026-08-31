@@ -1,0 +1,1877 @@
+{
+  "broad_excluded": [
+    "q005",
+    "q007",
+    "q013",
+    "q014",
+    "q023",
+    "q026",
+    "q027",
+    "q028",
+    "q029",
+    "q030",
+    "q031",
+    "q032",
+    "q034",
+    "q035",
+    "q036",
+    "q037",
+    "q038",
+    "q039",
+    "q040",
+    "q041",
+    "q043"
+  ],
+  "results": {
+    "flat BM25": {
+      "summary": {
+        "known-item": {
+          "n": 40,
+          "P@10": 0.0925,
+          "MRR": 0.6127380952380952,
+          "nDCG@10": 0.6913174074893038
+        },
+        "descriptive": {
+          "n": 39,
+          "P@10": 0.6666666666666666,
+          "MRR": 0.7806267806267806,
+          "nDCG@10": 0.6800245640834588
+        },
+        "all (discriminating)": {
+          "n": 79,
+          "P@10": 0.3759493670886076,
+          "MRR": 0.6956198513160539,
+          "nDCG@10": 0.6857424594788234
+        },
+        "trap rate": 0.002
+      },
+      "per_query": [
+        {
+          "id": "q001",
+          "category": "descriptive",
+          "gold": 216,
+          "precision": 0.9,
+          "rr": 1.0,
+          "ndcg": 0.905211635630449,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q002",
+          "category": "descriptive",
+          "gold": 179,
+          "precision": 0.5,
+          "rr": 1.0,
+          "ndcg": 0.5884674004369673,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q003",
+          "category": "descriptive",
+          "gold": 370,
+          "precision": 0.8,
+          "rr": 1.0,
+          "ndcg": 0.7877736340270853,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q004",
+          "category": "descriptive",
+          "gold": 33,
+          "precision": 0.0,
+          "rr": 0.0,
+          "ndcg": 0.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q005",
+          "category": "descriptive",
+          "gold": 737,
+          "precision": 0.0,
+          "rr": 0.0,
+          "ndcg": 0.0,
+          "trap_rate": 0.2
+        },
+        {
+          "id": "q006",
+          "category": "descriptive",
+          "gold": 31,
+          "precision": 0.2,
+          "rr": 0.5,
+          "ndcg": 0.20248323207250624,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q007",
+          "category": "descriptive",
+          "gold": 5887,
+          "precision": 0.3,
+          "rr": 1.0,
+          "ndcg": 0.3785988060390612,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q008",
+          "category": "descriptive",
+          "gold": 124,
+          "precision": 0.9,
+          "rr": 1.0,
+          "ndcg": 0.8899541168509599,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q009",
+          "category": "descriptive",
+          "gold": 162,
+          "precision": 0.8,
+          "rr": 1.0,
+          "ndcg": 0.8579809428223729,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q010",
+          "category": "descriptive",
+          "gold": 94,
+          "precision": 0.8,
+          "rr": 1.0,
+          "ndcg": 0.8263333286520081,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q011",
+          "category": "descriptive",
+          "gold": 63,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q012",
+          "category": "descriptive",
+          "gold": 308,
+          "precision": 0.7,
+          "rr": 0.5,
+          "ndcg": 0.6352557412688554,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q013",
+          "category": "descriptive",
+          "gold": 673,
+          "precision": 0.6,
+          "rr": 0.25,
+          "ndcg": 0.46156868474254786,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q014",
+          "category": "descriptive",
+          "gold": 509,
+          "precision": 0.1,
+          "rr": 0.1,
+          "ndcg": 0.06362078819895171,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q015",
+          "category": "descriptive",
+          "gold": 55,
+          "precision": 0.9,
+          "rr": 1.0,
+          "ndcg": 0.9363792118010481,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q016",
+          "category": "descriptive",
+          "gold": 206,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q017",
+          "category": "descriptive",
+          "gold": 251,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q018",
+          "category": "descriptive",
+          "gold": 132,
+          "precision": 0.6,
+          "rr": 1.0,
+          "ndcg": 0.6683063269107928,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q019",
+          "category": "descriptive",
+          "gold": 259,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q020",
+          "category": "descriptive",
+          "gold": 176,
+          "precision": 0.5,
+          "rr": 1.0,
+          "ndcg": 0.5810820381115674,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q021",
+          "category": "descriptive",
+          "gold": 58,
+          "precision": 0.9,
+          "rr": 1.0,
+          "ndcg": 0.9363792118010481,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q022",
+          "category": "descriptive",
+          "gold": 84,
+          "precision": 0.7,
+          "rr": 1.0,
+          "ndcg": 0.7421246259355072,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q023",
+          "category": "descriptive",
+          "gold": 828,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q024",
+          "category": "descriptive",
+          "gold": 72,
+          "precision": 0.1,
+          "rr": 0.1111111111111111,
+          "ndcg": 0.06625422345438903,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q025",
+          "category": "descriptive",
+          "gold": 186,
+          "precision": 0.9,
+          "rr": 1.0,
+          "ndcg": 0.914856882358379,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q026",
+          "category": "descriptive",
+          "gold": 541,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q027",
+          "category": "descriptive",
+          "gold": 1343,
+          "precision": 0.9,
+          "rr": 0.5,
+          "ndcg": 0.7799082337019198,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q028",
+          "category": "descriptive",
+          "gold": 634,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q029",
+          "category": "descriptive",
+          "gold": 604,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q030",
+          "category": "descriptive",
+          "gold": 685,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q031",
+          "category": "descriptive",
+          "gold": 3979,
+          "precision": 0.1,
+          "rr": 0.2,
+          "ndcg": 0.08514311764162098,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q032",
+          "category": "descriptive",
+          "gold": 629,
+          "precision": 0.7,
+          "rr": 1.0,
+          "ndcg": 0.7885497208855956,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q033",
+          "category": "descriptive",
+          "gold": 420,
+          "precision": 0.3,
+          "rr": 0.5,
+          "ndcg": 0.30308203017988256,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q034",
+          "category": "descriptive",
+          "gold": 796,
+          "precision": 0.5,
+          "rr": 0.5,
+          "ndcg": 0.42724449526787633,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q035",
+          "category": "descriptive",
+          "gold": 699,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q036",
+          "category": "descriptive",
+          "gold": 726,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q037",
+          "category": "descriptive",
+          "gold": 2049,
+          "precision": 0.7,
+          "rr": 1.0,
+          "ndcg": 0.7849818707050382,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q038",
+          "category": "descriptive",
+          "gold": 2655,
+          "precision": 0.6,
+          "rr": 1.0,
+          "ndcg": 0.6316243658611127,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q039",
+          "category": "descriptive",
+          "gold": 4730,
+          "precision": 0.8,
+          "rr": 1.0,
+          "ndcg": 0.7975167679274937,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q040",
+          "category": "descriptive",
+          "gold": 4515,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 0.22009176629808017,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q041",
+          "category": "descriptive",
+          "gold": 492,
+          "precision": 0.6,
+          "rr": 1.0,
+          "ndcg": 0.5779050396291793,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q042",
+          "category": "descriptive",
+          "gold": 213,
+          "precision": 0.9,
+          "rr": 1.0,
+          "ndcg": 0.9305687780632227,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q043",
+          "category": "descriptive",
+          "gold": 9154,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q044",
+          "category": "descriptive",
+          "gold": 31,
+          "precision": 0.0,
+          "rr": 0.0,
+          "ndcg": 0.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q045",
+          "category": "descriptive",
+          "gold": 296,
+          "precision": 0.5,
+          "rr": 0.3333333333333333,
+          "ndcg": 0.39486008436280445,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q046",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.0,
+          "rr": 0.0,
+          "ndcg": 0.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q047",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 0.14285714285714285,
+          "ndcg": 0.3333333333333333,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q048",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 0.5,
+          "ndcg": 0.6309297535714575,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q049",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q050",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 0.3333333333333333,
+          "ndcg": 0.5,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q051",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q052",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 0.25,
+          "ndcg": 0.43067655807339306,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q053",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 0.5,
+          "ndcg": 0.6309297535714575,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q054",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 0.5,
+          "ndcg": 0.6309297535714575,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q055",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 0.5,
+          "ndcg": 0.6309297535714575,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q056",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q057",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q058",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 0.5,
+          "ndcg": 0.6309297535714575,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q059",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q060",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.0,
+          "rr": 0.0,
+          "ndcg": 0.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q061",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q062",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 0.5,
+          "ndcg": 0.6309297535714575,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q063",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 0.5,
+          "ndcg": 0.6309297535714575,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q064",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 0.3333333333333333,
+          "ndcg": 0.5,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q065",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q066",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 0.3333333333333333,
+          "ndcg": 0.5,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q067",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 0.5,
+          "ndcg": 0.6309297535714575,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q068",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q069",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q070",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 0.2,
+          "ndcg": 0.38685280723454163,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q071",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q072",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 0.5,
+          "ndcg": 0.6309297535714575,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q073",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q074",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.0,
+          "rr": 0.0,
+          "ndcg": 0.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q075",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 0.3333333333333333,
+          "ndcg": 0.5,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q076",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q077",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 0.5,
+          "ndcg": 0.6309297535714575,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q078",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q079",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q080",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 0.5,
+          "ndcg": 0.6309297535714575,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q081",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 0.5,
+          "ndcg": 0.6309297535714575,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q082",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q083",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q084",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 0.25,
+          "ndcg": 0.43067655807339306,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q085",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 0.3333333333333333,
+          "ndcg": 0.5,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q086",
+          "category": "descriptive",
+          "gold": 12,
+          "precision": 0.0,
+          "rr": 0.0,
+          "ndcg": 0.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q087",
+          "category": "descriptive",
+          "gold": 26,
+          "precision": 0.5,
+          "rr": 1.0,
+          "ndcg": 0.6489315753318465,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q088",
+          "category": "descriptive",
+          "gold": 50,
+          "precision": 0.7,
+          "rr": 0.3333333333333333,
+          "ndcg": 0.5462574254588144,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q089",
+          "category": "descriptive",
+          "gold": 9,
+          "precision": 0.8,
+          "rr": 1.0,
+          "ndcg": 0.9188391237257151,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q090",
+          "category": "descriptive",
+          "gold": 36,
+          "precision": 0.4,
+          "rr": 1.0,
+          "ndcg": 0.4985723557253838,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q091",
+          "category": "descriptive",
+          "gold": 36,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q092",
+          "category": "descriptive",
+          "gold": 54,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q093",
+          "category": "descriptive",
+          "gold": 377,
+          "precision": 0.5,
+          "rr": 0.5,
+          "ndcg": 0.4950940324881554,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q094",
+          "category": "descriptive",
+          "gold": 23,
+          "precision": 0.8,
+          "rr": 0.5,
+          "ndcg": 0.7015099647232445,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q095",
+          "category": "descriptive",
+          "gold": 17,
+          "precision": 0.8,
+          "rr": 1.0,
+          "ndcg": 0.8318477135310891,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q096",
+          "category": "descriptive",
+          "gold": 10,
+          "precision": 0.5,
+          "rr": 1.0,
+          "ndcg": 0.6489315753318465,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q097",
+          "category": "descriptive",
+          "gold": 375,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q098",
+          "category": "descriptive",
+          "gold": 83,
+          "precision": 0.9,
+          "rr": 1.0,
+          "ndcg": 0.9216017310213246,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q099",
+          "category": "descriptive",
+          "gold": 104,
+          "precision": 0.2,
+          "rr": 0.16666666666666666,
+          "ndcg": 0.14201905717762703,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q100",
+          "category": "descriptive",
+          "gold": 46,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        }
+      ]
+    },
+    "BM25F (shipped)": {
+      "summary": {
+        "known-item": {
+          "n": 40,
+          "P@10": 0.1,
+          "MRR": 0.9708333333333334,
+          "nDCG@10": 0.9782732438392865
+        },
+        "descriptive": {
+          "n": 39,
+          "P@10": 0.6692307692307693,
+          "MRR": 0.8186202686202686,
+          "nDCG@10": 0.689523616255205
+        },
+        "all (discriminating)": {
+          "n": 79,
+          "P@10": 0.38101265822784813,
+          "MRR": 0.8956901748040988,
+          "nDCG@10": 0.8357259593357527
+        },
+        "trap rate": 0.006000000000000001
+      },
+      "per_query": [
+        {
+          "id": "q001",
+          "category": "descriptive",
+          "gold": 216,
+          "precision": 0.6,
+          "rr": 1.0,
+          "ndcg": 0.5925846332364243,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q002",
+          "category": "descriptive",
+          "gold": 179,
+          "precision": 0.3,
+          "rr": 1.0,
+          "ndcg": 0.43231813227099475,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q003",
+          "category": "descriptive",
+          "gold": 370,
+          "precision": 0.9,
+          "rr": 1.0,
+          "ndcg": 0.8899541168509599,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q004",
+          "category": "descriptive",
+          "gold": 33,
+          "precision": 0.0,
+          "rr": 0.0,
+          "ndcg": 0.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q005",
+          "category": "descriptive",
+          "gold": 737,
+          "precision": 0.0,
+          "rr": 0.0,
+          "ndcg": 0.0,
+          "trap_rate": 0.4
+        },
+        {
+          "id": "q006",
+          "category": "descriptive",
+          "gold": 31,
+          "precision": 0.3,
+          "rr": 0.25,
+          "ndcg": 0.23758350840568812,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q007",
+          "category": "descriptive",
+          "gold": 5887,
+          "precision": 0.5,
+          "rr": 1.0,
+          "ndcg": 0.5017289690294563,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q008",
+          "category": "descriptive",
+          "gold": 124,
+          "precision": 0.8,
+          "rr": 1.0,
+          "ndcg": 0.8669479898642709,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q009",
+          "category": "descriptive",
+          "gold": 162,
+          "precision": 0.7,
+          "rr": 1.0,
+          "ndcg": 0.7670273914429263,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q010",
+          "category": "descriptive",
+          "gold": 94,
+          "precision": 0.8,
+          "rr": 1.0,
+          "ndcg": 0.8263333286520081,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q011",
+          "category": "descriptive",
+          "gold": 63,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q012",
+          "category": "descriptive",
+          "gold": 308,
+          "precision": 0.7,
+          "rr": 1.0,
+          "ndcg": 0.7133080652109928,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q013",
+          "category": "descriptive",
+          "gold": 673,
+          "precision": 0.5,
+          "rr": 0.25,
+          "ndcg": 0.4011248950259844,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q014",
+          "category": "descriptive",
+          "gold": 509,
+          "precision": 0.1,
+          "rr": 0.1,
+          "ndcg": 0.06362078819895171,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q015",
+          "category": "descriptive",
+          "gold": 55,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q016",
+          "category": "descriptive",
+          "gold": 206,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q017",
+          "category": "descriptive",
+          "gold": 251,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q018",
+          "category": "descriptive",
+          "gold": 132,
+          "precision": 0.7,
+          "rr": 1.0,
+          "ndcg": 0.7026305163854644,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q019",
+          "category": "descriptive",
+          "gold": 259,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q020",
+          "category": "descriptive",
+          "gold": 176,
+          "precision": 0.4,
+          "rr": 1.0,
+          "ndcg": 0.5423640154200348,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q021",
+          "category": "descriptive",
+          "gold": 58,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q022",
+          "category": "descriptive",
+          "gold": 84,
+          "precision": 0.9,
+          "rr": 1.0,
+          "ndcg": 0.9216017310213246,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q023",
+          "category": "descriptive",
+          "gold": 828,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q024",
+          "category": "descriptive",
+          "gold": 72,
+          "precision": 0.3,
+          "rr": 0.2,
+          "ndcg": 0.22979561007468535,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q025",
+          "category": "descriptive",
+          "gold": 186,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q026",
+          "category": "descriptive",
+          "gold": 541,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q027",
+          "category": "descriptive",
+          "gold": 1343,
+          "precision": 0.8,
+          "rr": 1.0,
+          "ndcg": 0.8389574121760601,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q028",
+          "category": "descriptive",
+          "gold": 634,
+          "precision": 0.9,
+          "rr": 1.0,
+          "ndcg": 0.933745776545611,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q029",
+          "category": "descriptive",
+          "gold": 604,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q030",
+          "category": "descriptive",
+          "gold": 685,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q031",
+          "category": "descriptive",
+          "gold": 3979,
+          "precision": 0.3,
+          "rr": 0.5,
+          "ndcg": 0.29062463495158997,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q032",
+          "category": "descriptive",
+          "gold": 629,
+          "precision": 0.8,
+          "rr": 1.0,
+          "ndcg": 0.8512360941594272,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q033",
+          "category": "descriptive",
+          "gold": 420,
+          "precision": 0.3,
+          "rr": 1.0,
+          "ndcg": 0.40002324830925196,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q034",
+          "category": "descriptive",
+          "gold": 796,
+          "precision": 0.3,
+          "rr": 0.25,
+          "ndcg": 0.23440650992329987,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q035",
+          "category": "descriptive",
+          "gold": 699,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q036",
+          "category": "descriptive",
+          "gold": 726,
+          "precision": 0.9,
+          "rr": 1.0,
+          "ndcg": 0.9266360779006398,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q037",
+          "category": "descriptive",
+          "gold": 2049,
+          "precision": 0.2,
+          "rr": 1.0,
+          "ndcg": 0.3589542101716347,
+          "trap_rate": 0.2
+        },
+        {
+          "id": "q038",
+          "category": "descriptive",
+          "gold": 2655,
+          "precision": 0.4,
+          "rr": 1.0,
+          "ndcg": 0.4382868940754301,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q039",
+          "category": "descriptive",
+          "gold": 4730,
+          "precision": 0.7,
+          "rr": 1.0,
+          "ndcg": 0.7123736502858726,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q040",
+          "category": "descriptive",
+          "gold": 4515,
+          "precision": 0.2,
+          "rr": 1.0,
+          "ndcg": 0.2863459897524692,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q041",
+          "category": "descriptive",
+          "gold": 492,
+          "precision": 0.6,
+          "rr": 1.0,
+          "ndcg": 0.5993294818993699,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q042",
+          "category": "descriptive",
+          "gold": 213,
+          "precision": 0.9,
+          "rr": 1.0,
+          "ndcg": 0.9363792118010481,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q043",
+          "category": "descriptive",
+          "gold": 9154,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q044",
+          "category": "descriptive",
+          "gold": 31,
+          "precision": 0.0,
+          "rr": 0.0,
+          "ndcg": 0.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q045",
+          "category": "descriptive",
+          "gold": 296,
+          "precision": 0.4,
+          "rr": 0.5,
+          "ndcg": 0.39170347105873193,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q046",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q047",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q048",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 0.3333333333333333,
+          "ndcg": 0.5,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q049",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q050",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q051",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q052",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q053",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q054",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q055",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q056",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q057",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q058",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q059",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q060",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q061",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q062",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q063",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q064",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q065",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q066",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q067",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q068",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q069",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q070",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 0.5,
+          "ndcg": 0.6309297535714575,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q071",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q072",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q073",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q074",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q075",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q076",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q077",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q078",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q079",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q080",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q081",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q082",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q083",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q084",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q085",
+          "category": "known-item",
+          "gold": 1,
+          "precision": 0.1,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q086",
+          "category": "descriptive",
+          "gold": 12,
+          "precision": 0.0,
+          "rr": 0.0,
+          "ndcg": 0.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q087",
+          "category": "descriptive",
+          "gold": 26,
+          "precision": 0.5,
+          "rr": 1.0,
+          "ndcg": 0.6489315753318465,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q088",
+          "category": "descriptive",
+          "gold": 50,
+          "precision": 0.6,
+          "rr": 0.3333333333333333,
+          "ndcg": 0.47682620352203725,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q089",
+          "category": "descriptive",
+          "gold": 9,
+          "precision": 0.7,
+          "rr": 1.0,
+          "ndcg": 0.8550956239938449,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q090",
+          "category": "descriptive",
+          "gold": 36,
+          "precision": 0.5,
+          "rr": 1.0,
+          "ndcg": 0.5384109300791363,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q091",
+          "category": "descriptive",
+          "gold": 36,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q092",
+          "category": "descriptive",
+          "gold": 54,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q093",
+          "category": "descriptive",
+          "gold": 377,
+          "precision": 0.8,
+          "rr": 1.0,
+          "ndcg": 0.8115558478722845,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q094",
+          "category": "descriptive",
+          "gold": 23,
+          "precision": 0.7,
+          "rr": 0.5,
+          "ndcg": 0.642923523403608,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q095",
+          "category": "descriptive",
+          "gold": 17,
+          "precision": 0.8,
+          "rr": 1.0,
+          "ndcg": 0.8357804136936718,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q096",
+          "category": "descriptive",
+          "gold": 10,
+          "precision": 0.5,
+          "rr": 1.0,
+          "ndcg": 0.6274092458891772,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q097",
+          "category": "descriptive",
+          "gold": 375,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q098",
+          "category": "descriptive",
+          "gold": 83,
+          "precision": 0.9,
+          "rr": 1.0,
+          "ndcg": 0.9305687780632227,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q099",
+          "category": "descriptive",
+          "gold": 104,
+          "precision": 0.1,
+          "rr": 0.14285714285714285,
+          "ndcg": 0.07336392209936005,
+          "trap_rate": 0.0
+        },
+        {
+          "id": "q100",
+          "category": "descriptive",
+          "gold": 46,
+          "precision": 1.0,
+          "rr": 1.0,
+          "ndcg": 1.0,
+          "trap_rate": 0.0
+        }
+      ]
+    }
+  }
+}

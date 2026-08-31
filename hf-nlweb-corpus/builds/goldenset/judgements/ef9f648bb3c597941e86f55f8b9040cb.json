@@ -1,0 +1,61 @@
+{
+  "query_id": "q005",
+  "question": "Which image models have a clearly stated commercially usable license?",
+  "judge": "anthropic/claude-opus-5",
+  "width": 100,
+  "corpus": "hf-wide-2026-08-29",
+  "relevant": [
+    {
+      "url": "https://huggingface.co/nvidia/Cosmos-Transfer2.5-2B",
+      "name": "Cosmos Transfer2.5 2B",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/Nextcloud-AI/sdxl-turbo",
+      "name": "sdxl turbo",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/HiDream-ai/HiDream-I1-Fast",
+      "name": "HiDream I1 Fast",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/purplesmartai/pony-v7-base",
+      "name": "pony v7 base",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/ostris/Flex.1-alpha-Redux",
+      "name": "Flex.1 alpha Redux",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/nvidia/Cosmos-Predict2-2B-Video2World",
+      "name": "Cosmos Predict2 2B Video2World",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/stabilityai/stable-fast-3d",
+      "name": "stable fast 3d",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/dreamlike-art/dreamlike-photoreal-2.0",
+      "name": "dreamlike photoreal 2.0",
+      "score": 0,
+      "relevance": "relevant"
+    }
+  ],
+  "retrieved": 9,
+  "seconds": 14.2,
+  "cost_usd": 1.10119,
+  "tokens": 213321
+}

@@ -1,0 +1,67 @@
+{
+  "query_id": "q007",
+  "question": "What can run locally on an Apple silicon laptop with 16 GB of memory?",
+  "judge": "openai/gpt-5.6-sol",
+  "width": 100,
+  "corpus": "hf-wide-2026-08-29",
+  "relevant": [
+    {
+      "url": "https://huggingface.co/MLA299/Tennda-Nano",
+      "name": "Tennda Nano",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/ruv/ruvltra-claude-code",
+      "name": "ruvltra claude code",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct",
+      "name": "LFM2.5 1.2B Instruct",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/lemuralabs/Qwen3.6-27B-Coder-uncensored-MXFP4",
+      "name": "Qwen3.6 27B Coder uncensored MXFP4",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/LiquidAI/LFM2.5-2.6B",
+      "name": "LFM2.5 2.6B",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/zwenai13/Zwen-Prime",
+      "name": "Zwen Prime",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/mlboydaisuke/Ornith-1.0-9B-CoreAI",
+      "name": "Ornith 1.0 9B CoreAI",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/wangjazz/Hunyuan-MT1.5-1.8B-MNN",
+      "name": "Hunyuan MT1.5 1.8B MNN",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/MLA299/Tennda-Reason",
+      "name": "Tennda Reason",
+      "score": 90,
+      "relevance": "strong"
+    }
+  ],
+  "retrieved": 9,
+  "seconds": 6.3,
+  "cost_usd": 1.03255,
+  "tokens": 161764
+}

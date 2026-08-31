@@ -1,0 +1,67 @@
+{
+  "query_id": "q007",
+  "question": "What can run locally on an Apple silicon laptop with 16 GB of memory?",
+  "judge": "anthropic/claude-opus-5",
+  "width": 100,
+  "corpus": "hf-wide-2026-08-29",
+  "relevant": [
+    {
+      "url": "https://huggingface.co/lemuralabs/Qwen3.6-27B-Coder-uncensored-MXFP4",
+      "name": "Qwen3.6 27B Coder uncensored MXFP4",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/LiquidAI/LFM2.5-2.6B",
+      "name": "LFM2.5 2.6B",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/wangjazz/Hunyuan-MT1.5-1.8B-MNN",
+      "name": "Hunyuan MT1.5 1.8B MNN",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/MLA299/Tennda-Reason",
+      "name": "Tennda Reason",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/MLA299/Tennda-Nano",
+      "name": "Tennda Nano",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct",
+      "name": "LFM2.5 1.2B Instruct",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/Goekdeniz-Guelmez/JOSIE-4B-Thinking",
+      "name": "JOSIE 4B Thinking",
+      "score": 0,
+      "relevance": "relevant"
+    },
+    {
+      "url": "https://huggingface.co/desert-ant-labs/title",
+      "name": "title",
+      "score": 0,
+      "relevance": "relevant"
+    },
+    {
+      "url": "https://huggingface.co/mlx-community/Hy-MT2-1.8B",
+      "name": "Hy MT2 1.8B",
+      "score": 0,
+      "relevance": "relevant"
+    }
+  ],
+  "retrieved": 9,
+  "seconds": 13.5,
+  "cost_usd": 1.283055,
+  "tokens": 247047
+}

@@ -1,0 +1,67 @@
+{
+  "query_id": "q017",
+  "question": "Text to speech models that can clone or condition on a reference voice.",
+  "judge": "openai/gpt-5.6-sol",
+  "width": 100,
+  "corpus": "hf-wide-2026-08-29",
+  "relevant": [
+    {
+      "url": "https://huggingface.co/biodatlab/ThonburianTTS",
+      "name": "ThonburianTTS",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/nari-labs/Dia-1.6B",
+      "name": "Dia 1.6B",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/neuphonic/neutts-nano",
+      "name": "neutts nano",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/ai4bharat/IndicF5",
+      "name": "IndicF5",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/NAMAA-Space/NAMAA-Saudi-TTS-V2",
+      "name": "NAMAA Saudi TTS V2",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/samuel-vitorino/sopro",
+      "name": "sopro",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/bharatgenai/sooktam2",
+      "name": "sooktam2",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/IndexTeam/IndexTTS-2.5",
+      "name": "IndexTTS 2.5",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/BreezeBlue/Breeze-TTS-2",
+      "name": "Breeze TTS 2",
+      "score": 90,
+      "relevance": "strong"
+    }
+  ],
+  "retrieved": 9,
+  "seconds": 6.6,
+  "cost_usd": 1.019147,
+  "tokens": 160537
+}

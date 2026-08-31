@@ -1,0 +1,67 @@
+{
+  "query_id": "q003",
+  "question": "Find multilingual embedding models evaluated on non-English retrieval.",
+  "judge": "openai/gpt-5.6-sol",
+  "width": 100,
+  "corpus": "hf-wide-2026-08-29",
+  "relevant": [
+    {
+      "url": "https://huggingface.co/Snowflake/snowflake-arctic-embed-l-v2.0",
+      "name": "snowflake arctic embed l v2.0",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/Snowflake/snowflake-arctic-embed-m-v2.0",
+      "name": "snowflake arctic embed m v2.0",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/infly/inf-retriever-v1-1.5b",
+      "name": "inf retriever v1 1.5b",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/AkshitaS/bhasha-embed-v0",
+      "name": "bhasha embed v0",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/moka-ai/m3e-base",
+      "name": "m3e base",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/OPI-PIB/EuroDense-435M",
+      "name": "EuroDense 435M",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/LiquidAI/LFM2.5-Embedding-350M",
+      "name": "LFM2.5 Embedding 350M",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/lightonai/mDenseOn",
+      "name": "mDenseOn",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/retrieva-jp/amber-large",
+      "name": "amber large",
+      "score": 90,
+      "relevance": "strong"
+    }
+  ],
+  "retrieved": 9,
+  "seconds": 15.8,
+  "cost_usd": 1.243288,
+  "tokens": 189056
+}

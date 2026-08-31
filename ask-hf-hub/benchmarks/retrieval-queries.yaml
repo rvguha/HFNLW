@@ -1,0 +1,480 @@
+# Golden queries (design doc s10.3). Written before retrieval tuning.
+#
+# Each query states the properties an acceptable result must have (`requires`)
+# and, where a keyword search has an obvious failure mode, the near-match it
+# should not return (`avoid`). Scoring an emitted corpus needs no hand-labelled
+# result list, so the suite survives a rebuild.
+#
+# Keys available in `requires` / `avoid`: task_any, subject_any, language_any,
+# library_any, license_status_any, max_parameters, min_parameters,
+# discovery_scope, evidence_type_any, min_confidence, keyword_any.
+version: "1.0"
+queries:
+  # -- domain knowledge -----------------------------------------------------
+  - id: q001
+    question: I need a small model for biomedical named-entity recognition.
+    requires:
+      task_any: [token-classification, Named Entity Recognition, Token Classification]
+      subject_any: [biomedicine, molecular-biology]
+      max_parameters: 1000000000
+    avoid:
+      keyword_any: [general-purpose chat assistant]
+
+  - id: q002
+    question: Which models have documented knowledge of Indian legal material?
+    requires:
+      subject_any: [law]
+      evidence_type_any: [trained_on, fine_tuned_on, evaluated_on]
+      keyword_any: [india, indian, hindi, legal]
+
+  - id: q003
+    question: Find multilingual embedding models evaluated on non-English retrieval.
+    requires:
+      task_any: [feature-extraction, sentence-similarity, Embedding, Sentence Embedding]
+      subject_any: [information-retrieval, multilingual-nlp]
+      evidence_type_any: [evaluated_on, trained_on, fine_tuned_on]
+
+  - id: q004
+    question: I need speech recognition for low-resource African languages.
+    requires:
+      task_any: [automatic-speech-recognition, Speech Recognition]
+      language_any: [sw, am, yo, ha, ig, zu, wo, so, rw]
+
+  - id: q005
+    question: Which image models have a clearly stated commercially usable license?
+    requires:
+      task_any: [text-to-image, image-classification, Image Generation, Image Classification]
+      license_status_any: [recognized_identifier]
+    avoid:
+      license_status_any: [unknown]
+
+  - id: q006
+    question: Find a model related to Carnatic music, distinguishing audio generation from
+      descriptive text knowledge.
+    requires:
+      subject_any: [music]
+      evidence_type_any: [trained_on, fine_tuned_on, architecture]
+    avoid:
+      evidence_type_any: [merely_mentioned]
+
+  - id: q007
+    question: What can run locally on an Apple silicon laptop with 16 GB of memory?
+    requires:
+      max_parameters: 8000000000
+
+  - id: q008
+    question: Which models were trained on protein or genomic sequences?
+    requires:
+      subject_any: [molecular-biology]
+      evidence_type_any: [trained_on, fine_tuned_on, architecture]
+
+  - id: q009
+    question: Show me models fine-tuned on financial filings or market data.
+    requires:
+      subject_any: [finance]
+      evidence_type_any: [trained_on, fine_tuned_on]
+
+  - id: q010
+    question: Any model with documented chemistry or molecular property prediction training?
+    requires:
+      subject_any: [chemistry]
+      evidence_type_any: [trained_on, fine_tuned_on, architecture]
+
+  - id: q011
+    question: Models for climate, weather, or earth observation data.
+    requires:
+      subject_any: [climate-earth-science]
+
+  - id: q012
+    question: Which models are documented for clinical or radiology report understanding?
+    requires:
+      subject_any: [biomedicine, document-understanding]
+      keyword_any: [clinical, radiology, report, patient]
+
+  - id: q013
+    question: Find a model specialised in mathematical reasoning with reported evaluation.
+    requires:
+      subject_any: [mathematics]
+      evidence_type_any: [evaluated_on, trained_on, fine_tuned_on]
+
+  - id: q014
+    question: Code models evaluated on program synthesis benchmarks.
+    requires:
+      subject_any: [software-engineering]
+      evidence_type_any: [evaluated_on]
+
+  - id: q015
+    question: Models documented for cybersecurity or malware analysis.
+    requires:
+      subject_any: [cybersecurity]
+
+  # -- task and modality ----------------------------------------------------
+  - id: q016
+    question: A reranking model for improving search result ordering.
+    requires:
+      keyword_any: [rerank, reranker, cross-encoder]
+      task_any: [text-ranking, text-classification, feature-extraction, sentence-similarity,
+                 Text Classification, Feature Extraction, Sentence Embedding, Reranking]
+
+  - id: q017
+    question: Text to speech models that can clone or condition on a reference voice.
+    requires:
+      task_any: [text-to-speech, Speech Synthesis, text-to-audio, Audio Generation]
+      keyword_any: [voice, speaker, clone, zero-shot]
+
+  - id: q018
+    question: Document question answering over scanned invoices and forms.
+    requires:
+      task_any: [document-question-answering, Document Question Answering,
+                 image-text-to-text, Vision Language Modeling]
+      subject_any: [document-understanding]
+
+  - id: q019
+    question: Object detection models for real time video.
+    requires:
+      task_any: [object-detection, Object Detection]
+
+  - id: q020
+    question: Diffusion models for image editing rather than generation from scratch.
+    requires:
+      task_any: [image-to-image, Image To Image]
+
+  - id: q021
+    question: Speaker diarization for multi speaker meeting recordings.
+    requires:
+      keyword_any: [diarization, speaker, segmentation]
+      task_any: [voice-activity-detection, audio-classification, automatic-speech-recognition,
+                 Voice Activity Detection, Audio Classification, Speech Recognition]
+
+  - id: q022
+    question: Zero shot text classification without task specific training data.
+    requires:
+      task_any: [zero-shot-classification, Zero-Shot Classification]
+
+  - id: q023
+    question: Summarization models for long documents.
+    requires:
+      task_any: [summarization, Summarization, text2text-generation, Text Generation]
+      keyword_any: [summar, long, document]
+
+  - id: q024
+    question: Video understanding models that answer questions about a clip.
+    requires:
+      task_any: [video-text-to-text, Video Understanding, video-classification,
+                 Video Classification]
+
+  - id: q025
+    question: Translation models between two specific non English languages.
+    requires:
+      task_any: [translation, Machine Translation]
+
+  # -- language coverage ----------------------------------------------------
+  - id: q026
+    question: Models supporting Indian languages such as Hindi, Tamil, or Telugu.
+    requires:
+      language_any: [hi, ta, te, bn, mr, kn, ml, gu, pa, ur]
+
+  - id: q027
+    question: Chinese language models with documented Chinese evaluation.
+    requires:
+      language_any: [zh]
+
+  - id: q028
+    question: Arabic language understanding models.
+    requires:
+      language_any: [ar]
+
+  - id: q029
+    question: Southeast Asian language models covering Indonesian, Thai, or Vietnamese.
+    requires:
+      language_any: [id, th, vi, ms, tl]
+
+  - id: q030
+    question: European language models beyond English, for example Finnish or Czech.
+    requires:
+      language_any: [fi, cs, hu, pl, ro, bg, el, da, sv, no, nl, ca, eu]
+
+  # -- deployability --------------------------------------------------------
+  - id: q031
+    question: Something under a billion parameters I can fine tune on one GPU.
+    requires:
+      max_parameters: 1000000000
+
+  - id: q032
+    question: A large frontier scale open weights model.
+    requires:
+      min_parameters: 30000000000
+
+  - id: q033
+    question: Quantized builds of a model I can run on a laptop.
+    requires:
+      keyword_any: [quantized, quantization, gguf, awq, gptq, bitsandbytes, 4-bit, 8-bit, int8,
+                    int4, nf4]
+      max_parameters: 15000000000
+
+  - id: q034
+    question: A model with a long context window for whole document input.
+    requires:
+      keyword_any: [context, long, 128k, 32k]
+      task_any: [text-generation, Text Generation]
+
+  - id: q035
+    question: ONNX or OpenVINO builds for CPU only deployment.
+    requires:
+      keyword_any: [onnx, openvino, cpu]
+
+  - id: q036
+    question: Sentence transformers models I can run with the sentence-transformers library.
+    requires:
+      library_any: [sentence-transformers]
+
+  # -- licensing and governance ---------------------------------------------
+  - id: q037
+    question: Apache 2.0 or MIT licensed language models.
+    requires:
+      license_status_any: [recognized_identifier]
+      task_any: [text-generation, Text Generation]
+    avoid:
+      license_status_any: [unknown, declared_text]
+
+  - id: q038
+    question: Models whose license terms I would need to read before commercial use.
+    requires:
+      license_status_any: [declared_text, declared_link, unknown]
+
+  - id: q039
+    question: Models that document their limitations and known risks.
+    requires:
+      has_limitations: true
+
+  - id: q040
+    question: Models with a stated training dataset I can inspect.
+    requires:
+      evidence_type_any: [trained_on, fine_tuned_on]
+
+  # -- misleading near-matches ----------------------------------------------
+  - id: q041
+    question: Models that actually know about molecular biology, not ones that merely cite a
+      biology benchmark.
+    requires:
+      subject_any: [molecular-biology, biomedicine]
+      evidence_type_any: [trained_on, fine_tuned_on, architecture]
+      min_confidence: medium
+    avoid:
+      evidence_type_any: [merely_mentioned]
+
+  - id: q042
+    question: A legal domain model, not a general chat model that mentions legal disclaimers.
+    requires:
+      subject_any: [law]
+      evidence_type_any: [trained_on, fine_tuned_on, evaluated_on]
+    avoid:
+      evidence_type_any: [merely_mentioned]
+
+  - id: q043
+    question: The original base model rather than one of its repackaged quantizations.
+    requires:
+      discovery_scope: primary
+    avoid:
+      discovery_scope: variant
+
+  - id: q044
+    question: A speech model for African languages rather than a model that lists Africa in its
+      training corpus description only.
+    requires:
+      task_any: [automatic-speech-recognition, Speech Recognition, text-to-speech,
+                 Speech Synthesis]
+      language_any: [sw, am, yo, ha, ig, zu, wo, so, rw, xh, st, tn, ny, sn, lg, ln, ff, om, ti]
+      evidence_type_any: [trained_on, fine_tuned_on, evaluated_on]
+
+  - id: q045
+    question: An education focused model with documented instructional use.
+    requires:
+      subject_any: [education]
+      evidence_type_any: [intended_for, trained_on, fine_tuned_on]
+
+
+  # -- known-item lookup ------------------------------------------------------
+  # The category the flat retrieval blob was worst at: the user already knows
+  # which model they want and types its name. Gold is the single named
+  # repository, so these are unambiguous and need no judge. Phrasings vary the
+  # way real queries do -- display name, repo id, hyphenated form, org plus
+  # short name, and a natural sentence around the name.
+  - id: q046
+    question: whisper large v3
+    requires: {repo_any: [openai/whisper-large-v3]}
+  - id: q047
+    question: openai/whisper-large-v3
+    requires: {repo_any: [openai/whisper-large-v3]}
+  - id: q048
+    question: all MiniLM L6 v2
+    requires: {repo_any: [sentence-transformers/all-MiniLM-L6-v2]}
+  - id: q049
+    question: sentence-transformers/all-MiniLM-L6-v2
+    requires: {repo_any: [sentence-transformers/all-MiniLM-L6-v2]}
+  - id: q050
+    question: bge-small-en-v1.5
+    requires: {repo_any: [BAAI/bge-small-en-v1.5]}
+  - id: q051
+    question: BAAI bge m3
+    requires: {repo_any: [BAAI/bge-m3]}
+  - id: q052
+    question: bge reranker v2 m3
+    requires: {repo_any: [BAAI/bge-reranker-v2-m3]}
+  - id: q053
+    question: where can I find Kokoro 82M
+    requires: {repo_any: [hexgrad/Kokoro-82M]}
+  - id: q054
+    question: coqui XTTS v2
+    requires: {repo_any: [coqui/XTTS-v2]}
+  - id: q055
+    question: pyannote speaker diarization 3.1
+    requires: {repo_any: [pyannote/speaker-diarization-3.1]}
+  - id: q056
+    question: pyannote/segmentation-3.0
+    requires: {repo_any: [pyannote/segmentation-3.0]}
+  - id: q057
+    question: clip vit base patch32
+    requires: {repo_any: [openai/clip-vit-base-patch32]}
+  - id: q058
+    question: openai/gpt-oss-20b
+    requires: {repo_any: [openai/gpt-oss-20b]}
+  - id: q059
+    question: gpt oss 120b
+    requires: {repo_any: [openai/gpt-oss-120b]}
+  - id: q060
+    question: Qwen2.5 7B Instruct
+    requires: {repo_any: [Qwen/Qwen2.5-7B-Instruct]}
+  - id: q061
+    question: Qwen/Qwen3-0.6B
+    requires: {repo_any: [Qwen/Qwen3-0.6B]}
+  - id: q062
+    question: Qwen3 ASR 1.7B
+    requires: {repo_any: [Qwen/Qwen3-ASR-1.7B]}
+  - id: q063
+    question: Qwen2.5 VL 7B Instruct
+    requires: {repo_any: [Qwen/Qwen2.5-VL-7B-Instruct]}
+  - id: q064
+    question: nomic embed text v1.5
+    requires: {repo_any: [nomic-ai/nomic-embed-text-v1.5]}
+  - id: q065
+    question: intfloat multilingual e5 small
+    requires: {repo_any: [intfloat/multilingual-e5-small]}
+  - id: q066
+    question: multilingual e5 large
+    requires: {repo_any: [intfloat/multilingual-e5-large]}
+  - id: q067
+    question: cross-encoder/ms-marco-MiniLM-L6-v2
+    requires: {repo_any: [cross-encoder/ms-marco-MiniLM-L6-v2]}
+  - id: q068
+    question: ms marco MiniLM L4 v2
+    requires: {repo_any: [cross-encoder/ms-marco-MiniLM-L4-v2]}
+  - id: q069
+    question: all mpnet base v2
+    requires: {repo_any: [sentence-transformers/all-mpnet-base-v2]}
+  - id: q070
+    question: paraphrase multilingual MiniLM L12 v2
+    requires: {repo_any: [sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2]}
+  - id: q071
+    question: google-t5/t5-small
+    requires: {repo_any: [google-t5/t5-small]}
+  - id: q072
+    question: openai-community gpt2
+    requires: {repo_any: [openai-community/gpt2]}
+  - id: q073
+    question: facebook opt 125m
+    requires: {repo_any: [facebook/opt-125m]}
+  - id: q074
+    question: vit base patch16 224
+    requires: {repo_any: [google/vit-base-patch16-224]}
+  - id: q075
+    question: timm mobilenetv3 small 100 lamb in1k
+    requires: {repo_any: [timm/mobilenetv3_small_100.lamb_in1k]}
+  - id: q076
+    question: efficientnet b3 ra2 in1k
+    requires: {repo_any: [timm/efficientnet_b3.ra2_in1k]}
+  - id: q077
+    question: ProsusAI finbert
+    requires: {repo_any: [ProsusAI/finbert]}
+  - id: q078
+    question: laion clap htsat fused
+    requires: {repo_any: [laion/clap-htsat-fused]}
+  - id: q079
+    question: amazon chronos 2
+    requires: {repo_any: [amazon/chronos-2]}
+  - id: q080
+    question: wav2vec2 large xlsr 53 japanese
+    requires: {repo_any: [jonatasgrosman/wav2vec2-large-xlsr-53-japanese]}
+  - id: q081
+    question: bge small zh v1.5
+    requires: {repo_any: [BAAI/bge-small-zh-v1.5]}
+  - id: q082
+    question: granite embedding small english r2
+    requires: {repo_any: [ibm-granite/granite-embedding-small-english-r2]}
+  - id: q083
+    question: I am looking for the pyannote voice activity detection model
+    requires: {repo_any: [pyannote/voice-activity-detection]}
+  - id: q084
+    question: bge large en v1.5
+    requires: {repo_any: [BAAI/bge-large-en-v1.5]}
+  - id: q085
+    question: whisper large v3 turbo
+    requires: {repo_any: [openai/whisper-large-v3-turbo]}
+
+  # -- narrow task and constraint --------------------------------------------
+  # Deliberately narrower than the broad category queries above, whose gold sets
+  # run to thousands of records and so cannot separate one ranking from another.
+  - id: q086
+    question: A model that detects the language of a piece of text.
+    requires: {task_any: [text-classification, Text Classification],
+               keyword_any: [language identification, language detection, langid]}
+  - id: q087
+    question: Grammatical error correction for English writing.
+    requires: {keyword_any: [grammatical error correction, grammar correction, gec]}
+  - id: q088
+    question: A model that converts speech to text in Vietnamese.
+    requires: {task_any: [automatic-speech-recognition, Speech Recognition],
+               language_any: [vi]}
+  - id: q089
+    question: Depth estimation from a single image.
+    requires: {keyword_any: [depth estimation, monocular depth, depth anything]}
+  - id: q090
+    question: Optical character recognition for handwritten text.
+    requires: {keyword_any: [handwritten, handwriting, htr, trocr]}
+  - id: q091
+    question: A model for detecting toxic or hateful comments.
+    requires: {task_any: [text-classification, Text Classification],
+               keyword_any: [toxic, toxicity, hate speech, offensive]}
+  - id: q092
+    question: Emotion recognition from speech audio.
+    requires: {task_any: [audio-classification, Audio Classification],
+               keyword_any: [emotion, emotional, ser]}
+  - id: q093
+    question: A small Japanese language model I can run locally.
+    requires: {language_any: [ja], max_parameters: 3000000000}
+  - id: q094
+    question: Image segmentation models for medical scans.
+    requires: {keyword_any: [segmentation],
+               subject_any: [medicine, biomedicine, radiology, healthcare]}
+  - id: q095
+    question: A model that generates SQL from a natural language question.
+    requires: {keyword_any: [text-to-sql, text to sql, sql generation, spider]}
+  - id: q096
+    question: Turkish sentiment analysis.
+    requires: {language_any: [tr], keyword_any: [sentiment]}
+  - id: q097
+    question: A GGUF build I can load in llama.cpp.
+    requires: {keyword_any: [gguf, llama.cpp, llama cpp]}
+  - id: q098
+    question: Models that generate music or audio from a text prompt.
+    requires: {task_any: [text-to-audio, text-to-music, Audio Generation],
+               keyword_any: [music, audio, sound]}
+  - id: q099
+    question: A vision language model small enough for edge deployment.
+    requires: {task_any: [image-text-to-text, visual-question-answering,
+                          Visual Question Answering],
+               max_parameters: 4000000000}
+  - id: q100
+    question: Named entity recognition for German text.
+    requires: {task_any: [token-classification, Token Classification],
+               language_any: [de]}

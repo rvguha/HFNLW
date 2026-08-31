@@ -1,0 +1,118 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "hf": "https://huggingface.co/ns/1.0#"
+  },
+  "@id": "https://huggingface.co/microsoft/Phi-4-mini-instruct",
+  "@type": [
+    "SoftwareApplication",
+    "hf:Model"
+  ],
+  "name": "Phi 4 mini instruct",
+  "hf:repository": "microsoft/Phi-4-mini-instruct",
+  "hf:revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+  "url": "https://huggingface.co/microsoft/Phi-4-mini-instruct",
+  "creator": {
+    "@id": "https://huggingface.co/microsoft",
+    "@type": "Organization",
+    "name": "microsoft"
+  },
+  "dateModified": "2025-12-10T20:24:40.000Z",
+  "description": "Phi-4-mini-instruct is a lightweight open model built upon synthetic data and filtered publicly available websites - with a focus on high-quality, reasoning dense data.",
+  "hf:task": "text-generation",
+  "hf:library": "transformers",
+  "hf:architecture": "Phi3ForCausalLM",
+  "hf:parameters": 3836021760,
+  "hf:format": [
+    "safetensors"
+  ],
+  "inLanguage": [
+    "multilingual",
+    "ar",
+    "zh",
+    "cs",
+    "da",
+    "nl",
+    "en",
+    "fi",
+    "fr",
+    "de",
+    "he",
+    "hu",
+    "it",
+    "ja",
+    "ko",
+    "no",
+    "pl",
+    "pt",
+    "ru",
+    "es",
+    "sv",
+    "th",
+    "tr",
+    "uk"
+  ],
+  "hf:subject": [
+    "multilingual-nlp",
+    "mathematics",
+    "software-engineering",
+    "education",
+    "safety-and-moderation",
+    "social-science",
+    "physics",
+    "chemistry",
+    "biomedicine"
+  ],
+  "hf:capability": [
+    "reasoning",
+    "math",
+    "multilingual",
+    "code",
+    "function calling",
+    "instruction following",
+    "world knowledge",
+    "language understanding",
+    "safety"
+  ],
+  "hf:intendedUse": [
+    "The model is intended for broad multilingual commercial and research use. The model provides uses for general purpose AI systems and applications which require: 1) Memory/compute constrained environments 2) Latency bound scenarios 3) Strong reasoning (especially math and logic). The model is designed to accelerate research on language and multimodal models, for use as a building block for generative AI powered features."
+  ],
+  "hf:limitation": [
+    "The model is not specifically designed or evaluated for all downstream purposes. Developers should consider common limitations of language models, as well as performance difference across languages, as they select use cases, and evaluate and mitigate for accuracy, safety, and fairness before using within a specific downstream use case, particularly for high-risk scenarios.",
+    "Overall, the model with only 3.8B-param achieves a similar level of multilingual language understanding and reasoning ability as much larger models. However, it is still fundamentally limited by its size for certain tasks. The model simply does not have the capacity to store too much factual knowledge, therefore, users may experience factual incorrectness. However, it may be possible to resolve such weakness by augmenting Phi-4 with a search engine, particularly when using the model under RAG settings."
+  ],
+  "hf:deploymentNote": [
+    "Phi-4-mini-instruct can be deployed using vLLM, Transformers, or Azure AI Studio. For vLLM, install flash_attn==2.7.4.post1, torch==2.5.1, vllm>=0.7.3 and use the provided example code. For Transformers, install flash_attn==2.7.4.post1, torch==2.5.1, transformers==4.49.0, accelerate==1.3.0 and use the provided example code. The model is also available in Azure AI Studio."
+  ],
+  "hf:family": "microsoft--phi-4-mini-instruct",
+  "hf:familyRelation": "canonical",
+  "license": "https://opensource.org/license/mit",
+  "hf:licenseStatus": "recognized_identifier",
+  "hf:downloads": 452294,
+  "hf:likes": 824,
+  "hf:gated": "open",
+  "citation": [
+    {
+      "@id": "https://arxiv.org/abs/2503.01743",
+      "@type": "ScholarlyArticle",
+      "name": "Phi-4-Mini Technical Report: Compact yet Powerful Multimodal Language Models via Mixture-of-LoRAs",
+      "abstract": "We introduce Phi-4-Mini and Phi-4-Multimodal, compact yet highly capable language and multimodal models. Phi-4-Mini is a 3.8-billion-parameter language model trained on high-quality web and synthetic data, significantly outperforming recent open-source models of similar size and matching the performance of models twice its size on math and coding tasks requiring complex reasoning. This achievement is driven by a carefully curated synthetic data recipe emphasizing high-quality math and coding datasets. Compared to its predecessor, Phi-3.5-Mini, Phi-4-Mini features an expanded vocabulary size of 200K tokens to better support multilingual applications, as well as group query attention for more efficient long-sequence generation. Phi-4-Multimodal is a multimodal model that integrates text, vision, and speech/audio input modalities into a single model. Its novel modality extension approach leverages LoRA adapters and modality-specific routers to allow multiple inference modes combining various modalities without interference. For example, it now ranks first in the OpenASR leaderboard to date, although the LoRA component of the speech/audio modality has just 460 million parameters. Phi-4-Multimodal supports scenarios involving (vision + language), (vision + speech), and (speech/audio) inputs, outperforming larger vision-language and speech-language models on a wide range of tasks. Additionally, we experiment to further train Phi-4-Mini to enhance its reasoning capabilities. Despite its compact 3.8-billion-parameter size, this experimental version achieves reasoning performance on par with or surpassing significantly larger models, including DeepSeek-R1-Distill-Qwen-7B and DeepSeek-R1-Distill-Llama-8B."
+    }
+  ],
+  "hf:modelCard": "https://huggingface.co/microsoft/Phi-4-mini-instruct/blob/cfbefacb99257ffa30c83adab238a50856ac3083/README.md",
+  "hf:evidence": [
+    "Multilingual MMLU (5-shot)",
+    "GSM8K (8-shot, CoT)",
+    "HumanEval HumanEval+, MBPP, MBPP+: python coding tasks",
+    "high-quality educational data",
+    "Safety Evaluation and Red-Teaming",
+    "Social IQA (5-shot)",
+    "GPQA (0-shot, CoT)",
+    "MedQA: medical questions answering",
+    "ARC Challenge (10-shot)",
+    "Berkeley function calling function and tool call",
+    "IFEval: verifiable instructions",
+    "TriviaQA: trivia question on general topics",
+    "HellaSwag: commonsense natural language inference around everyday events"
+  ]
+}

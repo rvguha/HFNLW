@@ -1,0 +1,67 @@
+{
+  "query_id": "q026",
+  "question": "Models supporting Indian languages such as Hindi, Tamil, or Telugu.",
+  "judge": "anthropic/claude-opus-5",
+  "width": 100,
+  "corpus": "hf-wide-2026-08-29",
+  "relevant": [
+    {
+      "url": "https://huggingface.co/ai4bharat/IndicNER",
+      "name": "IndicNER",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/l3cube-pune/indic-sentence-similarity-sbert",
+      "name": "indic sentence similarity sbert",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/sarvamai/sarvam-1",
+      "name": "sarvam 1",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/anktechsol/anki-2.5",
+      "name": "anki 2.5",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/sarvamai/sarvam-1-v0.5",
+      "name": "sarvam 1 v0.5",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/sarvamai/sarvam-105b",
+      "name": "sarvam 105b",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/ai4bharat/IndicF5",
+      "name": "IndicF5",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/gnani/gnani-evon-v3.3-30B-A3B",
+      "name": "gnani evon v3.3 30B A3B",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/sarvamai/sarvam-30b",
+      "name": "sarvam 30b",
+      "score": 90,
+      "relevance": "strong"
+    }
+  ],
+  "retrieved": 9,
+  "seconds": 9.6,
+  "cost_usd": 1.323675,
+  "tokens": 260109
+}

@@ -1,0 +1,61 @@
+{
+  "query_id": "q017",
+  "question": "Text to speech models that can clone or condition on a reference voice.",
+  "judge": "anthropic/claude-opus-5",
+  "width": 100,
+  "corpus": "hf-wide-2026-08-29",
+  "relevant": [
+    {
+      "url": "https://huggingface.co/IndexTeam/IndexTTS-2.5",
+      "name": "IndexTTS 2.5",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/ResembleAI/chatterbox",
+      "name": "chatterbox",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/tts-hub/XTTS-v2",
+      "name": "XTTS v2",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/ai4bharat/IndicF5",
+      "name": "IndicF5",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/samuel-vitorino/sopro",
+      "name": "sopro",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/neuphonic/neutts-air",
+      "name": "neutts air",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/dots-studio/dots.tts-soar",
+      "name": "dots tts soar",
+      "score": 90,
+      "relevance": "strong"
+    },
+    {
+      "url": "https://huggingface.co/openbmb/VoxCPM-0.5B",
+      "name": "VoxCPM 0.5B",
+      "score": 90,
+      "relevance": "strong"
+    }
+  ],
+  "retrieved": 9,
+  "seconds": 10.5,
+  "cost_usd": 1.26445,
+  "tokens": 246384
+}
