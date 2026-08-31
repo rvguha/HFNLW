@@ -50,6 +50,26 @@ function threadId() {
   return `t_${stamp}${noise}`;
 }
 
+// A lowercase digest of everything worth finding a conversation by: what was
+// asked, how it was rewritten, and which models came back. Kept on the thread
+// record rather than inside the compressed turns, so searching never has to
+// inflate anything -- the alternative gunzips the whole history per keystroke.
+//
+// Capped, because a long conversation should not grow an unbounded index entry.
+// The cap costs nothing in practice: threads are found by how they started and
+// what they surfaced, and both are near the front.
+const DIGEST_LIMIT = 4000;
+
+function digest(existing, turn) {
+  const parts = [
+    existing || "",
+    turn.question || "",
+    turn.interpretedAs || "",
+    (turn.results || []).map(r => r.name || "").join(" "),
+  ];
+  return parts.join(" ").replace(/\s+/g, " ").trim().toLowerCase().slice(0, DIGEST_LIMIT);
+}
+
 function title(question) {
   const clean = question.replace(/\s+/g, " ").trim();
   return clean.length > 72 ? `${clean.slice(0, 71)}…` : clean;
@@ -95,7 +115,7 @@ export class Threadstore {
     const now = Date.now();
     const thread = {
       id: threadId(), title: "", scope, corpus: corpus || null,
-      createdAt: now, updatedAt: now, turnCount: 0, schema: SCHEMA,
+      createdAt: now, updatedAt: now, turnCount: 0, search: "", schema: SCHEMA,
     };
     if (this.db) await idb(this.#tx(THREADS, "readwrite").put(thread));
     return thread;
@@ -104,6 +124,7 @@ export class Threadstore {
   async appendTurn(thread, turn) {
     thread.turnCount += 1;
     thread.updatedAt = Date.now();
+    thread.search = digest(thread.search, turn);
     if (!thread.title) thread.title = title(turn.question);
     if (!this.db) return thread;
     const record = {
@@ -121,6 +142,28 @@ export class Threadstore {
     if (!this.db) return [];
     const all = await idb(this.#tx(THREADS, "readonly").getAll());
     return all.filter(t => t.turnCount > 0).sort((a, b) => b.updatedAt - a.updatedAt);
+  }
+
+  /** Does this thread match a search, by anything in it rather than its title? */
+  static matches(thread, needle) {
+    if (!needle) return true;
+    const term = needle.toLowerCase();
+    return (thread.title || "").toLowerCase().includes(term)
+      || (thread.search || "").includes(term);
+  }
+
+  /** Build digests for threads stored before this index existed. */
+  async backfill() {
+    if (!this.db) return 0;
+    const all = await idb(this.#tx(THREADS, "readonly").getAll());
+    const stale = all.filter(t => t.turnCount > 0 && !t.search);
+    for (const thread of stale) {
+      let text = "";
+      for (const turn of await this.turns(thread.id)) text = digest(text, turn);
+      thread.search = text;
+      await idb(this.#tx(THREADS, "readwrite").put(thread));
+    }
+    return stale.length;
   }
 
   async turns(threadId) {

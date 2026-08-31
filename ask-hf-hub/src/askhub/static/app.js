@@ -7,7 +7,7 @@ const askEndpoint = new URL(pageParams.get("ask") || "/ask", location.href);
 // scopes (sources.KINDS) filter the manifest section a collection sits in.
 let scope = "models";
 
-import { Threadstore } from "/threadstore.js?v=4";
+import { Threadstore } from "/threadstore.js?v=5";
 
 // A conversation is the unit now, not a page load. `store` persists it,
 // `thread` is the one being added to, and `turns` mirrors it in memory so a
@@ -329,8 +329,10 @@ function markActive(id) {
 async function refreshConversations() {
   if (!store?.available) return;
   const all = await store.threads();
-  const needle = $("search").value.trim().toLowerCase();
-  const shown = needle ? all.filter(t => t.title.toLowerCase().includes(needle)) : all;
+  // Matches anything asked, rewritten, or returned in the thread -- not just
+  // its title, which is only the first question.
+  const needle = $("search").value.trim();
+  const shown = needle ? all.filter(t => Threadstore.matches(t, needle)) : all;
   const list = $("conversations");
   list.replaceChildren();
 
@@ -436,6 +438,7 @@ async function boot() {
   } catch { /* the chip is decoration; a failed probe must not stop the app */ }
 
   store = await Threadstore.open();
+  if (store.available) await store.backfill();
   if (!store.available) {
     $("conversations").append(
       text("p", "This browser is not storing conversations, so they will not survive a reload.", "empty"));
