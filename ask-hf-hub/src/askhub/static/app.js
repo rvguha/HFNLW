@@ -7,7 +7,7 @@ const askEndpoint = new URL(pageParams.get("ask") || "/ask", location.href);
 // scopes (sources.KINDS) filter the manifest section a collection sits in.
 let scope = "models";
 
-import { Threadstore } from "/threadstore.js?v=3";
+import { Threadstore } from "/threadstore.js?v=4";
 
 // A conversation is the unit now, not a page load. `store` persists it,
 // `thread` is the one being added to, and `turns` mirrors it in memory so a
@@ -158,9 +158,17 @@ $("form").addEventListener("submit", async event => {
   const record = { question: query, askedAt: Date.now(), interpretedAs: null,
                    mode: $("mode").value, results: [], answer: null,
                    notices: [], usage: null };
+  // What came before, captured before this turn joins the list -- a question is
+  // not its own antecedent.
+  const previous = turns.slice(-5).map(t => t.question);
+  // Joined now rather than on completion. A follow-up asked while the previous
+  // answer is still streaming would otherwise be sent with no context, and the
+  // server would decontextualize it against nothing -- silently, because a
+  // query with no antecedent is a legitimate query.
+  turns.push(record);
 
   try {
-    const args = { query, site: scope, mode: $("mode").value, previous_queries: turns.slice(-5).map(t => t.question) };
+    const args = { query, site: scope, mode: $("mode").value, previous_queries: previous };
     const provisional = new Set();
     let finalStarted = false;
     let finalCount = 0;
@@ -215,7 +223,6 @@ $("form").addEventListener("submit", async event => {
 // Persist the completed turn, starting a thread on the first one so an
 // abandoned empty conversation never appears in the list.
 async function remember(record) {
-  turns.push(record);
   if (!store) return;
   if (!thread) thread = await store.startThread({ scope, corpus });
   await store.appendTurn(thread, record);
