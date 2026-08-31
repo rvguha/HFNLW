@@ -2,26 +2,31 @@
 const $ = id => document.getElementById(id);
 const pageParams = new URLSearchParams(location.search);
 const askEndpoint = new URL(pageParams.get("ask") || "/ask", location.href);
-const history = [];
 
 // The catalog scope the tabs select. Sent as `site`; the server's aggregate
 // scopes (sources.KINDS) filter the manifest section a collection sits in.
 let scope = "models";
 
+import { Threadstore } from "/threadstore.js?v=3";
+
+// A conversation is the unit now, not a page load. `store` persists it,
+// `thread` is the one being added to, and `turns` mirrors it in memory so a
+// follow-up can be sent without inflating anything from disk.
+let store = null;
+let thread = null;
+let turns = [];
+let corpus = null;
+
 const sampleQueries = {
   models: [
-    "A small model for biomedical named-entity recognition",
-    "Models documented as trained on protein or genomic sequences",
-    "Multilingual embedding models evaluated on non-English retrieval",
-    "Speech recognition for low-resource African languages",
-    "Image models with a clearly stated commercially usable license",
-    "What can run locally on a laptop with 16 GB of memory?",
-    "A legal domain model, not a chat model that mentions legal disclaimers",
-    "Models fine-tuned on financial filings or market data",
-    "Document question answering over scanned invoices and forms",
-    "Models supporting Hindi, Tamil, or Telugu",
-    "The original base model rather than a repackaged quantization",
-    "Models that document their limitations and known risks"
+    "I've got a MacBook with 16GB and no cloud budget for this project. What can I realistically run locally without it swapping constantly?",
+    "I need a model that genuinely knows molecular biology \u2014 trained on it, not one that just happens to cite a biology benchmark in a results table. That distinction matters for what we're doing.",
+    "Our RAG pipeline retrieves 50 candidates and the ordering is poor \u2014 the right answer is often at rank 30. I gather a reranker is what I want here. What should I use?",
+    "We're transcribing Vietnamese customer service calls. Note I want speech going to text, not the other way round \u2014 I keep finding TTS models when I search. What handles Vietnamese ASR?",
+    "A colleague told me to use whisper large v3 for our transcription work but I can't remember where it lives. Can you point me at it?",
+    "Our legal team is nervous about what we ship in a commercial product. For image models specifically \u2014 generation or classification \u2014 which ones have a licence that's clearly stated and unambiguously fine for commercial use? I don't want anything where the terms are vague.",
+    "We feed entire contracts into the model, sometimes 100 pages. Short context windows mean chunking and losing cross-references. What has a genuinely long context window?",
+    "I'm working with a team recording oral histories in Swahili, Yoruba and Hausa. Most ASR I've tried is hopeless on these. Is there anything that genuinely handles low-resource African languages?"
   ]
 };
 
@@ -145,13 +150,17 @@ $("form").addEventListener("submit", async event => {
   $("submit").disabled = true;
   $("query").value = "";              // ready for the follow-up
   $("samples").open = false;
-  $("clear").hidden = false;
+  $("intro").hidden = true;
   hideUsage();
 
   const turn = startTurn(query);
+  // Built up as the stream arrives; stored whole when the turn completes.
+  const record = { question: query, askedAt: Date.now(), interpretedAs: null,
+                   mode: $("mode").value, results: [], answer: null,
+                   notices: [], usage: null };
 
   try {
-    const args = { query, site: scope, previous_queries: history.slice(-5) };
+    const args = { query, site: scope, mode: $("mode").value, previous_queries: turns.slice(-5).map(t => t.question) };
     const provisional = new Set();
     let finalStarted = false;
     let finalCount = 0;
@@ -174,21 +183,26 @@ $("form").addEventListener("submit", async event => {
         }
         for (const item of content || []) {
           turn.results.append(render(item));
+          record.results.push(item);
           finalCount += 1;
         }
       } else if (type === "nlws" && content?.answer) {
         turn.setAnswer(content.answer);
+        record.answer = content.answer;
       } else if ((type === "intermediate_message" || type === "error") && content) {
         turn.addNotice(content);
+        record.notices.push(content);
       } else if (type === "usage" && content) {
         renderUsage(content);
+        record.usage = content;
       } else if (type === "decontextualized_query") {
         turn.setInterpreted(content);
+        record.interpretedAs = content;
       } else if (type === "end-nlweb-response") {
         turn.setStatus(`${finalCount} result${finalCount === 1 ? "" : "s"}`);
       }
     });
-    history.push(query);
+    await remember(record);
   } catch (error) {
     turn.addNotice(error.message);
     turn.setStatus("Search failed");
@@ -198,14 +212,30 @@ $("form").addEventListener("submit", async event => {
   }
 });
 
-$("clear").addEventListener("click", () => {
-  history.length = 0;
+// Persist the completed turn, starting a thread on the first one so an
+// abandoned empty conversation never appears in the list.
+async function remember(record) {
+  turns.push(record);
+  if (!store) return;
+  if (!thread) thread = await store.startThread({ scope, corpus });
+  await store.appendTurn(thread, record);
+  $("chat-title").textContent = thread.title;
+  await refreshConversations();
+}
+
+function newChat() {
+  thread = null;
+  turns = [];
   $("thread").replaceChildren();
-  $("clear").hidden = true;
+  $("chat-title").textContent = "New chat";
+  $("intro").hidden = false;
   $("samples").open = true;
   hideUsage();
+  markActive(null);
   $("query").focus();
-});
+}
+
+$("new-chat").addEventListener("click", newChat);
 
 function renderUsage(usage) {
   const rows = $("usage-rows");
@@ -271,3 +301,140 @@ $("usage-close").addEventListener("click", () => usageDialog.close());
 usageDialog.addEventListener("click", event => {
   if (event.target === usageDialog) usageDialog.close();
 });
+
+
+// ---------------------------------------------------------------- sidebar
+
+function when(ms) {
+  const days = Math.floor((Date.now() - ms) / 86400000);
+  if (days === 0) return new Date(ms).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+  if (days === 1) return "Yesterday";
+  if (days < 7) return `${days} days ago`;
+  return new Date(ms).toLocaleDateString([], { month: "short", day: "numeric" });
+}
+
+function markActive(id) {
+  for (const node of document.querySelectorAll(".conversation")) {
+    node.classList.toggle("active", node.dataset.id === id);
+  }
+}
+
+async function refreshConversations() {
+  if (!store?.available) return;
+  const all = await store.threads();
+  const needle = $("search").value.trim().toLowerCase();
+  const shown = needle ? all.filter(t => t.title.toLowerCase().includes(needle)) : all;
+  const list = $("conversations");
+  list.replaceChildren();
+
+  if (!shown.length) {
+    list.append(text("p", needle ? "No conversations match." : "No conversations yet.", "empty"));
+  }
+  for (const item of shown) {
+    const row = text("div", "", "conversation");
+    row.dataset.id = item.id;
+    row.setAttribute("role", "listitem");
+    const open = text("button", item.title || "Untitled", "conversation-open");
+    open.type = "button";
+    open.addEventListener("click", () => openThread(item.id));
+    const meta = text("div", `${item.turnCount} turn${item.turnCount === 1 ? "" : "s"} · ${when(item.updatedAt)}`, "conversation-meta");
+    const remove = text("button", "×", "conversation-delete");
+    remove.type = "button";
+    remove.title = "Delete conversation";
+    remove.addEventListener("click", async event => {
+      event.stopPropagation();
+      await store.remove(item.id);
+      if (thread?.id === item.id) newChat();
+      await refreshConversations();
+    });
+    row.append(open, meta, remove);
+    list.append(row);
+  }
+  markActive(thread?.id ?? null);
+
+  const usage = await store.usage();
+  $("storage-usage").textContent = usage.turns
+    ? `${usage.turns} turns · ${(usage.bytes / 1024).toFixed(0)} KB`
+    : "";
+}
+
+// Reopening shows exactly what was shown, from the stored turn -- nothing is
+// re-fetched, so nothing can come back different.
+async function openThread(id) {
+  const all = await store.threads();
+  const found = all.find(t => t.id === id);
+  if (!found) return;
+  thread = found;
+  turns = await store.turns(id);
+  $("thread").replaceChildren();
+  $("chat-title").textContent = found.title;
+  $("intro").hidden = true;
+  hideUsage();
+  for (const record of turns) {
+    const turn = startTurn(record.question);
+    turn.setInterpreted(record.interpretedAs);
+    for (const item of record.results || []) turn.results.append(render(item));
+    if (record.answer) turn.setAnswer(record.answer);
+    for (const notice of record.notices || []) turn.addNotice(notice);
+    turn.setStatus(`${(record.results || []).length} result${(record.results || []).length === 1 ? "" : "s"}`);
+  }
+  const last = turns[turns.length - 1];
+  if (last?.usage) renderUsage(last.usage);
+  markActive(id);
+  $("query").focus();
+}
+
+$("search").addEventListener("input", refreshConversations);
+
+$("clear-all").addEventListener("click", async () => {
+  if (!store?.available) return;
+  if (!confirm("Delete every saved conversation? This cannot be undone.")) return;
+  await store.clear();
+  newChat();
+  await refreshConversations();
+});
+
+$("toggle-sidebar").addEventListener("click", () => {
+  const collapsed = document.body.classList.toggle("sidebar-collapsed");
+  $("toggle-sidebar").setAttribute("aria-expanded", String(!collapsed));
+});
+
+// Enter sends, Shift+Enter makes a newline -- the composer is a textarea so a
+// long prompt can be written and read before it is sent.
+$("query").addEventListener("keydown", event => {
+  if (event.key === "Enter" && !event.shiftKey) {
+    event.preventDefault();
+    $("form").requestSubmit();
+  }
+});
+
+// Grow with the prompt, up to a point, so a paragraph-long question is visible
+// as it is written rather than scrolling inside one line.
+$("query").addEventListener("input", () => {
+  const box = $("query");
+  box.style.height = "auto";
+  box.style.height = `${Math.min(box.scrollHeight, 200)}px`;
+});
+
+async function boot() {
+  try {
+    const health = await fetch("/health").then(r => r.json());
+    corpus = health.corpus || null;
+    if (corpus?.items) {
+      $("scope-chip").textContent = `${corpus.items.toLocaleString()} models`;
+      $("scope-chip").title = corpus.snapshot_id
+        ? `Corpus ${corpus.snapshot_id}, built ${corpus.built_at}`
+        : "";
+    }
+  } catch { /* the chip is decoration; a failed probe must not stop the app */ }
+
+  store = await Threadstore.open();
+  if (!store.available) {
+    $("conversations").append(
+      text("p", "This browser is not storing conversations, so they will not survive a reload.", "empty"));
+    return;
+  }
+  await refreshConversations();
+}
+
+boot();

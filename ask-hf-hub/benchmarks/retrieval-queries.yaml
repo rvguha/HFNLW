@@ -13,6 +13,7 @@ queries:
   # -- domain knowledge -----------------------------------------------------
   - id: q001
     question: I need a small model for biomedical named-entity recognition.
+    chat: "We're a small research group annotating clinical trial abstracts and we keep hitting the limits of regex for pulling out drug and gene names. I don't have a big GPU budget — is there something reasonably compact that's actually been trained for biomedical entity extraction rather than just a general model I'd have to fine-tune myself?"
     requires:
       task_any: [token-classification, Named Entity Recognition, Token Classification]
       subject_any: [biomedicine, molecular-biology]
@@ -22,6 +23,7 @@ queries:
 
   - id: q002
     question: Which models have documented knowledge of Indian legal material?
+    chat: "I'm advising an Indian legal-tech startup and they want to know whether anything off the shelf already understands Indian statutes and case law, or whether everything out there is US-centric and they'd have to train from scratch. What's actually out there?"
     requires:
       subject_any: [law]
       evidence_type_any: [trained_on, fine_tuned_on, evaluated_on]
@@ -29,6 +31,7 @@ queries:
 
   - id: q003
     question: Find multilingual embedding models evaluated on non-English retrieval.
+    chat: "Our search index covers about a dozen languages and English-only embeddings are clearly hurting recall on the non-English side. I'd want something where someone has actually measured retrieval quality outside English, not just claimed multilingual support. Any suggestions?"
     requires:
       task_any: [feature-extraction, sentence-similarity, Embedding, Sentence Embedding]
       subject_any: [information-retrieval, multilingual-nlp]
@@ -36,12 +39,14 @@ queries:
 
   - id: q004
     question: I need speech recognition for low-resource African languages.
+    chat: "I'm working with a team recording oral histories in Swahili, Yoruba and Hausa. Most ASR I've tried is hopeless on these. Is there anything that genuinely handles low-resource African languages?"
     requires:
       task_any: [automatic-speech-recognition, Speech Recognition]
       language_any: [sw, am, yo, ha, ig, zu, wo, so, rw]
 
   - id: q005
     question: Which image models have a clearly stated commercially usable license?
+    chat: "Our legal team is nervous about what we ship in a commercial product. For image models specifically — generation or classification — which ones have a licence that's clearly stated and unambiguously fine for commercial use? I don't want anything where the terms are vague."
     requires:
       task_any: [text-to-image, image-classification, Image Generation, Image Classification]
       license_status_any: [recognized_identifier]
@@ -51,6 +56,7 @@ queries:
   - id: q006
     question: Find a model related to Carnatic music, distinguishing audio generation from
       descriptive text knowledge.
+    chat: "A musicologist colleague asked whether any model actually knows Carnatic music. I want to be careful about the distinction: something trained on the audio, or something that just has text knowledge about it — those are very different for her purposes. What exists?"
     requires:
       subject_any: [music]
       evidence_type_any: [trained_on, fine_tuned_on, architecture]
@@ -59,58 +65,68 @@ queries:
 
   - id: q007
     question: What can run locally on an Apple silicon laptop with 16 GB of memory?
+    chat: "I've got a MacBook with 16GB and no cloud budget for this project. What can I realistically run locally without it swapping constantly?"
     requires:
       max_parameters: 8000000000
 
   - id: q008
     question: Which models were trained on protein or genomic sequences?
+    chat: "We're a computational biology lab moving into protein language models. Which models were genuinely trained on protein or genomic sequence data, as opposed to general models that happen to mention biology?"
     requires:
       subject_any: [molecular-biology]
       evidence_type_any: [trained_on, fine_tuned_on, architecture]
 
   - id: q009
     question: Show me models fine-tuned on financial filings or market data.
+    chat: "I'm building a tool that reads 10-K filings and earnings transcripts. General-purpose LLMs get the vocabulary wrong. Has anyone fine-tuned something specifically on financial documents or market data?"
     requires:
       subject_any: [finance]
       evidence_type_any: [trained_on, fine_tuned_on]
 
   - id: q010
     question: Any model with documented chemistry or molecular property prediction training?
+    chat: "Our chemistry group wants to predict molecular properties and someone suggested there might be pretrained models rather than us building from scratch. Is there anything with documented training on chemistry data?"
     requires:
       subject_any: [chemistry]
       evidence_type_any: [trained_on, fine_tuned_on, architecture]
 
   - id: q011
     question: Models for climate, weather, or earth observation data.
+    chat: "I work on climate adaptation and we have a lot of satellite and weather data. Are there any models built for earth observation or climate data specifically?"
     requires:
       subject_any: [climate-earth-science]
 
   - id: q012
     question: Which models are documented for clinical or radiology report understanding?
+    chat: "We're a hospital IT team looking at automating parts of radiology reporting. Before we go anywhere near patient data I want to know what's documented for clinical or radiology report understanding. What should I be looking at?"
     requires:
       subject_any: [biomedicine, document-understanding]
       keyword_any: [clinical, radiology, report, patient]
 
   - id: q013
     question: Find a model specialised in mathematical reasoning with reported evaluation.
+    chat: "I'm putting together a maths tutoring product and need a model that's genuinely good at multi-step reasoning, with actual benchmark numbers rather than marketing claims. What's worth evaluating?"
     requires:
       subject_any: [mathematics]
       evidence_type_any: [evaluated_on, trained_on, fine_tuned_on]
 
   - id: q014
     question: Code models evaluated on program synthesis benchmarks.
+    chat: "Our team is building a code assistant and I want to compare options that have been evaluated on real program synthesis benchmarks — HumanEval, MBPP, that sort of thing. Not just models that mention they can write code."
     requires:
       subject_any: [software-engineering]
       evidence_type_any: [evaluated_on]
 
   - id: q015
     question: Models documented for cybersecurity or malware analysis.
+    chat: "I'm on a security team and we're exploring ML for malware triage. Is there anything documented for cybersecurity or malware analysis, or is everyone still rolling their own?"
     requires:
       subject_any: [cybersecurity]
 
   # -- task and modality ----------------------------------------------------
   - id: q016
     question: A reranking model for improving search result ordering.
+    chat: "Our RAG pipeline retrieves 50 candidates and the ordering is poor — the right answer is often at rank 30. I gather a reranker is what I want here. What should I use?"
     requires:
       keyword_any: [rerank, reranker, cross-encoder]
       task_any: [text-ranking, text-classification, feature-extraction, sentence-similarity,
@@ -118,12 +134,14 @@ queries:
 
   - id: q017
     question: Text to speech models that can clone or condition on a reference voice.
+    chat: "We're making an audiobook tool and want narration in a specific person's voice from a short reference clip. Which TTS models support voice cloning or conditioning on a reference sample?"
     requires:
       task_any: [text-to-speech, Speech Synthesis, text-to-audio, Audio Generation]
       keyword_any: [voice, speaker, clone, zero-shot]
 
   - id: q018
     question: Document question answering over scanned invoices and forms.
+    chat: "Our finance team processes thousands of scanned invoices a month and I want to ask questions against them directly — 'what's the total on this one', that kind of thing. What handles document QA over scanned forms?"
     requires:
       task_any: [document-question-answering, Document Question Answering,
                  image-text-to-text, Vision Language Modeling]
@@ -131,16 +149,19 @@ queries:
 
   - id: q019
     question: Object detection models for real time video.
+    chat: "I need to run object detection on a live video feed, so latency matters more than squeezing out the last point of accuracy. What's suitable for real-time?"
     requires:
       task_any: [object-detection, Object Detection]
 
   - id: q020
     question: Diffusion models for image editing rather than generation from scratch.
+    chat: "I don't want to generate images from scratch — I have existing photos and want to modify them, inpainting and style changes. Which diffusion models are built for editing rather than text-to-image?"
     requires:
       task_any: [image-to-image, Image To Image]
 
   - id: q021
     question: Speaker diarization for multi speaker meeting recordings.
+    chat: "We record team meetings and the transcripts are useless because everything is one wall of text with no idea who said what. What handles speaker diarization for multi-speaker recordings?"
     requires:
       keyword_any: [diarization, speaker, segmentation]
       task_any: [voice-activity-detection, audio-classification, automatic-speech-recognition,
@@ -148,65 +169,77 @@ queries:
 
   - id: q022
     question: Zero shot text classification without task specific training data.
+    chat: "I have a classification problem with maybe 20 categories and no labelled data at all, and no budget to create any. Is zero-shot classification good enough these days, and what would I use?"
     requires:
       task_any: [zero-shot-classification, Zero-Shot Classification]
 
   - id: q023
     question: Summarization models for long documents.
+    chat: "We process research papers and policy documents that run to 50 pages. Most summarizers I've tried choke or just summarize the first page. What actually handles long documents?"
     requires:
       task_any: [summarization, Summarization, text2text-generation, Text Generation]
       keyword_any: [summar, long, document]
 
   - id: q024
     question: Video understanding models that answer questions about a clip.
+    chat: "I want to ask questions about video clips — 'what happens after the person picks up the box' — not just classify or caption them. What models do video understanding with QA?"
     requires:
       task_any: [video-text-to-text, Video Understanding, video-classification,
                  Video Classification]
 
   - id: q025
     question: Translation models between two specific non English languages.
+    chat: "We need translation between Portuguese and Japanese directly, not routed through English, because the quality loss is obvious. Are there models for specific non-English pairs?"
     requires:
       task_any: [translation, Machine Translation]
 
   # -- language coverage ----------------------------------------------------
   - id: q026
     question: Models supporting Indian languages such as Hindi, Tamil, or Telugu.
+    chat: "We're launching in India and need to support Hindi, Tamil and Telugu properly. What's actually good for Indian languages rather than just listing them in the tags?"
     requires:
       language_any: [hi, ta, te, bn, mr, kn, ml, gu, pa, ur]
 
   - id: q027
     question: Chinese language models with documented Chinese evaluation.
+    chat: "I need a Chinese language model where someone has actually published Chinese evaluation results — CLUE or similar — rather than an English model with some Chinese in the training mix."
     requires:
       language_any: [zh]
 
   - id: q028
     question: Arabic language understanding models.
+    chat: "We're building customer support tooling for the Gulf region. What's genuinely good at Arabic language understanding?"
     requires:
       language_any: [ar]
 
   - id: q029
     question: Southeast Asian language models covering Indonesian, Thai, or Vietnamese.
+    chat: "Our product is expanding into Southeast Asia — Indonesian, Thai and Vietnamese. What models cover those languages well?"
     requires:
       language_any: [id, th, vi, ms, tl]
 
   - id: q030
     question: European language models beyond English, for example Finnish or Czech.
+    chat: "We need European language coverage beyond the big five — things like Finnish and Czech that usually get neglected. What's out there?"
     requires:
       language_any: [fi, cs, hu, pl, ro, bg, el, da, sv, no, nl, ca, eu]
 
   # -- deployability --------------------------------------------------------
   - id: q031
     question: Something under a billion parameters I can fine tune on one GPU.
+    chat: "I have a single A100 and want to fine-tune on my own data. Realistically that means staying under a billion parameters, I think. What are my options?"
     requires:
       max_parameters: 1000000000
 
   - id: q032
     question: A large frontier scale open weights model.
+    chat: "We have serious compute and want to evaluate the largest open-weights models available — frontier scale, not the small stuff. What should be on the list?"
     requires:
       min_parameters: 30000000000
 
   - id: q033
     question: Quantized builds of a model I can run on a laptop.
+    chat: "I want to run something decent on my laptop, which means a quantized build — GGUF or similar. What's available?"
     requires:
       keyword_any: [quantized, quantization, gguf, awq, gptq, bitsandbytes, 4-bit, 8-bit, int8,
                     int4, nf4]
@@ -214,23 +247,27 @@ queries:
 
   - id: q034
     question: A model with a long context window for whole document input.
+    chat: "We feed entire contracts into the model, sometimes 100 pages. Short context windows mean chunking and losing cross-references. What has a genuinely long context window?"
     requires:
       keyword_any: [context, long, 128k, 32k]
       task_any: [text-generation, Text Generation]
 
   - id: q035
     question: ONNX or OpenVINO builds for CPU only deployment.
+    chat: "We're deploying to CPU-only servers, no GPUs available. I gather ONNX or OpenVINO builds are what I want. What's available in those formats?"
     requires:
       keyword_any: [onnx, openvino, cpu]
 
   - id: q036
     question: Sentence transformers models I can run with the sentence-transformers library.
+    chat: "Our stack already uses the sentence-transformers library and I'd rather not rewrite the loading code. What models work directly with it?"
     requires:
       library_any: [sentence-transformers]
 
   # -- licensing and governance ---------------------------------------------
   - id: q037
     question: Apache 2.0 or MIT licensed language models.
+    chat: "Legal wants everything under a permissive licence — Apache 2.0 or MIT, nothing custom. Which language models qualify?"
     requires:
       license_status_any: [recognized_identifier]
       task_any: [text-generation, Text Generation]
@@ -239,16 +276,19 @@ queries:
 
   - id: q038
     question: Models whose license terms I would need to read before commercial use.
+    chat: "I want the opposite of the usual question: which models have licence terms I'd actually need a lawyer to read before shipping commercially? I want to know what to avoid."
     requires:
       license_status_any: [declared_text, declared_link, unknown]
 
   - id: q039
     question: Models that document their limitations and known risks.
+    chat: "For our model governance process I need to document known risks. Which models have actually written up their own limitations rather than leaving that section empty?"
     requires:
       has_limitations: true
 
   - id: q040
     question: Models with a stated training dataset I can inspect.
+    chat: "Our compliance review requires knowing what a model was trained on. Which ones state their training dataset in a way I could actually go and inspect?"
     requires:
       evidence_type_any: [trained_on, fine_tuned_on]
 
@@ -256,6 +296,7 @@ queries:
   - id: q041
     question: Models that actually know about molecular biology, not ones that merely cite a
       biology benchmark.
+    chat: "I need a model that genuinely knows molecular biology — trained on it, not one that just happens to cite a biology benchmark in a results table. That distinction matters for what we're doing."
     requires:
       subject_any: [molecular-biology, biomedicine]
       evidence_type_any: [trained_on, fine_tuned_on, architecture]
@@ -265,6 +306,7 @@ queries:
 
   - id: q042
     question: A legal domain model, not a general chat model that mentions legal disclaimers.
+    chat: "I want an actual legal domain model. Not a general chat model that happens to mention legal disclaimers or has 'law' somewhere in its README."
     requires:
       subject_any: [law]
       evidence_type_any: [trained_on, fine_tuned_on, evaluated_on]
@@ -273,6 +315,7 @@ queries:
 
   - id: q043
     question: The original base model rather than one of its repackaged quantizations.
+    chat: "I keep finding quantized repackagings when what I want is the original base model from the people who trained it. How do I find the real one?"
     requires:
       discovery_scope: primary
     avoid:
@@ -281,6 +324,7 @@ queries:
   - id: q044
     question: A speech model for African languages rather than a model that lists Africa in its
       training corpus description only.
+    chat: "I need a speech model genuinely built for African languages — trained or evaluated on them — not one that just lists Africa somewhere in a training corpus description."
     requires:
       task_any: [automatic-speech-recognition, Speech Recognition, text-to-speech,
                  Speech Synthesis]
@@ -289,6 +333,7 @@ queries:
 
   - id: q045
     question: An education focused model with documented instructional use.
+    chat: "We build classroom tools and want a model with documented educational use, ideally something evaluated on instructional tasks rather than repurposed."
     requires:
       subject_any: [education]
       evidence_type_any: [intended_for, trained_on, fine_tuned_on]
@@ -302,123 +347,163 @@ queries:
   # short name, and a natural sentence around the name.
   - id: q046
     question: whisper large v3
+    chat: "A colleague told me to use whisper large v3 for our transcription work but I can't remember where it lives. Can you point me at it?"
     requires: {repo_any: [openai/whisper-large-v3]}
   - id: q047
     question: openai/whisper-large-v3
+    chat: "Looking for openai/whisper-large-v3 specifically — the original OpenAI one, not one of the many forks."
     requires: {repo_any: [openai/whisper-large-v3]}
   - id: q048
     question: all MiniLM L6 v2
+    chat: "Everyone seems to default to all MiniLM L6 v2 for embeddings. Where do I actually find it?"
     requires: {repo_any: [sentence-transformers/all-MiniLM-L6-v2]}
   - id: q049
     question: sentence-transformers/all-MiniLM-L6-v2
+    chat: "I need sentence-transformers/all-MiniLM-L6-v2 — the canonical one from the sentence-transformers org."
     requires: {repo_any: [sentence-transformers/all-MiniLM-L6-v2]}
   - id: q050
     question: bge-small-en-v1.5
+    chat: "The BGE small English model, version 1.5 — bge-small-en-v1.5 I think it's called. Can you find it?"
     requires: {repo_any: [BAAI/bge-small-en-v1.5]}
   - id: q051
     question: BAAI bge m3
+    chat: "BAAI put out a multilingual embedding model called bge m3 that I keep seeing referenced. Where is it?"
     requires: {repo_any: [BAAI/bge-m3]}
   - id: q052
     question: bge reranker v2 m3
+    chat: "I want the BGE reranker, the v2 m3 one, for reordering search results."
     requires: {repo_any: [BAAI/bge-reranker-v2-m3]}
   - id: q053
     question: where can I find Kokoro 82M
+    chat: "Someone recommended Kokoro 82M for text to speech. It's supposed to be tiny and good. Where can I find it?"
     requires: {repo_any: [hexgrad/Kokoro-82M]}
   - id: q054
     question: coqui XTTS v2
+    chat: "Trying to track down coqui XTTS v2 for voice cloning — is it still up?"
     requires: {repo_any: [coqui/XTTS-v2]}
   - id: q055
     question: pyannote speaker diarization 3.1
+    chat: "I need pyannote speaker diarization 3.1, the current version of their pipeline."
     requires: {repo_any: [pyannote/speaker-diarization-3.1]}
   - id: q056
     question: pyannote/segmentation-3.0
+    chat: "Looking for pyannote/segmentation-3.0, which I think is a dependency of their diarization pipeline."
     requires: {repo_any: [pyannote/segmentation-3.0]}
   - id: q057
     question: clip vit base patch32
+    chat: "The original OpenAI CLIP, the vit base patch32 variant. Where is that hosted?"
     requires: {repo_any: [openai/clip-vit-base-patch32]}
   - id: q058
     question: openai/gpt-oss-20b
+    chat: "Where do I get openai/gpt-oss-20b? I want the smaller of the two open-weight OpenAI models."
     requires: {repo_any: [openai/gpt-oss-20b]}
   - id: q059
     question: gpt oss 120b
+    chat: "I'm after gpt oss 120b, the bigger open-weights model OpenAI released."
     requires: {repo_any: [openai/gpt-oss-120b]}
   - id: q060
     question: Qwen2.5 7B Instruct
+    chat: "We standardised on Qwen2.5 7B Instruct across the team. Can you find the official repo?"
     requires: {repo_any: [Qwen/Qwen2.5-7B-Instruct]}
   - id: q061
     question: Qwen/Qwen3-0.6B
+    chat: "I need Qwen/Qwen3-0.6B — the tiny one, for testing on constrained hardware."
     requires: {repo_any: [Qwen/Qwen3-0.6B]}
   - id: q062
     question: Qwen3 ASR 1.7B
+    chat: "Qwen released an ASR model, Qwen3 ASR 1.7B I believe. Where is it?"
     requires: {repo_any: [Qwen/Qwen3-ASR-1.7B]}
   - id: q063
     question: Qwen2.5 VL 7B Instruct
+    chat: "Looking for Qwen2.5 VL 7B Instruct, the vision-language variant."
     requires: {repo_any: [Qwen/Qwen2.5-VL-7B-Instruct]}
   - id: q064
     question: nomic embed text v1.5
+    chat: "Nomic's embedding model, version 1.5 of nomic embed text. Where can I get it?"
     requires: {repo_any: [nomic-ai/nomic-embed-text-v1.5]}
   - id: q065
     question: intfloat multilingual e5 small
+    chat: "I want intfloat's multilingual e5 small — the compact multilingual embedding model."
     requires: {repo_any: [intfloat/multilingual-e5-small]}
   - id: q066
     question: multilingual e5 large
+    chat: "Need the large version of multilingual e5 for a quality comparison against the small one."
     requires: {repo_any: [intfloat/multilingual-e5-large]}
   - id: q067
     question: cross-encoder/ms-marco-MiniLM-L6-v2
+    chat: "The cross-encoder ms-marco MiniLM L6 v2 reranker — cross-encoder/ms-marco-MiniLM-L6-v2. Where is it?"
     requires: {repo_any: [cross-encoder/ms-marco-MiniLM-L6-v2]}
   - id: q068
     question: ms marco MiniLM L4 v2
+    chat: "I want the L4 version of the ms marco MiniLM cross-encoder, the faster four-layer one."
     requires: {repo_any: [cross-encoder/ms-marco-MiniLM-L4-v2]}
   - id: q069
     question: all mpnet base v2
+    chat: "Where's all mpnet base v2? I'm told it's better quality than MiniLM if I can afford the compute."
     requires: {repo_any: [sentence-transformers/all-mpnet-base-v2]}
   - id: q070
     question: paraphrase multilingual MiniLM L12 v2
+    chat: "Looking for the paraphrase multilingual MiniLM L12 v2 model from sentence-transformers."
     requires: {repo_any: [sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2]}
   - id: q071
     question: google-t5/t5-small
+    chat: "I need google-t5/t5-small — the small T5 checkpoint, from the official Google org."
     requires: {repo_any: [google-t5/t5-small]}
   - id: q072
     question: openai-community gpt2
+    chat: "Where does the original GPT-2 live these days? I gather it moved to openai-community."
     requires: {repo_any: [openai-community/gpt2]}
   - id: q073
     question: facebook opt 125m
+    chat: "Facebook's OPT at the 125m size — facebook opt 125m. Can you find it?"
     requires: {repo_any: [facebook/opt-125m]}
   - id: q074
     question: vit base patch16 224
+    chat: "The standard Google ViT, base size, patch16, 224 resolution. Where is it?"
     requires: {repo_any: [google/vit-base-patch16-224]}
   - id: q075
     question: timm mobilenetv3 small 100 lamb in1k
+    chat: "I want the timm mobilenetv3 small 100 lamb in1k checkpoint for an embedded vision project."
     requires: {repo_any: [timm/mobilenetv3_small_100.lamb_in1k]}
   - id: q076
     question: efficientnet b3 ra2 in1k
+    chat: "Looking for efficientnet b3, the ra2 in1k weights from timm."
     requires: {repo_any: [timm/efficientnet_b3.ra2_in1k]}
   - id: q077
     question: ProsusAI finbert
+    chat: "ProsusAI finbert — the financial sentiment model. Where is it?"
     requires: {repo_any: [ProsusAI/finbert]}
   - id: q078
     question: laion clap htsat fused
+    chat: "LAION's audio-text model, clap htsat fused. Can you locate it?"
     requires: {repo_any: [laion/clap-htsat-fused]}
   - id: q079
     question: amazon chronos 2
+    chat: "Amazon released chronos 2 for time series forecasting. Where do I find it?"
     requires: {repo_any: [amazon/chronos-2]}
   - id: q080
     question: wav2vec2 large xlsr 53 japanese
+    chat: "I need the Japanese wav2vec2 model, the large xlsr 53 one from jonatasgrosman."
     requires: {repo_any: [jonatasgrosman/wav2vec2-large-xlsr-53-japanese]}
   - id: q081
     question: bge small zh v1.5
+    chat: "The Chinese version of BGE small, bge small zh v1.5. Where is it?"
     requires: {repo_any: [BAAI/bge-small-zh-v1.5]}
   - id: q082
     question: granite embedding small english r2
+    chat: "IBM's granite embedding, the small English r2 one. Can you find that?"
     requires: {repo_any: [ibm-granite/granite-embedding-small-english-r2]}
   - id: q083
     question: I am looking for the pyannote voice activity detection model
+    chat: "I am looking for the pyannote voice activity detection model, not the full diarization pipeline — just VAD."
     requires: {repo_any: [pyannote/voice-activity-detection]}
   - id: q084
     question: bge large en v1.5
+    chat: "Where's bge large en v1.5? I want to compare it against the small variant we're using."
     requires: {repo_any: [BAAI/bge-large-en-v1.5]}
   - id: q085
     question: whisper large v3 turbo
+    chat: "I want whisper large v3 turbo specifically — the faster distilled decoder version, not plain v3."
     requires: {repo_any: [openai/whisper-large-v3-turbo]}
 
   # -- narrow task and constraint --------------------------------------------
@@ -426,55 +511,70 @@ queries:
   # run to thousands of records and so cannot separate one ranking from another.
   - id: q086
     question: A model that detects the language of a piece of text.
+    chat: "We ingest user-submitted text from all over the world and need to route it to the right downstream pipeline. Before anything else I need to know what language each piece of text is in. What model does that reliably across many languages?"
     requires: {task_any: [text-classification, Text Classification],
                keyword_any: [language identification, language detection, langid]}
   - id: q087
     question: Grammatical error correction for English writing.
+    chat: "I'm building a writing assistant for non-native English speakers. It needs to catch grammar mistakes and suggest corrections, not just flag them. What's available?"
     requires: {keyword_any: [grammatical error correction, grammar correction, gec]}
   - id: q088
     question: A model that converts speech to text in Vietnamese.
+    chat: "We're transcribing Vietnamese customer service calls. Note I want speech going to text, not the other way round — I keep finding TTS models when I search. What handles Vietnamese ASR?"
     requires: {task_any: [automatic-speech-recognition, Speech Recognition],
                language_any: [vi]}
   - id: q089
     question: Depth estimation from a single image.
+    chat: "I have single photographs and need to estimate how far away things are — depth from one image, no stereo pair, no LiDAR. What models do monocular depth?"
     requires: {keyword_any: [depth estimation, monocular depth, depth anything]}
   - id: q090
     question: Optical character recognition for handwritten text.
+    chat: "We're digitising handwritten archival records — census forms, letters. Printed-text OCR fails completely on these. What handles handwriting?"
     requires: {keyword_any: [handwritten, handwriting, htr, trocr]}
   - id: q091
     question: A model for detecting toxic or hateful comments.
+    chat: "We moderate a community forum and need to flag abusive or hateful comments before a human reviews them. What's actually good at toxicity detection?"
     requires: {task_any: [text-classification, Text Classification],
                keyword_any: [toxic, toxicity, hate speech, offensive]}
   - id: q092
     question: Emotion recognition from speech audio.
+    chat: "For a call-centre analytics product I want to detect how the speaker sounds — angry, frustrated, calm — from the audio itself rather than the transcript. What does speech emotion recognition?"
     requires: {task_any: [audio-classification, Audio Classification],
                keyword_any: [emotion, emotional, ser]}
   - id: q093
     question: A small Japanese language model I can run locally.
+    chat: "I want to run a Japanese language model on my own machine, so it has to be small — a couple of billion parameters at most. What are the options?"
     requires: {language_any: [ja], max_parameters: 3000000000}
   - id: q094
     question: Image segmentation models for medical scans.
+    chat: "Our radiology group wants to segment organs and lesions in CT and MRI scans. General-purpose segmentation models don't seem to transfer well. What's built for medical imaging?"
     requires: {keyword_any: [segmentation],
                subject_any: [medicine, biomedicine, radiology, healthcare]}
   - id: q095
     question: A model that generates SQL from a natural language question.
+    chat: "We want non-technical staff to ask questions of our database in plain English and have it turned into SQL. What models handle text-to-SQL?"
     requires: {keyword_any: [text-to-sql, text to sql, sql generation, spider]}
   - id: q096
     question: Turkish sentiment analysis.
+    chat: "We're analysing Turkish product reviews for sentiment. Multilingual models are mediocre on Turkish in my experience. Is there anything Turkish-specific?"
     requires: {language_any: [tr], keyword_any: [sentiment]}
   - id: q097
     question: A GGUF build I can load in llama.cpp.
+    chat: "I run everything through llama.cpp on my own hardware, so I need a GGUF build rather than safetensors. What's available in that format?"
     requires: {keyword_any: [gguf, llama.cpp, llama cpp]}
   - id: q098
     question: Models that generate music or audio from a text prompt.
+    chat: "I'm scoring a short film and want to generate background music from a text description of the mood. What models generate music or audio from a prompt?"
     requires: {task_any: [text-to-audio, text-to-music, Audio Generation],
                keyword_any: [music, audio, sound]}
   - id: q099
     question: A vision language model small enough for edge deployment.
+    chat: "We're putting a vision-language model on edge devices with limited memory, so it has to be genuinely small — a few billion parameters at most — while still handling images and text together. What fits?"
     requires: {task_any: [image-text-to-text, visual-question-answering,
                           Visual Question Answering],
                max_parameters: 4000000000}
   - id: q100
     question: Named entity recognition for German text.
+    chat: "We process German legal correspondence and need to extract names of people, organisations and places. What does named entity recognition for German?"
     requires: {task_any: [token-classification, Token Classification],
                language_any: [de]}

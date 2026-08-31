@@ -18,7 +18,10 @@ class Mode(StrEnum):
 class SearchRequest:
     query: str
     site: str | None = None
-    mode: Mode = Mode.LIST
+    # Summarize by default: a list of records answers "what exists", but the
+    # question people actually ask is "which one, and why", and that needs the
+    # model to say something about the set it found.
+    mode: Mode = Mode.SUMMARIZE
     previous_queries: tuple[str, ...] = ()
     max_results: int = 10
     min_score: int = 70

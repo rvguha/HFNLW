@@ -66,17 +66,24 @@ def category(query: dict) -> str:
     return "descriptive"
 
 
-def evaluate(catalog, documents, queries, golds, traps, depth=10, score=None):
+def evaluate(catalog, documents, queries, golds, traps, depth=10, score=None,
+             phrasing="question"):
     """Per-query P@10, MRR and nDCG@10 under binary relevance.
 
     `score` maps a query to an array of per-document scores; it defaults to
     BM25F so the lexical and vector channels are measured by identical code.
+
+    `phrasing` selects which wording of the query to send: `question` is the
+    terse search-box form, `chat` is how someone actually asks -- a scenario,
+    constraints, and a question wrapped in ordinary prose. The gold set is the
+    same either way, which is the point: it isolates phrasing as a variable
+    rather than confounding it with a different notion of relevance.
     """
     score = score or (lambda q: catalog._bm25(q))
     rows = []
     for query in queries:
         gold, trap = golds[query["id"]], traps[query["id"]]
-        scores = score(query["question"])
+        scores = score(query[phrasing] if query.get(phrasing) else query["question"])
         # Top-k by partition rather than a full sort: the sweep runs this a few
         # thousand times over ten thousand records, and only the head matters.
         head = np.argpartition(-scores, min(depth, len(scores) - 1))[:depth]
@@ -131,6 +138,43 @@ def union_recall(bm25, vector, gold, depth=10):
         head = np.argpartition(-scores, depth)[:depth]
         reached.update(head.tolist())
     return 1.0 if reached & gold else 0.0, len(reached & gold)
+
+
+def _phrasing_report(documents, queries, golds, traps, keep):
+    """The same hundred questions, asked twice: as a search box, and as a chat."""
+    catalog = MemoryCatalog(
+        documents, np.empty((len(documents), 1), dtype=np.float32),
+        field_weights=DEFAULT_BM25_FIELD_WEIGHTS, field_b=DEFAULT_BM25_FIELD_B,
+    )
+    print("\n-- phrasing: search-box wording vs how someone actually asks " + "-" * 8)
+    header = f"{'phrasing':<16}" + "".join(f"{h:>26}" for h in ("known-item", "descriptive"))
+    print(header)
+    print(f"{'':<16}" + "".join(f"{'P@10   MRR  nDCG':>26}" for _ in range(2)))
+    per_phrasing = {}
+    for label, key in (("search box", "question"), ("chat", "chat")):
+        rows = evaluate(catalog, documents, queries, golds, traps, phrasing=key)
+        per_phrasing[key] = {r["id"]: r for r in rows}
+        line = f"{label:<16}"
+        for name in ("known-item", "descriptive"):
+            subset = [r for r in rows if r["category"] == name
+                      and (name == "known-item" or r["id"] in keep)]
+            n = len(subset)
+            line += (f"{sum(r['precision'] for r in subset) / n:>10.3f}"
+                     f"{sum(r['rr'] for r in subset) / n:>7.3f}"
+                     f"{sum(r['ndcg'] for r in subset) / n:>9.3f}")
+        print(line)
+
+    hurt = sorted(
+        (per_phrasing["chat"][q["id"]]["ndcg"] - per_phrasing["question"][q["id"]]["ndcg"],
+         q["id"], q["question"])
+        for q in queries if q["id"] in keep or q["id"] in per_phrasing["chat"]
+    )
+    print("\n  worst regressions when asked conversationally:")
+    for delta, qid, text in hurt[:6]:
+        print(f"    {delta:+.3f}  {qid}  {text[:52]}")
+    print("  biggest gains:")
+    for delta, qid, text in reversed(hurt[-3:]):
+        print(f"    {delta:+.3f}  {qid}  {text[:52]}")
 
 
 def _vector_report(documents, queries, golds, traps, keep):
@@ -213,6 +257,8 @@ def _vector_report(documents, queries, golds, traps, keep):
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--sweep", action="store_true", help="scan name-field weights")
+    parser.add_argument("--chat", action="store_true",
+                        help="also score the conversational phrasing of every query")
     parser.add_argument("--vector", action="store_true",
                         help="also score the per-field embedding channels and the union "
                              "the pipeline actually serves (needs the embedding cache)")
@@ -266,6 +312,9 @@ def main() -> None:
             line += f"{s['P@10']:>10.3f}{s['MRR']:>7.3f}{s['nDCG']:>9.3f}" if False else \
                     f"{s['P@10']:>10.3f}{s['MRR']:>7.3f}{s['nDCG@10']:>9.3f}"
         print(line + f"   trap {stats['trap rate']:.3f}")
+
+    if args.chat:
+        _phrasing_report(documents, queries, golds, traps, keep)
 
     if args.vector:
         _vector_report(documents, queries, golds, traps, keep)

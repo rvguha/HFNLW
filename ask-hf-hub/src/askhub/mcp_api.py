@@ -43,7 +43,7 @@ def create_mcp(get_services, allowed_hosts: tuple[str, ...] = ()) -> FastMCP:
         query: str,
         ctx: Context,
         site: str | None = None,
-        mode: str = "list",
+        mode: str = "summarize",
         previous_queries: list[str] | None = None,
         max_results: int | None = None,
         retrieval: str = "compare",

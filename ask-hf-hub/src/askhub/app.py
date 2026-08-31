@@ -34,6 +34,50 @@ from .refresh import RefreshState, build_catalog, read_sources, refresh_once, ru
 from .sources import Source
 
 STATIC = Path(__file__).resolve().parent / "static"
+# Dotted so the catalog loader skips it: every .json in the corpus directory is
+# otherwise treated as a collection, and a manifest ingested as one adds a
+# phantom record, a phantom site, and invalidates the embedding cache.
+CORPUS_MANIFEST = Path(__file__).resolve().parent / "corpus" / ".manifest.json"
+
+
+def corpus_identity() -> dict[str, Any]:
+    """Which corpus is answering, for anything that saves a conversation.
+
+    A thread saved against a 2,447-record corpus and one saved against 9,465
+    are both faithful and not comparable. `items` alone cannot tell them apart,
+    so the build's snapshot id is carried through to the client.
+    """
+    try:
+        manifest = json.loads(CORPUS_MANIFEST.read_text())
+    except (OSError, ValueError):
+        return {}
+    return {
+        key: manifest[key]
+        for key in ("snapshot_id", "profile", "built_at", "items")
+        if key in manifest
+    }
+
+
+class RevalidatingStatic(StaticFiles):
+    """Static files the browser must revalidate before reusing.
+
+    The default headers let a browser serve `app.js` from cache without asking,
+    so a UI change can be live on the server, visible to curl, and still absent
+    from a freshly opened tab. `no-cache` does not disable caching -- the ETag
+    still avoids re-sending an unchanged file -- it just forbids using a cached
+    copy without checking.
+    """
+
+    def is_not_modified(self, response_headers, request_headers) -> bool:
+        response_headers["cache-control"] = "no-cache"
+        return super().is_not_modified(response_headers, request_headers)
+
+    def file_response(self, *args, **kwargs):
+        response = super().file_response(*args, **kwargs)
+        response.headers["cache-control"] = "no-cache"
+        return response
+
+
 logger = logging.getLogger(__name__)
 
 
@@ -53,7 +97,7 @@ def _request(body: dict[str, Any], config: Config) -> SearchRequest:
             previous = json.loads(previous)
         except json.JSONDecodeError:
             previous = [previous]
-    mode = prefer.get("mode", body.get("mode", body.get("generate_mode", "list")))
+    mode = prefer.get("mode", body.get("mode", body.get("generate_mode", "summarize")))
     retrieval = str(prefer.get("retrieval", body.get("retrieval", "compare")))
     if retrieval not in {"vector", "bm25", "compare"}:
         raise ValueError("retrieval must be vector, bm25, or compare")
@@ -130,6 +174,7 @@ async def health(request: Request):
             "items": len(services.catalog.documents),
             "sites": services.catalog.sites,
             "embedding_cache_hit": services.catalog.cache_hit,
+            "corpus": corpus_identity(),
             "sources": getattr(request.app.state, "refresh_state", RefreshState()).snapshot(),
         }
     )
@@ -254,7 +299,7 @@ def create_app(config: Config | None = None, services: Services | None = None) -
         Route("/ask", ask_route, methods=["GET", "POST"]),
         Route("/health", health),
         Mount("/mcp", mcp_app),
-        Mount("/", StaticFiles(directory=STATIC, html=True), name="static"),
+        Mount("/", RevalidatingStatic(directory=STATIC, html=True), name="static"),
     ]
     middleware = []
     if config.cors_origins:

@@ -8,7 +8,8 @@ corpus/
 !corpus/.gitkeep
 
 # Build snapshots are derived output and were written in the pre-`hf:` schema.
-# They stay on disk; they do not belong in the repository. The golden set is
-# the exception: those judgements were paid for and are not reproducible free.
+# They stay on disk when present; they do not belong in the repository. The
+# golden set is the exception: those judgements were paid for and are not
+# reproducible free.
 builds/*
 !builds/goldenset/
