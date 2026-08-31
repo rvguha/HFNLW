@@ -122,9 +122,15 @@ body.sidebar-collapsed .sidebar { display: none; }
    the screen. */
 main { display: grid; grid-template-rows: auto minmax(0, 1fr) auto;
   width: auto; max-width: none; min-width: 0; height: 100vh; margin: 0; }
-.topbar { display: flex; align-items: center; gap: 10px; padding: 10px 20px;
+.topbar { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; padding: 10px 20px;
   background: white; border-bottom: 1px solid #e3e7f1; }
-.topbar h1 { margin: 0; font-size: 1rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* The title is the only thing here that may shrink, and a flex item will not
+   shrink below its content without min-width:0 -- without it the bar overflows
+   at narrow widths and pushes the query cost off the right edge instead of
+   ellipsising the title. Everything else keeps its size, and wraps if it must. */
+.topbar h1 { flex: 1 1 auto; min-width: 0; margin: 0; font-size: 1rem;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.topbar .chip, .topbar .mode, .topbar .usage-open, .topbar .icon { flex: 0 0 auto; }
 .chip { padding: 3px 9px; font-size: .74rem; color: #3d4a68; background: #eef1f9;
   border: 1px solid #dfe4ef; border-radius: 999px; white-space: nowrap; }
 .spacer { flex: 1; }

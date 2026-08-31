@@ -7,7 +7,7 @@ const askEndpoint = new URL(pageParams.get("ask") || "/ask", location.href);
 // scopes (sources.KINDS) filter the manifest section a collection sits in.
 let scope = "models";
 
-import { Threadstore } from "/threadstore.js?v=7";
+import { Threadstore } from "/threadstore.js?v=8";
 
 // A conversation is the unit now, not a page load. `store` persists it,
 // `thread` is the one being added to, and `turns` mirrors it in memory so a
