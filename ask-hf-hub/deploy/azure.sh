@@ -77,6 +77,14 @@ if [ "$REMOTE" != "." ]; then
 fi
 echo "requirements.txt verified on server"
 
+# The recycle a deploy triggers fires against the *previous* build output, so
+# the site comes back healthy still serving the old assets. Observed twice: the
+# package is verifiably on the server, health returns 200, and the browser gets
+# the previous version. An explicit restart after the build is what picks it up.
+say "restarting onto the new build"
+az webapp restart -g "$RG" -n "$APP" -o none
+sleep 30
+
 say "waiting for health"
 for _ in $(seq 1 40); do
   code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 15 "https://${APP,,}.azurewebsites.net/health" || true)
@@ -84,6 +92,18 @@ for _ in $(seq 1 40); do
   echo "  HTTP ${code:-000}"; sleep 15
 done
 
+# Health alone does not prove the new code is being served -- check the asset
+# version actually changed, and restart once more if it has not.
+WANT=$(grep -o 'v=[0-9]*' src/askhub/static/index.html | head -1)
+GOT=$(curl -s "https://${APP,,}.azurewebsites.net/" | grep -o 'v=[0-9]*' | head -1)
+if [ -n "$WANT" ] && [ "$WANT" != "$GOT" ]; then
+  echo "serving $GOT, expected $WANT -- restarting again"
+  az webapp restart -g "$RG" -n "$APP" -o none
+  sleep 45
+  until curl -s --max-time 12 "https://${APP,,}.azurewebsites.net/health" | grep -q '"status"'; do sleep 15; done
+  GOT=$(curl -s "https://${APP,,}.azurewebsites.net/" | grep -o 'v=[0-9]*' | head -1)
+fi
+echo "serving assets: ${GOT:-unknown} (expected ${WANT:-n/a})"
 curl -s "https://${APP,,}.azurewebsites.net/health" | python3 -m json.tool | head -8
 cat <<EOF
 
