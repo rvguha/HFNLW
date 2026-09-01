@@ -122,6 +122,11 @@ export class Threadstore {
   }
 
   async appendTurn(thread, turn) {
+    // Next sequence is one past the highest that exists, not turnCount + 1.
+    // Deleting a middle turn leaves a gap, so a count is not a high-water mark:
+    // with turns 1 and 3 surviving, turnCount is 2 and the next turn would land
+    // on 3 and silently overwrite it.
+    const seq = (await this.#lastSeq(thread.id)) + 1;
     thread.turnCount += 1;
     thread.updatedAt = Date.now();
     thread.search = digest(thread.search, turn);
@@ -129,13 +134,22 @@ export class Threadstore {
     if (!this.db) return thread;
     const record = {
       threadId: thread.id,
-      seq: thread.turnCount,
+      seq,
       askedAt: turn.askedAt || Date.now(),
       blob: await gzip(turn),
     };
     await idb(this.#tx(TURNS, "readwrite").put(record));
     await idb(this.#tx(THREADS, "readwrite").put(thread));
+    thread.lastSeq = seq;
     return thread;
+  }
+
+  /** Highest sequence stored for a thread, or 0 when it has none. */
+  async #lastSeq(threadId) {
+    if (!this.db) return 0;
+    const range = IDBKeyRange.bound([threadId, 0], [threadId, Infinity]);
+    const keys = await idb(this.#tx(TURNS, "readonly").getAllKeys(range));
+    return keys.reduce((high, key) => Math.max(high, key[1]), 0);
   }
 
   async threads() {
@@ -173,6 +187,37 @@ export class Threadstore {
     return Promise.all(rows.sort((a, b) => a.seq - b.seq).map(async row => ({
       seq: row.seq, askedAt: row.askedAt, ...(await gunzip(row.blob)),
     })));
+  }
+
+  /** Drop one turn, leaving the rest of the conversation intact.
+   *
+   * Sequence numbers keep their gaps rather than being renumbered: they are
+   * ordering keys, not positions, and rewriting them would mean rewriting every
+   * later turn's key to fix something nothing reads. The digest and title are
+   * rebuilt from what survives, because both were derived from the turn that
+   * just left -- a thread whose first question is deleted should not keep being
+   * named after it.
+   *
+   * Deleting the last turn deletes the thread: an empty conversation is not a
+   * conversation, and `threads()` would hide it anyway, leaving an orphan.
+   */
+  async removeTurn(threadId, seq) {
+    if (!this.db) return null;
+    await idb(this.#tx(TURNS, "readwrite").delete([threadId, seq]));
+    const thread = await idb(this.#tx(THREADS, "readonly").get(threadId));
+    if (!thread) return null;
+
+    const remaining = await this.turns(threadId);
+    if (!remaining.length) {
+      await this.remove(threadId);
+      return null;
+    }
+    thread.turnCount = remaining.length;
+    thread.title = title(remaining[0].question);
+    thread.search = remaining.reduce((text, turn) => digest(text, turn), "");
+    thread.updatedAt = Date.now();
+    await idb(this.#tx(THREADS, "readwrite").put(thread));
+    return thread;
   }
 
   async remove(threadId) {

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ask the Hugging Face Hub</title>
-  <link rel="stylesheet" href="/styles.css?v=8">
+  <link rel="stylesheet" href="/styles.css?v=10">
 </head>
 <body>
   <div class="shell">
@@ -26,6 +26,7 @@
         <button type="button" id="toggle-sidebar" class="icon" aria-label="Toggle sidebar" aria-expanded="true">&#9776;</button>
         <h1 id="chat-title">New chat</h1>
         <span id="scope-chip" class="chip">Asking models</span>
+        <button type="button" id="delete-chat" class="icon danger" title="Delete this conversation" aria-label="Delete this conversation" hidden>&#128465;</button>
         <span class="spacer"></span>
         <label class="mode">
           <span class="visually-hidden">Answer mode</span>
@@ -70,6 +71,6 @@
       </div>
     </section>
   </dialog>
-  <script type="module" src="/app.js?v=8"></script>
+  <script type="module" src="/app.js?v=10"></script>
 </body>
 </html>

@@ -152,3 +152,15 @@ main { display: grid; grid-template-rows: auto minmax(0, 1fr) auto;
   .shell { grid-template-columns: minmax(0, 1fr); }
   .sidebar { display: none; }
 }
+
+/* Removing a turn, or the conversation it belongs to. Both stay quiet until
+   hovered: a delete control that advertises itself invites the accident. */
+.turn-head { display: flex; align-items: flex-start; gap: 10px; }
+.turn-head .asked { flex: 1 1 auto; min-width: 0; }
+.turn-delete { flex: 0 0 auto; width: 22px; height: 22px; padding: 0; font-size: 1rem;
+  line-height: 1; color: #8a93a8; background: none; border: none; border-radius: 5px;
+  cursor: pointer; opacity: 0; transition: opacity .12s ease; }
+.turn:hover .turn-delete, .turn-delete:focus-visible { opacity: 1; }
+.turn-delete:hover { color: #a3324a; background: #f3d9df; }
+.icon.danger { color: #a3324a; border-color: #e6c9d1; }
+.icon.danger:hover { background: #f7e6ea; border-color: #d99aa9; }

@@ -7,7 +7,7 @@ const askEndpoint = new URL(pageParams.get("ask") || "/ask", location.href);
 // scopes (sources.KINDS) filter the manifest section a collection sits in.
 let scope = "models";
 
-import { Threadstore } from "/threadstore.js?v=8";
+import { Threadstore } from "/threadstore.js?v=10";
 
 // A conversation is the unit now, not a page load. `store` persists it,
 // `thread` is the one being added to, and `turns` mirrors it in memory so a
@@ -103,13 +103,21 @@ function render(item) {
 // One turn of the conversation: the question as asked, how the server
 // understood it, and the results for it. Turns accumulate, because a follow-up
 // only makes sense next to what it follows.
-function startTurn(question) {
+function startTurn(question, options = {}) {
   const turn = text("section", "", "turn");
+  const head = text("div", "", "turn-head");
   const asked = text("div", question, "asked");
+  const drop = text("button", "\u00d7", "turn-delete");
+  drop.type = "button";
+  drop.title = "Remove this turn";
+  drop.setAttribute("aria-label", `Remove the turn "${question.slice(0, 60)}"`);
+  let seq = options.seq;
+  drop.addEventListener("click", () => forgetTurn(turn, seq));
+  head.append(asked, drop);
   const status = text("div", "Searching\u2026", "turn-status");
   const results = document.createElement("ul");
   results.className = "results";
-  turn.append(asked, status, results);
+  turn.append(head, status, results);
   $("thread").append(turn);
   // "start", not "nearest": the turn is empty at this point, so a minimal
   // scroll is a no-op and the results then push the question below the fold.
@@ -119,6 +127,7 @@ function startTurn(question) {
   return {
     node: turn,
     results,
+    setSeq: value => { seq = value; },
     setStatus: value => { status.textContent = value; },
     // The rewrite is what makes a follow-up work or fail, so it stays on screen
     // rather than flashing past in a status line.
@@ -210,7 +219,9 @@ $("form").addEventListener("submit", async event => {
         turn.setStatus(`${finalCount} result${finalCount === 1 ? "" : "s"}`);
       }
     });
-    await remember(record);
+    // The store allocates the sequence, so the delete control is wired up once
+    // the turn is actually stored rather than guessing where it will land.
+    await remember(record, turn);
   } catch (error) {
     turn.addNotice(error.message);
     turn.setStatus("Search failed");
@@ -222,19 +233,49 @@ $("form").addEventListener("submit", async event => {
 
 // Persist the completed turn, starting a thread on the first one so an
 // abandoned empty conversation never appears in the list.
-async function remember(record) {
+async function remember(record, node) {
   if (!store) return;
   if (!thread) thread = await store.startThread({ scope, corpus });
-  await store.appendTurn(thread, record);
+  const stored = await store.appendTurn(thread, record);
+  record.seq = stored.lastSeq;
+  node?.setSeq(record.seq);
   $("chat-title").textContent = thread.title;
+  $("delete-chat").hidden = false;
   await refreshConversations();
 }
+
+// Removing one turn from a conversation, from the thread it is shown in.
+async function forgetTurn(node, seq) {
+  node.remove();
+  turns = turns.filter(t => t.seq !== seq);
+  if (!store?.available || !thread || seq === undefined) return;
+  const updated = await store.removeTurn(thread.id, seq);
+  if (!updated) {           // that was the last turn; the thread went with it
+    newChat();
+  } else {
+    thread = updated;
+    $("chat-title").textContent = thread.title;
+  }
+  await refreshConversations();
+}
+
+// Removing the conversation being read, rather than hunting for its row.
+async function forgetThread() {
+  if (!thread) { newChat(); return; }
+  if (!confirm(`Delete "${thread.title}" and all ${thread.turnCount} of its turns?`)) return;
+  if (store?.available) await store.remove(thread.id);
+  newChat();
+  await refreshConversations();
+}
+
+$("delete-chat").addEventListener("click", forgetThread);
 
 function newChat() {
   thread = null;
   turns = [];
   $("thread").replaceChildren();
   $("chat-title").textContent = "New chat";
+  $("delete-chat").hidden = true;
   $("intro").hidden = false;
   $("samples").open = true;
   hideUsage();
@@ -377,10 +418,11 @@ async function openThread(id) {
   turns = await store.turns(id);
   $("thread").replaceChildren();
   $("chat-title").textContent = found.title;
+  $("delete-chat").hidden = false;
   $("intro").hidden = true;
   hideUsage();
   for (const record of turns) {
-    const turn = startTurn(record.question);
+    const turn = startTurn(record.question, { seq: record.seq });
     turn.setInterpreted(record.interpretedAs);
     for (const item of record.results || []) turn.results.append(render(item));
     if (record.answer) turn.setAnswer(record.answer);
