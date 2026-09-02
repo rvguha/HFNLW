@@ -1,0 +1,16 @@
+{
+  "built_at": "2026-08-30T22:25:49Z",
+  "items": 9977,
+  "profile": "wide",
+  "snapshot_id": "hf-wide-2026-08-29",
+  "source": "Hugging Face public Hub API and repository README.md files",
+  "versions": {
+    "enrichment_model": "openai/gpt-oss-20b",
+    "enrichment_prompt": "1.1",
+    "huggingface_hub": "1.29.0",
+    "normalizer": "1.0",
+    "pipeline": "0.1.0",
+    "selection_policy": "1.0",
+    "taxonomy": "1.0"
+  }
+}

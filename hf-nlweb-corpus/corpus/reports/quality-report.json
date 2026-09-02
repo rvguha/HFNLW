@@ -1,0 +1,336 @@
+{
+  "composition": {
+    "by_age": {
+      "<=12 months": 1283,
+      "<=3 months": 1945,
+      "<=6 months": 840,
+      ">12 months": 5909
+    },
+    "by_language": {
+      "ar": 661,
+      "bn": 337,
+      "cs": 366,
+      "da": 284,
+      "de": 892,
+      "el": 276,
+      "en": 4987,
+      "es": 943,
+      "fi": 309,
+      "fr": 921,
+      "he": 290,
+      "hi": 478,
+      "id": 358,
+      "it": 704,
+      "ja": 792,
+      "ko": 669,
+      "multilingual": 605,
+      "nl": 467,
+      "pl": 420,
+      "pt": 734,
+      "ro": 284,
+      "ru": 660,
+      "sv": 308,
+      "ta": 273,
+      "th": 354,
+      "tr": 392,
+      "uk": 281,
+      "unspecified": 3355,
+      "vi": 429,
+      "zh": 1357
+    },
+    "by_library": {
+      "unknown": 9977
+    },
+    "by_license_status": {
+      "unknown": 9977
+    },
+    "by_parameter_band": {
+      "unknown": 9977
+    },
+    "by_publisher_top20": {
+      "EleutherAI": 38,
+      "Helsinki-NLP": 71,
+      "MaLA-LM": 52,
+      "NousResearch": 37,
+      "OpenMed": 436,
+      "Qwen": 132,
+      "Xenova": 48,
+      "allenai": 41,
+      "deepseek-ai": 57,
+      "facebook": 197,
+      "google": 42,
+      "ibm-granite": 64,
+      "microsoft": 123,
+      "nvidia": 190,
+      "sentence-transformers": 60,
+      "stabilityai": 51,
+      "timm": 351,
+      "torch-pointcloud": 37,
+      "unsloth": 50,
+      "zai-org": 42
+    },
+    "by_stratum": {
+      "embedding_retrieval": 1024,
+      "image_video_generation": 1000,
+      "scientific_domain": 1200,
+      "specialized_nlp": 1376,
+      "speech_audio_music": 1000,
+      "text_generation_chat": 2600,
+      "trending_recent": 400,
+      "vision_multimodal": 1400
+    },
+    "by_subject_area": {
+      "3d-point-cloud-segmentation": 7,
+      "agriculture": 17,
+      "anime-image-generation": 13,
+      "art": 6,
+      "biomedicine": 725,
+      "chemistry": 166,
+      "climate-earth-science": 85,
+      "computer-vision": 439,
+      "cybersecurity": 48,
+      "document-understanding": 527,
+      "education": 310,
+      "finance": 203,
+      "general-language-model": 5,
+      "general-language-modeling": 11,
+      "image-classification": 37,
+      "image-editing": 20,
+      "image-generation": 147,
+      "image-segmentation": 18,
+      "image-super-resolution": 6,
+      "information-retrieval": 735,
+      "language-modeling": 5,
+      "law": 196,
+      "mathematics": 665,
+      "molecular-biology": 264,
+      "multilingual-nlp": 2084,
+      "multimodal": 29,
+      "music": 57,
+      "object-detection": 14,
+      "physics": 92,
+      "robotics": 91,
+      "safety-and-moderation": 282,
+      "science": 12,
+      "social-science": 121,
+      "software-engineering": 981,
+      "speech-and-audio": 769,
+      "text-to-image-generation": 13,
+      "unknown": 3467,
+      "video-generation": 44,
+      "video-understanding": 12,
+      "vision": 27
+    },
+    "by_task": {
+      "unknown": 9977
+    },
+    "distinct_families": 1,
+    "distinct_publishers": 3988,
+    "records": 9977
+  },
+  "concentration": {
+    "top_family": "unknown",
+    "top_family_fraction": 1.0,
+    "top_publisher": "OpenMed",
+    "top_publisher_fraction": 0.0437
+  },
+  "coverage": {
+    "capabilities": 0.8848,
+    "license_declared": 0.874,
+    "limitations": 0.47,
+    "lineage_or_dataset": 0.5203,
+    "subject_areas": 0.6525,
+    "training_dataset": 0.3378,
+    "usable_card": 1.0,
+    "useful_description": 0.9987
+  },
+  "duplication": {
+    "by_discovery_scope": {
+      "unknown": 9977
+    },
+    "by_family_relation": {
+      "unknown": 9977
+    },
+    "candidate_duplicates_flagged": 1732,
+    "families_with_multiple_records": 1,
+    "family_collapse_rate": 0.9999
+  },
+  "enrichment": {
+    "by_evidence_type": {
+      "architecture": 3007,
+      "evaluated_on": 4689,
+      "fine_tuned_on": 4123,
+      "intended_for": 17109,
+      "trained_on": 5192
+    },
+    "claims": 34120,
+    "claims_per_record": 3.42,
+    "dropped_claims_by_reason": {
+      "evidence_type_merely_mentioned_does_not_establish_specialty": 1272,
+      "not_declared_and_not_present_in_card": 896,
+      "quote_not_found_in_source": 10737
+    },
+    "estimated_cost_usd": 6.7964,
+    "input_tokens": 25106348,
+    "median_latency_seconds": 27.92,
+    "output_tokens": 34818233,
+    "records_enriched": 9977
+  },
+  "generated_at": "2026-08-31T00:02:50Z",
+  "hub_coverage": {
+    "language_codes_covered": 3850,
+    "pipeline_tag_fraction": 0.0,
+    "pipeline_tags_available": 52,
+    "pipeline_tags_covered": 0,
+    "subject_terms_covered": 401,
+    "uncovered_pipeline_tags": [
+      "any-to-any",
+      "audio-classification",
+      "audio-text-to-text",
+      "audio-to-audio",
+      "automatic-speech-recognition",
+      "depth-estimation",
+      "document-question-answering",
+      "feature-extraction",
+      "fill-mask",
+      "graph-ml",
+      "image-classification",
+      "image-feature-extraction",
+      "image-segmentation",
+      "image-text-to-text",
+      "image-text-to-video",
+      "image-to-3d",
+      "image-to-image",
+      "image-to-text",
+      "image-to-video",
+      "keypoint-detection",
+      "mask-generation",
+      "object-detection",
+      "question-answering",
+      "reinforcement-learning",
+      "robotics",
+      "sentence-similarity",
+      "summarization",
+      "table-question-answering",
+      "tabular-classification",
+      "tabular-regression",
+      "text-classification",
+      "text-generation",
+      "text-ranking",
+      "text-to-3d",
+      "text-to-audio",
+      "text-to-image",
+      "text-to-speech",
+      "text-to-video",
+      "text2text-generation",
+      "time-series-forecasting",
+      "token-classification",
+      "translation",
+      "unconditional-image-generation",
+      "video-classification",
+      "video-text-to-text",
+      "video-to-video",
+      "visual-document-retrieval",
+      "visual-question-answering",
+      "voice-activity-detection",
+      "zero-shot-classification",
+      "zero-shot-image-classification",
+      "zero-shot-object-detection"
+    ]
+  },
+  "selection": {
+    "by_reason_code": {
+      "excluded_checkpoint": 233,
+      "excluded_empty_card": 6,
+      "excluded_inaccessible": 294,
+      "excluded_over_quota": 12491,
+      "included_diversity": 1585,
+      "included_ranked": 8015,
+      "included_recent": 400,
+      "quarantined_enrichment": 17,
+      "suppressed_variant": 7424
+    },
+    "candidates_considered": 30242
+  },
+  "snapshot": {
+    "enrichment_backend": "openrouter",
+    "enrichment_model": "openai/gpt-oss-20b",
+    "enrichment_prompt_version": "1.1",
+    "huggingface_hub_version": "1.29.0",
+    "normalizer_version": "1.0",
+    "pipeline_version": "0.1.0",
+    "quotas": {
+      "embedding_retrieval": 1000,
+      "image_video_generation": 1000,
+      "scientific_domain": 1200,
+      "specialized_nlp": 1200,
+      "speech_audio_music": 1000,
+      "text_generation_chat": 2600,
+      "trending_recent": 600,
+      "vision_multimodal": 1400
+    },
+    "random_seed": 20260828,
+    "selection_policy_version": "1.0",
+    "selection_profile": "wide",
+    "snapshot_id": "hf-wide-2026-08-29",
+    "source": "Hugging Face public Hub API and repository README.md files",
+    "stages": {
+      "emit": {
+        "completed_at": "2026-08-30T22:25:49Z",
+        "items": 9977
+      },
+      "enrich": {
+        "backend": "openrouter",
+        "completed_at": "2026-08-30T21:13:08Z",
+        "dropped_claims": 12905,
+        "enriched": 9977,
+        "model": "openrouter:openai/gpt-oss-20b@medium",
+        "quarantined": 0
+      },
+      "families": {
+        "completed_at": "2026-08-30T21:11:29Z",
+        "families": 14391,
+        "repositories": 17401
+      },
+      "fetch": {
+        "cached": 9991,
+        "completed_at": "2026-08-29T21:37:51Z",
+        "empty_card": 4,
+        "missing_readme": 2,
+        "ok": 3
+      },
+      "normalize": {
+        "completed_at": "2026-08-30T21:11:27Z",
+        "records": 9977
+      },
+      "report": {
+        "completed_at": "2026-08-31T00:01:44Z",
+        "review_sample": 200
+      },
+      "select": {
+        "candidates": 30242,
+        "completed_at": "2026-08-29T21:37:49Z",
+        "included": 10000
+      },
+      "validate": {
+        "claims": 34120,
+        "completed_at": "2026-08-31T00:02:45Z",
+        "evidence_valid": 9977,
+        "items": 9977,
+        "schema_valid": 9977
+      }
+    },
+    "started_at": "2026-08-29T21:37:18Z",
+    "target_count": 10000,
+    "taxonomy_id": "https://guha.com/ns/hf-corpus/subjects/1.0",
+    "taxonomy_version": "1.0"
+  },
+  "validation": {
+    "claims": 34120,
+    "evidence_valid": 9977,
+    "evidence_valid_fraction": 1.0,
+    "items": 9977,
+    "schema_valid": 9977,
+    "schema_valid_fraction": 1.0
+  }
+}

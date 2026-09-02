@@ -1,0 +1,1690 @@
+{
+  "k": 10,
+  "per_query": [
+    {
+      "id": "q001",
+      "qualifying_in_corpus": 396,
+      "question": "I need a small model for biomedical named-entity recognition.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 0.9,
+          "precision_at_k": 0.4,
+          "recall_at_k": 0.4,
+          "returned": 10,
+          "top_hits": [
+            "knowledgator/comprehend_it-base",
+            "OpenMed/OpenMed-ZeroShot-NER-Pathology-Small-166M",
+            "thainq107/ner-biomedical-maccrobat2018",
+            "Adapting/bert-base-chinese-finetuned-NER-biomedical",
+            "Adnan666/whisper-small-pashto"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 0.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "returned": 10,
+          "top_hits": [
+            "DeepFloyd/IF-I-M-v1.0",
+            "DeepFloyd/IF-I-XL-v1.0",
+            "Nerdsking/Nerdsking-python-coder-7B-i",
+            "Nerdsking/nerdsking-python-coder-3B-i",
+            "AldoSN/biomedical_model_aldosn"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q002",
+      "qualifying_in_corpus": 148,
+      "question": "Which models have documented knowledge of Indian legal material?",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.2,
+          "recall_at_k": 0.2,
+          "returned": 10,
+          "top_hits": [
+            "opennyaiorg/en_legal_ner_trf",
+            "hrusheekeshsawarkar/indic-sentence-bert-nli-matryoshka",
+            "Kernel/sd-nsfw",
+            "CompVis/stable-diffusion-v1-1",
+            "pt-sk/stable-diffusion-1.5"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 0.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "returned": 10,
+          "top_hits": [
+            "LeroyDyer/_Spydaz_Web_AI_LlavaNextVideo",
+            "naver/splade-cocondenser-ensembledistil",
+            "naver/splade-cocondenser-selfdistil",
+            "naver/splade_v2_distil",
+            "naver/efficient-splade-V-large-doc"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q003",
+      "qualifying_in_corpus": 373,
+      "question": "Find multilingual embedding models evaluated on non-English retrieval.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.6,
+          "recall_at_k": 0.6,
+          "returned": 10,
+          "top_hits": [
+            "OPI-PIB/PolDense-32M",
+            "Salesforce/SFR-Embedding-Code-400M_R",
+            "OPI-PIB/PolDense-150M",
+            "vrashad/az-legal-retrieval-xlm",
+            "deepvk/USER-base"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.1,
+          "recall_at_k": 0.1,
+          "returned": 10,
+          "top_hits": [
+            "AmareshHebbar/pocketllm-models",
+            "climateset/causalpaca_models",
+            "desert-ant-labs/title",
+            "VatsaDev/MathText-models",
+            "NisargRhino/protein-models"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q004",
+      "qualifying_in_corpus": 30,
+      "question": "I need speech recognition for low-resource African languages.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 0.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "returned": 10,
+          "top_hits": [
+            "Sunbird/asr-whisper-51-african-languages",
+            "CAiRE/SER-wav2vec2-large-xlsr-53-eng-zho-all-age",
+            "McGill-NLP/AfriE5-Large-instruct",
+            "AfriSpeech/afrispeech-gender-id",
+            "ARTPARK-IISc/SraVaani-1.0"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 0.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "returned": 10,
+          "top_hits": [
+            "Sunbird/asr-whisper-51-african-languages",
+            "msingiai/dia",
+            "gimmy256/adaption_african_finance_qa",
+            "rnjema-unima/mms-tts-wol-baseline",
+            "DeepFloyd/IF-I-M-v1.0"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q005",
+      "qualifying_in_corpus": 825,
+      "question": "Which image models have a clearly stated commercially usable license?",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.2,
+          "recall_at_k": 0.2,
+          "returned": 10,
+          "top_hits": [
+            "nvidia/Cosmos-Transfer2.5-2B",
+            "ACE-Step/acestep-v15-xl-turbo",
+            "pt-sk/stable-diffusion-1.5",
+            "XLabs-AI/flux-controlnet-canny-v3",
+            "ACE-Step/acestep-5Hz-lm-0.6B"
+          ],
+          "trap_rate": 0.1
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.1,
+          "recall_at_k": 0.1,
+          "returned": 10,
+          "top_hits": [
+            "timm/tinynet_a.in1k",
+            "joker5914/yolov8n-license-plate",
+            "makhresearch/persian-license-plate-detector",
+            "morsetechlab/yolov11-license-plate-detection",
+            "justjuu/rtdetr-v2-license-plate-detection"
+          ],
+          "trap_rate": 0.2
+        }
+      }
+    },
+    {
+      "id": "q006",
+      "qualifying_in_corpus": 37,
+      "question": "Find a model related to Carnatic music, distinguishing audio generation from descriptive text knowledge.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.3,
+          "recall_at_k": 0.3,
+          "returned": 10,
+          "top_hits": [
+            "mtg-upf/discogs-maest-30s-pw-129e",
+            "mtg-upf/discogs-maest-30s-pw-73e-ts",
+            "realrebelai/MiniMax-Music-3_GGUFs",
+            "ChrisColeTech/scenema-audio",
+            "mispeech/Dasheng-AudioGen-Multilingual"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 0.0,
+          "family_diversity": 0.7,
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "returned": 10,
+          "top_hits": [
+            "realrebelai/MiniMax-Music-3_GGUFs",
+            "SonexaAI/Sonexa-Music-v0.1-Beta",
+            "declare-lab/mustango",
+            "ChrisColeTech/scenema-audio",
+            "stabilityai/stable-audio-3-small-music"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q007",
+      "qualifying_in_corpus": 6012,
+      "question": "What can run locally on an Apple silicon laptop with 16 GB of memory?",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 0.9,
+          "precision_at_k": 0.7,
+          "recall_at_k": 0.7,
+          "returned": 10,
+          "top_hits": [
+            "scrappylabsai/warble",
+            "mlx-community/Qwen3.5-397B-A17B-nvfp4",
+            "wangjazz/Hunyuan-MT1.5-1.8B-MNN",
+            "mlx-community/MiniMax-Music3-mxfp8",
+            "dealignai/Gemma-4-31B-JANG_4M-CRACK"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 0.9,
+          "precision_at_k": 0.5,
+          "recall_at_k": 0.5,
+          "returned": 10,
+          "top_hits": [
+            "scrappylabsai/warble",
+            "FermionResearch/Phonon-1-Big",
+            "mlx-community/Qwen3.5-397B-A17B-nvfp4",
+            "logic65/whittle-next",
+            "mlx-community/Hy-MT2-1.8B"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q008",
+      "qualifying_in_corpus": 243,
+      "question": "Which models were trained on protein or genomic sequences?",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.8,
+          "recall_at_k": 0.8,
+          "returned": 10,
+          "top_hits": [
+            "InstaDeepAI/NTv3_generative",
+            "Tasfiya025/Protein_Sequence_Toxicity_Predictor",
+            "nferruz/ProtGPT2",
+            "ritakurban/ESM_protein_localization",
+            "neuralbioinfo/prokbert-mini-promoter"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.7,
+          "recall_at_k": 0.7,
+          "returned": 10,
+          "top_hits": [
+            "NisargRhino/protein-models",
+            "neuralbioinfo/prokbert-mini-promoter",
+            "AmareshHebbar/pocketllm-models",
+            "EdgeAIMed/EdgeAIMed-NER-ProteinDetect-PubMed-109M",
+            "OpenMed/OpenMed-NER-ProteinDetect-BioClinical-108M"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q009",
+      "qualifying_in_corpus": 160,
+      "question": "Show me models fine-tuned on financial filings or market data.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 0.9,
+          "precision_at_k": 0.7,
+          "recall_at_k": 0.7,
+          "returned": 10,
+          "top_hits": [
+            "thinkingdbx/kautilyaa-9b-finance",
+            "Shoriful025/finance-ts-lstm-autoencoder-anomaly",
+            "fastino/Fastino-Nemotron-3.5-Lightning-Finance",
+            "toolevalxm/FinanceGPT-TestRepo",
+            "abhishekai/slm-500m-legal-sft"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 0.9,
+          "precision_at_k": 0.2,
+          "recall_at_k": 0.2,
+          "returned": 10,
+          "top_hits": [
+            "hatmimoha/finance-article-titles-classifier",
+            "ihsan31415/indo-roBERTa-financial-sentiment",
+            "StephanAkkerman/FinTwitBERT-sentiment",
+            "StephanAkkerman/FinTwitBERT-wsb-sentiment",
+            "AmareshHebbar/pocketllm-models"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q010",
+      "qualifying_in_corpus": 138,
+      "question": "Any model with documented chemistry or molecular property prediction training?",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.6,
+          "recall_at_k": 0.6,
+          "returned": 10,
+          "top_hits": [
+            "mist-models/mist-26.9M-48kpooqf-odour",
+            "licyk/Spark-Chemistry-X1-13B",
+            "SaeedLab/MolDeBERTa-base-123M-mtr",
+            "facebook/galactica-1.3b",
+            "facebook/galactica-120b"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 0.9,
+          "precision_at_k": 0.1,
+          "recall_at_k": 0.1,
+          "returned": 10,
+          "top_hits": [
+            "mist-models/mist-26.9M-48kpooqf-odour",
+            "vicky00700/my-chemistry-model",
+            "yuesu4/Protein_Mutation_ProtBert_MAML",
+            "nkp37/OpenVid-1M",
+            "SaProtHub/Model-Mega-sacle-Protein-Stability-Prediction-35M"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q011",
+      "qualifying_in_corpus": 85,
+      "question": "Models for climate, weather, or earth observation data.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 1.0,
+          "recall_at_k": 1.0,
+          "returned": 10,
+          "top_hits": [
+            "mfaytin/mask2former-satellite",
+            "climate-adaptation/Qwen2.5-7B-Instruct-action_solution",
+            "DarthReca/actu-change-detection",
+            "sugiken/Ordis-1.8B-V17-Multilingual",
+            "BiliSakura/AlignEarth-SAR-ViT-B-16"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 0.9,
+          "precision_at_k": 0.5,
+          "recall_at_k": 0.5,
+          "returned": 10,
+          "top_hits": [
+            "DarthReca/actu-change-detection",
+            "mfaytin/mask2former-satellite",
+            "BiliSakura/AlignEarth-SAR-ViT-B-16",
+            "climateset/causalpaca_models",
+            "climate-adaptation/Qwen2.5-7B-Instruct-action_solution"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q012",
+      "qualifying_in_corpus": 457,
+      "question": "Which models are documented for clinical or radiology report understanding?",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.6,
+          "recall_at_k": 0.6,
+          "returned": 10,
+          "top_hits": [
+            "stanfordmimi/Merlin",
+            "ChantalPellegrini/RaDialog-interactive-radiology-report-generation",
+            "Angelakeke/RaTE-NER-Deberta",
+            "google/medgemma-1.5-4b-it",
+            "microsoft/maira-2"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.6,
+          "recall_at_k": 0.6,
+          "returned": 10,
+          "top_hits": [
+            "ChantalPellegrini/RaDialog-interactive-radiology-report-generation",
+            "projectthinkings123/nih-chestxray14-swin-clinical-report",
+            "vsro200/models-vsro200",
+            "AventIQ-AI/text-summarization-for-clinical-trial-results",
+            "openbmb/AgentCPM-Report"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q013",
+      "qualifying_in_corpus": 612,
+      "question": "Find a model specialised in mathematical reasoning with reported evaluation.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.7,
+          "recall_at_k": 0.7,
+          "returned": 10,
+          "top_hits": [
+            "MathGenie/MathGenie-Mixtral-8x7B",
+            "nareshmeena12/fluxion-370m-instruct",
+            "nvidia/OpenMath-CodeLlama-34b-Python-hf",
+            "Jackrong/DeepSeek-V4-Pro-Qwen3.5-4B",
+            "more8467394/Gemma-12B"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.2,
+          "recall_at_k": 0.2,
+          "returned": 10,
+          "top_hits": [
+            "adityasihag/math_QA-gemma-2B-QLoRA-adapter",
+            "SurweeshSP/mathtok",
+            "PublicPrompts/All-In-One-Pixel-Model",
+            "CohereLabs/command-a-reasoning-08-2025",
+            "krplt/trocr-handwritten-mathematical-expressions"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q014",
+      "qualifying_in_corpus": 482,
+      "question": "Code models evaluated on program synthesis benchmarks.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 0.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "returned": 10,
+          "top_hits": [
+            "Salesforce/codegen25-7b-instruct_P",
+            "Salesforce/codegen-2B-mono",
+            "Salesforce/codegen-16B-mono",
+            "Salesforce/codegen2-16B_P",
+            "Salesforce/codegen25-7b-multi_P"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 0.0,
+          "family_diversity": 0.9,
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "returned": 10,
+          "top_hits": [
+            "scrappylabsai/warble",
+            "AmareshHebbar/pocketllm-models",
+            "oddadmix/Nabra-82M-v0.1",
+            "litert-community/Matcha-TTS",
+            "neuphonic/neutts-air"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q015",
+      "qualifying_in_corpus": 48,
+      "question": "Models documented for cybersecurity or malware analysis.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 0.9,
+          "precision_at_k": 0.9,
+          "recall_at_k": 0.9,
+          "returned": 10,
+          "top_hits": [
+            "kmack/malicious-url-detection",
+            "amahdaouy/DomURLs_BERT",
+            "cisco-ai/SecureBERT2.0-NER",
+            "ZySec-AI/SecurityLLM",
+            "cisco-ai/SecureBERT2.0-cross_encoder"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.3,
+          "recall_at_k": 0.3,
+          "returned": 10,
+          "top_hits": [
+            "CrabInHoney/urlbert-tiny-v5",
+            "ZySec-AI/SecurityLLM",
+            "amahdaouy/DomURLs_BERT",
+            "segolilylabs/Lily-Cybersecurity-7B-v0.2",
+            "climateset/causalpaca_models"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q016",
+      "qualifying_in_corpus": 115,
+      "question": "A reranking model for improving search result ordering.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.3,
+          "recall_at_k": 0.3,
+          "returned": 10,
+          "top_hits": [
+            "jinaai/jina-reranker-v1-tiny-en",
+            "amber-tech/bert-multilingual-passage-reranking-msmarco",
+            "NeuML/biomedbert-base-reranker",
+            "mixedbread-ai/mxbai-rerank-large-v1",
+            "lightonai/LateOn-Code"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.2,
+          "recall_at_k": 0.2,
+          "returned": 10,
+          "top_hits": [
+            "tardellirs/colibri-embed-ptbr",
+            "llm-blender/PairRM",
+            "redis/langcache-embed-v3-small",
+            "nvidia/llama-nemotron-rerank-vl-1b-v2",
+            "LemiSt/PairRM-mdeberta-v3-base"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q017",
+      "qualifying_in_corpus": 244,
+      "question": "Text to speech models that can clone or condition on a reference voice.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 0.8,
+          "precision_at_k": 0.9,
+          "recall_at_k": 0.9,
+          "returned": 10,
+          "top_hits": [
+            "NAMAA-Space/NAMAA-Saudi-TTS-V2",
+            "msingiai/dia",
+            "unsloth/Spark-TTS-0.5B",
+            "smhfacct/Minimax-H3-fl2va-ref2va-hybrid-models",
+            "tryorato/orato-tts-hindi-v1"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.7,
+          "recall_at_k": 0.7,
+          "returned": 10,
+          "top_hits": [
+            "Misha24-10/F5-TTS_RUSSIAN",
+            "BreezeBlue/Breeze-TTS-2",
+            "OpenVoiceOS/qwen3-tts-0.6b-f16",
+            "tryorato/orato-tts-hindi-v1",
+            "ughurabbasov/qwen3-tts-azerbaijani-female"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q018",
+      "qualifying_in_corpus": 112,
+      "question": "Document question answering over scanned invoices and forms.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 0.9,
+          "precision_at_k": 0.4,
+          "recall_at_k": 0.4,
+          "returned": 10,
+          "top_hits": [
+            "lakshya-rawat/document-qa-model",
+            "aslessor/layoutlm-invoices",
+            "DmitrySpartak/layoutlm-invoices",
+            "impira/layoutlm-invoices",
+            "nikravan/glm-4vq"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 0.6,
+          "precision_at_k": 0.6,
+          "recall_at_k": 0.6,
+          "returned": 10,
+          "top_hits": [
+            "DmitrySpartak/layoutlm-invoices",
+            "impira/layoutlm-invoices",
+            "aslessor/layoutlm-invoices",
+            "Oksana76B/document-question-answering",
+            "rubentito/layoutlmv3-base-mpdocvqa"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q019",
+      "qualifying_in_corpus": 280,
+      "question": "Object detection models for real time video.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 1.0,
+          "recall_at_k": 1.0,
+          "returned": 10,
+          "top_hits": [
+            "unity/inference-engine-yolo",
+            "qualcomm/Person-Foot-Detection",
+            "akore/rtmdet-tiny",
+            "ustc-community/dfine-nano-coco",
+            "qualcomm/MediaPipe-Face-Detection"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 1.0,
+          "recall_at_k": 1.0,
+          "returned": 10,
+          "top_hits": [
+            "qualcomm/YOLOv8-Detection",
+            "qualcomm/Yolo-X",
+            "qualcomm/MediaPipe-Face-Detection",
+            "qualcomm/MediaPipe-Hand-Detection",
+            "qualcomm/Facial-Attribute-Detection"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q020",
+      "qualifying_in_corpus": 214,
+      "question": "Diffusion models for image editing rather than generation from scratch.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 0.8,
+          "precision_at_k": 0.4,
+          "recall_at_k": 0.4,
+          "returned": 10,
+          "top_hits": [
+            "nunchaku-ai/nunchaku-flux.1-kontext-dev",
+            "stabilityai/stable-audio-3-small-sfx",
+            "cocktailpeanut/stable-audio-3-medium-base",
+            "Alpha-VLLM/Lumina-DiMOO",
+            "VectorVoid666/FLUX.2-klein-base-9B-bucket-uncensored"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.5,
+          "recall_at_k": 0.5,
+          "returned": 10,
+          "top_hits": [
+            "tilake/China-Chic-illustration",
+            "Kernel/sd-nsfw",
+            "mage-flow-community/Mage-Flow-Edit",
+            "iitolstykh/VIBE-Image-Edit",
+            "smhfacct/Minimax-H3-fl2va-ref2va-hybrid-models"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q021",
+      "qualifying_in_corpus": 60,
+      "question": "Speaker diarization for multi speaker meeting recordings.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.9,
+          "recall_at_k": 0.9,
+          "returned": 10,
+          "top_hits": [
+            "Trelis/tiron",
+            "BUT-FIT/SE-DiCoW",
+            "OpenMOSS-Team/MOSS-Transcribe-Diarize",
+            "nvidia/diar_streaming_sortformer_4spk-v2",
+            "pyannote/segmentation-3.0"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 0.8,
+          "precision_at_k": 0.9,
+          "recall_at_k": 0.9,
+          "returned": 10,
+          "top_hits": [
+            "Trelis/tiron",
+            "BUT-FIT/SE-DiCoW",
+            "pyannote/speaker-diarization",
+            "fatymatariq/speaker-diarization-3.1",
+            "pyannote/speaker-diarization-3.0"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q022",
+      "qualifying_in_corpus": 92,
+      "question": "Zero shot text classification without task specific training data.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.1,
+          "recall_at_k": 0.1,
+          "returned": 10,
+          "top_hits": [
+            "MoritzLaurer/bge-m3-zeroshot-v2.0-c",
+            "OpenMed/OpenMed-ZeroShot-NER-Species-Tiny-60M",
+            "OpenMed/OpenMed-ZeroShot-NER-Pathology-XLarge-770M",
+            "OpenMed/OpenMed-ZeroShot-NER-Genomic-XLarge-770M",
+            "OpenMed/OpenMed-ZeroShot-NER-Genome-Large-459M"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.8,
+          "recall_at_k": 0.8,
+          "returned": 10,
+          "top_hits": [
+            "sileod/deberta-v3-large-tasksource-nli",
+            "tasksource/deberta-small-long-nli",
+            "sileod/deberta-v3-base-tasksource-nli",
+            "sileod/mdeberta-v3-base-tasksource-nli",
+            "awidjaja/zero-shot-xlmR-food"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q023",
+      "qualifying_in_corpus": 886,
+      "question": "Summarization models for long documents.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 1.0,
+          "recall_at_k": 1.0,
+          "returned": 10,
+          "top_hits": [
+            "google/bigbird-pegasus-large-pubmed",
+            "pszemraj/led-base-book-summary",
+            "pszemraj/long-t5-tglobal-base-16384-book-summary",
+            "thnhan3/sft_model",
+            "akoksal/LongForm-OPT-2.7B"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.6,
+          "recall_at_k": 0.6,
+          "returned": 10,
+          "top_hits": [
+            "pszemraj/long-t5-tglobal-base-16384-book-summary",
+            "AventIQ-AI/text-summarization-for-clinical-trial-results",
+            "pszemraj/led-base-book-summary",
+            "pszemraj/led-large-book-summary",
+            "pszemraj/pegasus-x-large-book-summary"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q024",
+      "qualifying_in_corpus": 68,
+      "question": "Video understanding models that answer questions about a clip.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.3,
+          "recall_at_k": 0.3,
+          "returned": 10,
+          "top_hits": [
+            "adept/fuyu-8b",
+            "HuggingFaceM4/idefics-80b",
+            "ed001/datascience-coder-6.7b",
+            "llava-hf/LLaVA-NeXT-Video-7B-DPO-hf",
+            "Xenova/donut-base-finetuned-docvqa"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.7,
+          "recall_at_k": 0.7,
+          "returned": 10,
+          "top_hits": [
+            "vsro200/models-vsro200",
+            "Rtrggf/Type-A",
+            "TencentARC/ARC-Hunyuan-Video-7B",
+            "LeroyDyer/_Spydaz_Web_AI_LlavaNextVideo",
+            "lightx2v/Hy1.5-Distill-Models"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q025",
+      "qualifying_in_corpus": 202,
+      "question": "Translation models between two specific non English languages.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 0.9,
+          "precision_at_k": 0.9,
+          "recall_at_k": 0.9,
+          "returned": 10,
+          "top_hits": [
+            "AfriNLP/AfriNLLB-12enc-12dec-full-ft-kd",
+            "ai4bharat/indictrans2-en-indic-1B",
+            "LiquidAI/LFM2-350M-ENJP-MT",
+            "cyberagent/CAT-Translate-3.3b",
+            "utrobinmv/t5_translate_en_ru_zh_base_200"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.7,
+          "recall_at_k": 0.7,
+          "returned": 10,
+          "top_hits": [
+            "SLPG/Biomedical_French_to_English",
+            "megalaa/coptic-english-translator",
+            "megalaa/english-coptic-translator",
+            "suyash2739/English_to_Hinglish_fintuned_lamma_3_8b_instruct",
+            "NAMAA-Space/masrawy-english-to-egyptian-arabic-translator-v2.9"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q026",
+      "qualifying_in_corpus": 574,
+      "question": "Models supporting Indian languages such as Hindi, Tamil, or Telugu.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 1.0,
+          "recall_at_k": 1.0,
+          "returned": 10,
+          "top_hits": [
+            "ai4bharat/IndicNER",
+            "Aditya02/IndicF5",
+            "anktechsol/anki-2.5",
+            "ai4bharat/IndicF5",
+            "l3cube-pune/IndicGuard"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 1.0,
+          "recall_at_k": 1.0,
+          "returned": 10,
+          "top_hits": [
+            "anktechsol/anki-2.5",
+            "onecxi/vakgyata-base",
+            "onecxi/vakgyata-mini",
+            "onecxi/vakgyata-small",
+            "onecxi/vakgyata-tiny"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q027",
+      "qualifying_in_corpus": 1357,
+      "question": "Chinese language models with documented Chinese evaluation.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 1.0,
+          "recall_at_k": 1.0,
+          "returned": 10,
+          "top_hits": [
+            "CofeAI/FLM-2-52B-Instruct-2407",
+            "TinyLlama/TinyLlama_v1.1",
+            "ckiplab/bert-base-chinese-pos",
+            "hfl/chinese-alpaca-2-7b",
+            "ckiplab/bert-base-chinese-ner"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 1.0,
+          "recall_at_k": 1.0,
+          "returned": 10,
+          "top_hits": [
+            "babel530/chinese-wav2vec2-base",
+            "IDEA-CCNL/Taiyi-Stable-Diffusion-1B-Chinese-EN-v0.1",
+            "IDEA-CCNL/Randeng-Pegasus-238M-Summary-Chinese",
+            "cszhangai/ancient-chinese-character-detection",
+            "AnxForever/chinese-ai-detector-bert"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q028",
+      "qualifying_in_corpus": 661,
+      "question": "Arabic language understanding models.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 1.0,
+          "recall_at_k": 1.0,
+          "returned": 10,
+          "top_hits": [
+            "QCRI/Fanar-1-9B-Instruct",
+            "IsmaelMousa/arab-bart-base-174M",
+            "inception42/Jais-2-8B-Chat",
+            "saai-sa/ASL-4B-v1",
+            "NAMAA-Space/Qari-OCR-v0.3-VL-2B-Instruct"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 0.0,
+          "family_diversity": 0.6,
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "returned": 10,
+          "top_hits": [
+            "MCG-NJU/VideoChat3-4B",
+            "DAMO-NLP-SG/VideoLLaMA3-2B",
+            "DAMO-NLP-SG/VideoLLaMA3-7B",
+            "OpenMOSS-Team/MOSS-VL-Realtime",
+            "CCCCyx/MOSS-VL-0708-Instruct"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q029",
+      "qualifying_in_corpus": 620,
+      "question": "Southeast Asian language models covering Indonesian, Thai, or Vietnamese.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 1.0,
+          "recall_at_k": 1.0,
+          "returned": 10,
+          "top_hits": [
+            "MERaLiON/MERaLiON-SpeechEncoder-2",
+            "SeaLLMs/SeaLLMs-v3-1.5B-Chat",
+            "SeaLLMs/SeaLLMs-v3-1.5B",
+            "sail/Sailor-0.5B",
+            "sail/Sailor-4B"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 0.9,
+          "precision_at_k": 0.8,
+          "recall_at_k": 0.8,
+          "returned": 10,
+          "top_hits": [
+            "MERaLiON/MERaLiON-3-3B-ASR",
+            "stablediffusionapi/beautiful-realistic-asian",
+            "VIZINTZOR/MMS-TTS-THAI-FEMALEV1",
+            "VIZINTZOR/MMS-TTS-THAI-FEMALEV2",
+            "VIZINTZOR/MMS-TTS-THAI-MALE-NARRATOR"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q030",
+      "qualifying_in_corpus": 737,
+      "question": "European language models beyond English, for example Finnish or Czech.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.8,
+          "recall_at_k": 0.8,
+          "returned": 10,
+          "top_hits": [
+            "LumiOpen/Poro-34B",
+            "Helsinki-NLP/opus-mt-tc-big-en-fi",
+            "Finnish-NLP/wav2vec2-xlsr-300m-finnish-lm",
+            "TurkuNLP/sbert-uncased-finnish-paraphrase",
+            "ibm-granite/granite-speech-3.2-8b"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.6,
+          "recall_at_k": 0.6,
+          "returned": 10,
+          "top_hits": [
+            "Finnish-NLP/whisper-large-finnish-v3",
+            "Finnish-NLP/wav2vec2-xlsr-300m-finnish-lm",
+            "llange/xlm-roberta-large-english-clinical",
+            "0xnu/european-license-plate-recognition",
+            "TurkuNLP/sbert-cased-finnish-paraphrase"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q031",
+      "qualifying_in_corpus": 4191,
+      "question": "Something under a billion parameters I can fine tune on one GPU.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.1,
+          "recall_at_k": 0.1,
+          "returned": 10,
+          "top_hits": [
+            "NODEMIND/SHADOW-250M",
+            "jdopensource/JoyAI-VL-Interaction-Preview",
+            "microsoft/wavlm-large",
+            "HuggingFaceM4/idefics-9b",
+            "typhoon-ai/typhoon-7b"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.2,
+          "recall_at_k": 0.2,
+          "returned": 10,
+          "top_hits": [
+            "patrickramos/bert-base-japanese-v2-wrime-fine-tune",
+            "SeeSee21/AniSee",
+            "mbazaNLP/Whisper-Small-Kinyarwanda",
+            "ivanlau/language-detection-fine-tuned-on-xlm-roberta-base",
+            "TendieLabs/Frank-9B-GGUFs"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q032",
+      "qualifying_in_corpus": 639,
+      "question": "A large frontier scale open weights model.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.5,
+          "recall_at_k": 0.5,
+          "returned": 10,
+          "top_hits": [
+            "MagistrTheOne/KNK-VF-Lab-38B",
+            "LGAI-EXAONE/K-EXAONE-2.0-750B-A37B",
+            "zai-org/cogvlm-chat-hf",
+            "MagistrTheOne/KNK-VF-153B",
+            "Kwai-Kolors/Kolors-IP-Adapter-Plus"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.4,
+          "recall_at_k": 0.4,
+          "returned": 10,
+          "top_hits": [
+            "GaryFer/smart-parking-weights",
+            "Rtrggf/Type-A",
+            "Beinsezii/Krea-2-Turbo-Projector-Scale-LoRA-Diffusers",
+            "timm/tinynet_a.in1k",
+            "skt/A.X-K1"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q033",
+      "qualifying_in_corpus": 307,
+      "question": "Quantized builds of a model I can run on a laptop.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 0.0,
+          "family_diversity": 0.9,
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "returned": 10,
+          "top_hits": [
+            "ornith-ai/Ornith-1.5-397B-NVFP4",
+            "Aniemore/wavlm-emotion-v1-crosslingual",
+            "openaccess-ai-collective/wizard-mega-13b",
+            "KBlueLeaf/DanTagGen-beta",
+            "NetherQuartz/ilo-toki-1.1-MiLMMT-46-1b-merged"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 0.0,
+          "family_diversity": 0.9,
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "returned": 10,
+          "top_hits": [
+            "Rtrggf/Type-A",
+            "timm/tinynet_a.in1k",
+            "skt/A.X-K1",
+            "skt/A.X-Encoder-base",
+            "skt/A.X-4.0"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q034",
+      "qualifying_in_corpus": 860,
+      "question": "A model with a long context window for whole document input.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.4,
+          "recall_at_k": 0.4,
+          "returned": 10,
+          "top_hits": [
+            "EssentialAI/rnj-1.5-instruct",
+            "rhymes-ai/Aria",
+            "magibu/embeddingmagibu-200m",
+            "enfuse/smol-tools-4b-32k",
+            "google/gemma-4-12B-it-assistant"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.5,
+          "recall_at_k": 0.5,
+          "returned": 10,
+          "top_hits": [
+            "progitanas1/anasforvismazarsmodel",
+            "Rtrggf/Type-A",
+            "timm/tinynet_a.in1k",
+            "skt/A.X-K1",
+            "skt/A.X-Encoder-base"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q035",
+      "qualifying_in_corpus": 772,
+      "question": "ONNX or OpenVINO builds for CPU only deployment.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.9,
+          "recall_at_k": 0.9,
+          "returned": 10,
+          "top_hits": [
+            "hotchpotch/bekko-embedding-v1-a8m",
+            "hotchpotch/bekko-embedding-v1-a25m",
+            "Kodjaoglanian/pavimentos-yolo11l",
+            "sentence-transformers/nli-mpnet-base-v2",
+            "cross-encoder/ettin-reranker-68m-v1"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 0.9,
+          "precision_at_k": 0.6,
+          "recall_at_k": 0.6,
+          "returned": 10,
+          "top_hits": [
+            "DORI-SRKW/whisper-tiny-mm-cpu",
+            "ampixa/real-nepali-v0.2-kala",
+            "Aikwed/pistar06_insert_carrot_hil_success_only",
+            "Lucasllfs/Razo-piper-voice",
+            "LH-Tech-AI/Apex-1.5-Coder-Instruct-350M"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q036",
+      "qualifying_in_corpus": 743,
+      "question": "Sentence transformers models I can run with the sentence-transformers library.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.6,
+          "recall_at_k": 0.6,
+          "returned": 10,
+          "top_hits": [
+            "bkai-foundation-models/vietnamese-bi-encoder",
+            "nickprock/sentence-bert-base-italian-uncased",
+            "Crystalcareai/GemMoE-Beta-1",
+            "litert-community/embeddinggemma-300m",
+            "Snowflake/snowflake-arctic-embed-l"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.1,
+          "recall_at_k": 0.1,
+          "returned": 10,
+          "top_hits": [
+            "Qdrant/all_miniLM_L6_v2_with_attentions",
+            "espnet/fastspeech2_conformer_with_hifigan",
+            "pongjin/roberta_with_kornli",
+            "DeepFloyd/IF-I-M-v1.0",
+            "DeepFloyd/IF-I-XL-v1.0"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q037",
+      "qualifying_in_corpus": 1990,
+      "question": "Apache 2.0 or MIT licensed language models.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.9,
+          "recall_at_k": 0.9,
+          "returned": 10,
+          "top_hits": [
+            "ibm-granite/granite-4.2-8b",
+            "EleutherAI/pythia-1b",
+            "ostris/Flex.1-alpha-Redux",
+            "FINAL-Bench/Darwin-9B-Opus",
+            "EleutherAI/pythia-410m"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.5,
+          "recall_at_k": 0.5,
+          "returned": 10,
+          "top_hits": [
+            "stepfun-ai/GOT-OCR-2.0-hf",
+            "nvidia/NVIDIA-Nemotron-Parse-2.0",
+            "smp-hub/mit_b1.imagenet",
+            "smp-hub/mit_b3.imagenet",
+            "FINAL-Bench/Darwin-31B-Opus"
+          ],
+          "trap_rate": 0.3
+        }
+      }
+    },
+    {
+      "id": "q038",
+      "qualifying_in_corpus": 2810,
+      "question": "Models whose license terms I would need to read before commercial use.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 0.9,
+          "precision_at_k": 0.3,
+          "recall_at_k": 0.3,
+          "returned": 10,
+          "top_hits": [
+            "ostris/Flex.1-alpha-Redux",
+            "RinKana/Qwen3-8B-finance-V1.0.1-Merged-V2",
+            "prosa-text/climate-subtopic",
+            "prosa-text/climate-stance-detection",
+            "nyralabs/CrisperWhisper2.0_large"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.2,
+          "recall_at_k": 0.2,
+          "returned": 10,
+          "top_hits": [
+            "DeepFloyd/IF-I-M-v1.0",
+            "DeepFloyd/IF-I-XL-v1.0",
+            "laion/voiceclap-commercial",
+            "aidealab/AnimeGen-T2V",
+            "joker5914/yolov8n-license-plate"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q039",
+      "qualifying_in_corpus": 201,
+      "question": "Models that document their limitations and known risks.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.1,
+          "recall_at_k": 0.1,
+          "returned": 10,
+          "top_hits": [
+            "Lexemo/roberta_large_legal_act_extraction",
+            "vidore/colpali",
+            "gliner-community/gliner_small-v2.5",
+            "vidore/colpali-v1.3",
+            "climatebert/transition-physical"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 0.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "returned": 10,
+          "top_hits": [
+            "foduucom/table-detection-and-extraction",
+            "VanNguyen1214/get_face_and_hair",
+            "laion/larger_clap_music_and_speech",
+            "CQdesign/LTX-2.5-CQ-Video-and-Image-Enhancer-LoRAs",
+            "0xJustin/Dungeons-and-Diffusion"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q040",
+      "qualifying_in_corpus": 4880,
+      "question": "Models with a stated training dataset I can inspect.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.6,
+          "recall_at_k": 0.6,
+          "returned": 10,
+          "top_hits": [
+            "allenai/OLMo-2-0325-32B-Instruct",
+            "KBlueLeaf/DanTagGen-beta",
+            "allenai/OLMo-2-0425-1B-Instruct",
+            "HuggingFaceTB/SmolLM2-135M",
+            "Crystalcareai/GemMoE-Beta-1"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.5,
+          "recall_at_k": 0.5,
+          "returned": 10,
+          "top_hits": [
+            "bond005/wav2vec2-large-ru-golos-with-lm",
+            "DeepFloyd/IF-I-M-v1.0",
+            "DeepFloyd/IF-I-XL-v1.0",
+            "rombodawg/test_dataset_Codellama-3-8B",
+            "espnet/fastspeech2_conformer_with_hifigan"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q041",
+      "qualifying_in_corpus": 726,
+      "question": "Models that actually know about molecular biology, not ones that merely cite a biology benchmark.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 0.9,
+          "precision_at_k": 0.9,
+          "recall_at_k": 0.9,
+          "returned": 10,
+          "top_hits": [
+            "OpenMed/OpenMed-NER-GenomeDetect-BigMed-560M",
+            "OpenMed/OpenMed-NER-GenomeDetect-MultiMed-568M",
+            "OpenMed/OpenMed-NER-GenomeDetect-SuperMedical-125M",
+            "Profluent-Bio/protein2pam-cas9_pid_nolit",
+            "samirchar/proteinfertorch-ec-random-13685140"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.8,
+          "recall_at_k": 0.8,
+          "returned": 10,
+          "top_hits": [
+            "LTS-VVE/Teuta",
+            "EdgeAIMed/EdgeAIMed-NER-ProteinDetect-PubMed-109M",
+            "OpenMed/OpenMed-NER-ProteinDetect-BioClinical-108M",
+            "OpenMed/OpenMed-NER-ProteinDetect-BioMed-109M",
+            "OpenMed/OpenMed-NER-ProteinDetect-BioMed-335M"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q042",
+      "qualifying_in_corpus": 179,
+      "question": "A legal domain model, not a general chat model that mentions legal disclaimers.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.8,
+          "recall_at_k": 0.8,
+          "returned": 10,
+          "top_hits": [
+            "Sarath569/slm-125m-legal-chat",
+            "abhishekai/slm-125m-legal-dpo",
+            "kfkas/Legal-Llama-2-ko-7b-Chat",
+            "AdaptLLM/law-LLM",
+            "SINAI/ALIA-es-legal-administrative-7B-Instruct"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.2,
+          "recall_at_k": 0.2,
+          "returned": 10,
+          "top_hits": [
+            "Sidziesama/Legal_NER_Support_Model",
+            "nvidia/AceInstruct-1.5B",
+            "nvidia/AceInstruct-72B",
+            "nvidia/AceInstruct-7B",
+            "Rtrggf/Type-A"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q043",
+      "qualifying_in_corpus": 9670,
+      "question": "The original base model rather than one of its repackaged quantizations.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 0.9,
+          "precision_at_k": 1.0,
+          "recall_at_k": 1.0,
+          "returned": 10,
+          "top_hits": [
+            "NetherQuartz/ilo-toki-1.4-MiLMMT-46-1b-merged",
+            "lm-provers/QED-Nano",
+            "philipjohnbasile/wisp-coder-110m",
+            "Mamad8/MiniMax-H3-Image-VAE",
+            "RyanJames/yolo12l-person-seg"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 1.0,
+          "recall_at_k": 1.0,
+          "returned": 10,
+          "top_hits": [
+            "PublicPrompts/All-In-One-Pixel-Model",
+            "Hai929/The_GuageLLM_23M",
+            "Motif-Technologies/Motif-3-Base",
+            "fancyfeast/llama-joycaption-beta-one-hf-llava",
+            "ruv/ruvltra-claude-code"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q044",
+      "qualifying_in_corpus": 350,
+      "question": "A speech model for African languages rather than a model that lists Africa in its training corpus description only.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 0.9,
+          "precision_at_k": 0.2,
+          "recall_at_k": 0.2,
+          "returned": 10,
+          "top_hits": [
+            "Sunbird/asr-whisper-51-african-languages",
+            "ghananlpcommunity/ghana-speech-id",
+            "ghanaopenai/ghana-speech-id",
+            "AfriSpeech/afrispeech-gender-id",
+            "mideind/IceBERT-PoS"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 0.9,
+          "precision_at_k": 0.1,
+          "recall_at_k": 0.1,
+          "returned": 10,
+          "top_hits": [
+            "openeurollm/OLMo-3-7B-Dolci-Translated-A-25EN",
+            "openeurollm/OLMo-3-7B-Dolci-Translated-A-75EN",
+            "Rtrggf/Type-A",
+            "timm/tinynet_a.in1k",
+            "pythainlp/thainer-corpus-v2-base-model"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    },
+    {
+      "id": "q045",
+      "qualifying_in_corpus": 297,
+      "question": "An education focused model with documented instructional use.",
+      "results": {
+        "full": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.5,
+          "recall_at_k": 0.5,
+          "returned": 10,
+          "top_hits": [
+            "Jacaranda/UlizaLlama",
+            "VAGOsolutions/SauerkrautLM-Reason-EuroColBERT",
+            "wavymulder/modelshoot",
+            "allenai/Olmo-3-7B-Think-SFT",
+            "Aquiles-ai/Athenea-4B-Math"
+          ],
+          "trap_rate": 0.0
+        },
+        "metadata_only": {
+          "evidence_backed_fraction": 1.0,
+          "family_diversity": 1.0,
+          "precision_at_k": 0.1,
+          "recall_at_k": 0.1,
+          "returned": 10,
+          "top_hits": [
+            "espnet/fastspeech2_conformer_with_hifigan",
+            "pongjin/roberta_with_kornli",
+            "Qdrant/all_miniLM_L6_v2_with_attentions",
+            "Climi/Climate-Education-QA-Chatbot",
+            "MihaiPopa-1/LTX-2-Lite-2.4B"
+          ],
+          "trap_rate": 0.0
+        }
+      }
+    }
+  ],
+  "queries": 45,
+  "queries_with_no_qualifying_record": [],
+  "summary": {
+    "full": {
+      "evidence_backed_fraction": 0.9333,
+      "family_diversity": 0.9667,
+      "precision_at_k": 0.5889,
+      "recall_at_k": 0.5889,
+      "returned": 10.0,
+      "trap_rate": 0.0022
+    },
+    "metadata_only": {
+      "evidence_backed_fraction": 0.8222,
+      "family_diversity": 0.9511,
+      "precision_at_k": 0.4133,
+      "recall_at_k": 0.4133,
+      "returned": 10.0,
+      "trap_rate": 0.0111
+    }
+  }
+}

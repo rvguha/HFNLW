@@ -4,8 +4,15 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 .env
-corpus/
+# Corpus stages are derived output and stay on disk -- raw/ (28k files) and cache/
+# (13k) re-fetch from the HF API, and enriched/models.jsonl is 113 MB, past GitHub's
+# 100 MB hard limit. Two exceptions, on the same rule the golden set is kept under:
+# they were paid for and are not reproducible free. nlweb/models.jsonl is the LLM
+# enrichment output for 9,977 models, and reports/ is the evaluation that judged it.
+corpus/*
 !corpus/.gitkeep
+!corpus/nlweb/
+!corpus/reports/
 
 # Build snapshots are derived output and were written in the pre-`hf:` schema.
 # They stay on disk when present; they do not belong in the repository. The

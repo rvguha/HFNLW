@@ -1,0 +1,1396 @@
+{
+  "endpoint": "http://localhost:8000/ask",
+  "incomplete": [],
+  "judgements_reused_from_cache": 16,
+  "judges": [
+    "openai/gpt-5.6-sol",
+    "anthropic/claude-opus-5"
+  ],
+  "mean_agreed_per_query": 4.9,
+  "mean_agreement": 0.5,
+  "per_query": [
+    {
+      "agreed": [
+        "https://huggingface.co/OpenMed/OpenMed-NER-DNADetect-ElectraMed-33M",
+        "https://huggingface.co/OpenMed/OpenMed-NER-DNADetect-TinyMed-65M",
+        "https://huggingface.co/OpenMed/OpenMed-NER-DiseaseDetect-TinyMed-65M",
+        "https://huggingface.co/OpenMed/OpenMed-NER-GenomeDetect-ElectraMed-33M",
+        "https://huggingface.co/OpenMed/OpenMed-NER-PathologyDetect-ElectraMed-33M",
+        "https://huggingface.co/OpenMed/OpenMed-NER-SpeciesDetect-TinyMed-82M",
+        "https://huggingface.co/d4data/biomedical-ner-all",
+        "https://huggingface.co/grazh/biomedical-ner-all-finetuned-ner-macrobat-v1"
+      ],
+      "agreement": 0.8,
+      "by_judge": {
+        "anthropic/claude-opus-5": {
+          "cost_usd": 1.44228,
+          "error": "",
+          "relevant": [
+            {
+              "name": "OpenMed NER SpeciesDetect TinyMed 82M",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/OpenMed/OpenMed-NER-SpeciesDetect-TinyMed-82M"
+            },
+            {
+              "name": "OpenMed NER PathologyDetect ElectraMed 33M",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/OpenMed/OpenMed-NER-PathologyDetect-ElectraMed-33M"
+            },
+            {
+              "name": "biomedical ner all",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/d4data/biomedical-ner-all"
+            },
+            {
+              "name": "OpenMed NER DiseaseDetect TinyMed 65M",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/OpenMed/OpenMed-NER-DiseaseDetect-TinyMed-65M"
+            },
+            {
+              "name": "OpenMed NER DNADetect TinyMed 65M",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/OpenMed/OpenMed-NER-DNADetect-TinyMed-65M"
+            },
+            {
+              "name": "OpenMed NER DNADetect ElectraMed 33M",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/OpenMed/OpenMed-NER-DNADetect-ElectraMed-33M"
+            },
+            {
+              "name": "OpenMed NER AnatomyDetect BioMed 109M",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/OpenMed/OpenMed-NER-AnatomyDetect-BioMed-109M"
+            },
+            {
+              "name": "OpenMed NER GenomeDetect ElectraMed 33M",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/OpenMed/OpenMed-NER-GenomeDetect-ElectraMed-33M"
+            },
+            {
+              "name": "biomedical ner all finetuned ner macrobat v1",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/grazh/biomedical-ner-all-finetuned-ner-macrobat-v1"
+            }
+          ],
+          "seconds": 12.4,
+          "tokens": 279827
+        },
+        "openai/gpt-5.6-sol": {
+          "cost_usd": 1.201423,
+          "error": "",
+          "relevant": [
+            {
+              "name": "biomedical ner all",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/d4data/biomedical-ner-all"
+            },
+            {
+              "name": "OpenMed NER DNADetect TinyMed 65M",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/OpenMed/OpenMed-NER-DNADetect-TinyMed-65M"
+            },
+            {
+              "name": "biomedical ner all finetuned ner macrobat v1",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/grazh/biomedical-ner-all-finetuned-ner-macrobat-v1"
+            },
+            {
+              "name": "OpenMed NER DNADetect ElectraMed 33M",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/OpenMed/OpenMed-NER-DNADetect-ElectraMed-33M"
+            },
+            {
+              "name": "OpenMed NER PathologyDetect ElectraMed 33M",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/OpenMed/OpenMed-NER-PathologyDetect-ElectraMed-33M"
+            },
+            {
+              "name": "OpenMed NER DiseaseDetect TinyMed 65M",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/OpenMed/OpenMed-NER-DiseaseDetect-TinyMed-65M"
+            },
+            {
+              "name": "OpenMed NER GenomeDetect ElectraMed 33M",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/OpenMed/OpenMed-NER-GenomeDetect-ElectraMed-33M"
+            },
+            {
+              "name": "OpenMed NER DNADetect BioClinical 108M",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/OpenMed/OpenMed-NER-DNADetect-BioClinical-108M"
+            },
+            {
+              "name": "OpenMed NER SpeciesDetect TinyMed 82M",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/OpenMed/OpenMed-NER-SpeciesDetect-TinyMed-82M"
+            }
+          ],
+          "seconds": 11.2,
+          "tokens": 175757
+        }
+      },
+      "id": "q001",
+      "question": "I need a small model for biomedical named-entity recognition.",
+      "retrieved": 9,
+      "union": [
+        "https://huggingface.co/OpenMed/OpenMed-NER-AnatomyDetect-BioMed-109M",
+        "https://huggingface.co/OpenMed/OpenMed-NER-DNADetect-BioClinical-108M",
+        "https://huggingface.co/OpenMed/OpenMed-NER-DNADetect-ElectraMed-33M",
+        "https://huggingface.co/OpenMed/OpenMed-NER-DNADetect-TinyMed-65M",
+        "https://huggingface.co/OpenMed/OpenMed-NER-DiseaseDetect-TinyMed-65M",
+        "https://huggingface.co/OpenMed/OpenMed-NER-GenomeDetect-ElectraMed-33M",
+        "https://huggingface.co/OpenMed/OpenMed-NER-PathologyDetect-ElectraMed-33M",
+        "https://huggingface.co/OpenMed/OpenMed-NER-SpeciesDetect-TinyMed-82M",
+        "https://huggingface.co/d4data/biomedical-ner-all",
+        "https://huggingface.co/grazh/biomedical-ner-all-finetuned-ner-macrobat-v1"
+      ]
+    },
+    {
+      "agreed": [
+        "https://huggingface.co/GSMS-B/Indian-Legal-Llama-3.2-3B",
+        "https://huggingface.co/law-ai/InLegalTrans-En2Indic-1B",
+        "https://huggingface.co/opennyaiorg/en_legal_ner_trf",
+        "https://huggingface.co/subrit/Joker-Sultan-270M"
+      ],
+      "agreement": 1.0,
+      "by_judge": {
+        "anthropic/claude-opus-5": {
+          "cost_usd": 1.323865,
+          "error": "",
+          "relevant": [
+            {
+              "name": "en legal ner trf",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/opennyaiorg/en_legal_ner_trf"
+            },
+            {
+              "name": "Indian Legal Llama 3.2 3B",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/GSMS-B/Indian-Legal-Llama-3.2-3B"
+            },
+            {
+              "name": "InLegalTrans En2Indic 1B",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/law-ai/InLegalTrans-En2Indic-1B"
+            },
+            {
+              "name": "Joker Sultan 270M",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/subrit/Joker-Sultan-270M"
+            }
+          ],
+          "seconds": 10.2,
+          "tokens": 262095
+        },
+        "openai/gpt-5.6-sol": {
+          "cost_usd": 1.08586,
+          "error": "",
+          "relevant": [
+            {
+              "name": "en legal ner trf",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/opennyaiorg/en_legal_ner_trf"
+            },
+            {
+              "name": "InLegalTrans En2Indic 1B",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/law-ai/InLegalTrans-En2Indic-1B"
+            },
+            {
+              "name": "Indian Legal Llama 3.2 3B",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/GSMS-B/Indian-Legal-Llama-3.2-3B"
+            },
+            {
+              "name": "Joker Sultan 270M",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/subrit/Joker-Sultan-270M"
+            }
+          ],
+          "seconds": 7.2,
+          "tokens": 171952
+        }
+      },
+      "id": "q002",
+      "question": "Which models have documented knowledge of Indian legal material?",
+      "retrieved": 4,
+      "union": [
+        "https://huggingface.co/GSMS-B/Indian-Legal-Llama-3.2-3B",
+        "https://huggingface.co/law-ai/InLegalTrans-En2Indic-1B",
+        "https://huggingface.co/opennyaiorg/en_legal_ner_trf",
+        "https://huggingface.co/subrit/Joker-Sultan-270M"
+      ]
+    },
+    {
+      "agreed": [
+        "https://huggingface.co/AkshitaS/bhasha-embed-v0",
+        "https://huggingface.co/LiquidAI/LFM2.5-Embedding-350M",
+        "https://huggingface.co/Snowflake/snowflake-arctic-embed-l-v2.0",
+        "https://huggingface.co/Snowflake/snowflake-arctic-embed-m-v2.0",
+        "https://huggingface.co/lightonai/mDenseOn",
+        "https://huggingface.co/retrieva-jp/amber-large"
+      ],
+      "agreement": 0.5,
+      "by_judge": {
+        "anthropic/claude-opus-5": {
+          "cost_usd": 1.50271,
+          "error": "",
+          "relevant": [
+            {
+              "name": "snowflake arctic embed l v2.0",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/Snowflake/snowflake-arctic-embed-l-v2.0"
+            },
+            {
+              "name": "snowflake arctic embed m v2.0",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/Snowflake/snowflake-arctic-embed-m-v2.0"
+            },
+            {
+              "name": "gte multilingual base",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/Alibaba-NLP/gte-multilingual-base"
+            },
+            {
+              "name": "LFM2.5 Embedding 350M",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/LiquidAI/LFM2.5-Embedding-350M"
+            },
+            {
+              "name": "mDenseOn",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/lightonai/mDenseOn"
+            },
+            {
+              "name": "amber large",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/retrieva-jp/amber-large"
+            },
+            {
+              "name": "bhasha embed v0",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/AkshitaS/bhasha-embed-v0"
+            },
+            {
+              "name": "LFM2.5 ColBERT 350M",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/LiquidAI/LFM2.5-ColBERT-350M"
+            },
+            {
+              "name": "granite embedding 311m multilingual r2",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/ibm-granite/granite-embedding-311m-multilingual-r2"
+            }
+          ],
+          "seconds": 12.9,
+          "tokens": 292666
+        },
+        "openai/gpt-5.6-sol": {
+          "cost_usd": 1.243288,
+          "error": "",
+          "relevant": [
+            {
+              "name": "snowflake arctic embed l v2.0",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/Snowflake/snowflake-arctic-embed-l-v2.0"
+            },
+            {
+              "name": "snowflake arctic embed m v2.0",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/Snowflake/snowflake-arctic-embed-m-v2.0"
+            },
+            {
+              "name": "inf retriever v1 1.5b",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/infly/inf-retriever-v1-1.5b"
+            },
+            {
+              "name": "bhasha embed v0",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/AkshitaS/bhasha-embed-v0"
+            },
+            {
+              "name": "m3e base",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/moka-ai/m3e-base"
+            },
+            {
+              "name": "EuroDense 435M",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/OPI-PIB/EuroDense-435M"
+            },
+            {
+              "name": "LFM2.5 Embedding 350M",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/LiquidAI/LFM2.5-Embedding-350M"
+            },
+            {
+              "name": "mDenseOn",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/lightonai/mDenseOn"
+            },
+            {
+              "name": "amber large",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/retrieva-jp/amber-large"
+            }
+          ],
+          "seconds": 15.8,
+          "tokens": 189056
+        }
+      },
+      "id": "q003",
+      "question": "Find multilingual embedding models evaluated on non-English retrieval.",
+      "retrieved": 9,
+      "union": [
+        "https://huggingface.co/AkshitaS/bhasha-embed-v0",
+        "https://huggingface.co/Alibaba-NLP/gte-multilingual-base",
+        "https://huggingface.co/LiquidAI/LFM2.5-ColBERT-350M",
+        "https://huggingface.co/LiquidAI/LFM2.5-Embedding-350M",
+        "https://huggingface.co/OPI-PIB/EuroDense-435M",
+        "https://huggingface.co/Snowflake/snowflake-arctic-embed-l-v2.0",
+        "https://huggingface.co/Snowflake/snowflake-arctic-embed-m-v2.0",
+        "https://huggingface.co/ibm-granite/granite-embedding-311m-multilingual-r2",
+        "https://huggingface.co/infly/inf-retriever-v1-1.5b",
+        "https://huggingface.co/lightonai/mDenseOn",
+        "https://huggingface.co/moka-ai/m3e-base",
+        "https://huggingface.co/retrieva-jp/amber-large"
+      ]
+    },
+    {
+      "agreed": [
+        "https://huggingface.co/Sunbird/asr-whisper-51-african-languages",
+        "https://huggingface.co/ghananlpcommunity/ghana-speech-id"
+      ],
+      "agreement": 0.286,
+      "by_judge": {
+        "anthropic/claude-opus-5": {
+          "cost_usd": 1.32599,
+          "error": "",
+          "relevant": [
+            {
+              "name": "asr whisper 51 african languages",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/Sunbird/asr-whisper-51-african-languages"
+            },
+            {
+              "name": "ghana speech id",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/ghananlpcommunity/ghana-speech-id"
+            },
+            {
+              "name": "PhoneticXeus",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/changelinglab/PhoneticXeus"
+            },
+            {
+              "name": "whisper large v2",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/openai/whisper-large-v2"
+            }
+          ],
+          "seconds": 13.7,
+          "tokens": 259824
+        },
+        "openai/gpt-5.6-sol": {
+          "cost_usd": 1.088795,
+          "error": "",
+          "relevant": [
+            {
+              "name": "asr whisper 51 african languages",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/Sunbird/asr-whisper-51-african-languages"
+            },
+            {
+              "name": "Audar ASR V1 Turbo",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/audarai/Audar-ASR-V1-Turbo"
+            },
+            {
+              "name": "whisper base",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/openai/whisper-base"
+            },
+            {
+              "name": "ghana speech id",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/ghananlpcommunity/ghana-speech-id"
+            },
+            {
+              "name": "whisper small",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/openai/whisper-small"
+            }
+          ],
+          "seconds": 13.0,
+          "tokens": 169925
+        }
+      },
+      "id": "q004",
+      "question": "I need speech recognition for low-resource African languages.",
+      "retrieved": 5,
+      "union": [
+        "https://huggingface.co/Sunbird/asr-whisper-51-african-languages",
+        "https://huggingface.co/audarai/Audar-ASR-V1-Turbo",
+        "https://huggingface.co/changelinglab/PhoneticXeus",
+        "https://huggingface.co/ghananlpcommunity/ghana-speech-id",
+        "https://huggingface.co/openai/whisper-base",
+        "https://huggingface.co/openai/whisper-large-v2",
+        "https://huggingface.co/openai/whisper-small"
+      ]
+    },
+    {
+      "agreed": [
+        "https://huggingface.co/HiDream-ai/HiDream-I1-Fast",
+        "https://huggingface.co/dreamlike-art/dreamlike-photoreal-2.0",
+        "https://huggingface.co/nvidia/Cosmos-Predict2-2B-Video2World",
+        "https://huggingface.co/ostris/Flex.1-alpha-Redux",
+        "https://huggingface.co/purplesmartai/pony-v7-base",
+        "https://huggingface.co/stabilityai/stable-fast-3d"
+      ],
+      "agreement": 0.6,
+      "by_judge": {
+        "anthropic/claude-opus-5": {
+          "cost_usd": 1.10119,
+          "error": "",
+          "relevant": [
+            {
+              "name": "Cosmos Transfer2.5 2B",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/nvidia/Cosmos-Transfer2.5-2B"
+            },
+            {
+              "name": "sdxl turbo",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/Nextcloud-AI/sdxl-turbo"
+            },
+            {
+              "name": "HiDream I1 Fast",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/HiDream-ai/HiDream-I1-Fast"
+            },
+            {
+              "name": "pony v7 base",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/purplesmartai/pony-v7-base"
+            },
+            {
+              "name": "Flex.1 alpha Redux",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/ostris/Flex.1-alpha-Redux"
+            },
+            {
+              "name": "Cosmos Predict2 2B Video2World",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/nvidia/Cosmos-Predict2-2B-Video2World"
+            },
+            {
+              "name": "stable fast 3d",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/stabilityai/stable-fast-3d"
+            },
+            {
+              "name": "dreamlike photoreal 2.0",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/dreamlike-art/dreamlike-photoreal-2.0"
+            }
+          ],
+          "seconds": 14.2,
+          "tokens": 213321
+        },
+        "openai/gpt-5.6-sol": {
+          "cost_usd": 0.909041,
+          "error": "",
+          "relevant": [
+            {
+              "name": "sdxl turbo",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/stabilityai/sdxl-turbo"
+            },
+            {
+              "name": "pony v7 base",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/purplesmartai/pony-v7-base"
+            },
+            {
+              "name": "Flex.1 alpha Redux",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/ostris/Flex.1-alpha-Redux"
+            },
+            {
+              "name": "controlnet canny sdxl 1.0",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/xinsir/controlnet-canny-sdxl-1.0"
+            },
+            {
+              "name": "HiDream I1 Fast",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/HiDream-ai/HiDream-I1-Fast"
+            },
+            {
+              "name": "Cosmos Predict2 2B Video2World",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/nvidia/Cosmos-Predict2-2B-Video2World"
+            },
+            {
+              "name": "stable fast 3d",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/stabilityai/stable-fast-3d"
+            },
+            {
+              "name": "dreamlike photoreal 2.0",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/dreamlike-art/dreamlike-photoreal-2.0"
+            }
+          ],
+          "seconds": 11.5,
+          "tokens": 141059
+        }
+      },
+      "id": "q005",
+      "question": "Which image models have a clearly stated commercially usable license?",
+      "retrieved": 9,
+      "union": [
+        "https://huggingface.co/HiDream-ai/HiDream-I1-Fast",
+        "https://huggingface.co/Nextcloud-AI/sdxl-turbo",
+        "https://huggingface.co/dreamlike-art/dreamlike-photoreal-2.0",
+        "https://huggingface.co/nvidia/Cosmos-Predict2-2B-Video2World",
+        "https://huggingface.co/nvidia/Cosmos-Transfer2.5-2B",
+        "https://huggingface.co/ostris/Flex.1-alpha-Redux",
+        "https://huggingface.co/purplesmartai/pony-v7-base",
+        "https://huggingface.co/stabilityai/sdxl-turbo",
+        "https://huggingface.co/stabilityai/stable-fast-3d",
+        "https://huggingface.co/xinsir/controlnet-canny-sdxl-1.0"
+      ]
+    },
+    {
+      "agreed": [
+        "https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct",
+        "https://huggingface.co/LiquidAI/LFM2.5-2.6B",
+        "https://huggingface.co/MLA299/Tennda-Nano",
+        "https://huggingface.co/MLA299/Tennda-Reason",
+        "https://huggingface.co/lemuralabs/Qwen3.6-27B-Coder-uncensored-MXFP4",
+        "https://huggingface.co/wangjazz/Hunyuan-MT1.5-1.8B-MNN"
+      ],
+      "agreement": 0.5,
+      "by_judge": {
+        "anthropic/claude-opus-5": {
+          "cost_usd": 1.283055,
+          "error": "",
+          "relevant": [
+            {
+              "name": "Qwen3.6 27B Coder uncensored MXFP4",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/lemuralabs/Qwen3.6-27B-Coder-uncensored-MXFP4"
+            },
+            {
+              "name": "LFM2.5 2.6B",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/LiquidAI/LFM2.5-2.6B"
+            },
+            {
+              "name": "Hunyuan MT1.5 1.8B MNN",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/wangjazz/Hunyuan-MT1.5-1.8B-MNN"
+            },
+            {
+              "name": "Tennda Reason",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/MLA299/Tennda-Reason"
+            },
+            {
+              "name": "Tennda Nano",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/MLA299/Tennda-Nano"
+            },
+            {
+              "name": "LFM2.5 1.2B Instruct",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct"
+            },
+            {
+              "name": "JOSIE 4B Thinking",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/Goekdeniz-Guelmez/JOSIE-4B-Thinking"
+            },
+            {
+              "name": "title",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/desert-ant-labs/title"
+            },
+            {
+              "name": "Hy MT2 1.8B",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/mlx-community/Hy-MT2-1.8B"
+            }
+          ],
+          "seconds": 13.5,
+          "tokens": 247047
+        },
+        "openai/gpt-5.6-sol": {
+          "cost_usd": 1.03255,
+          "error": "",
+          "relevant": [
+            {
+              "name": "Tennda Nano",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/MLA299/Tennda-Nano"
+            },
+            {
+              "name": "ruvltra claude code",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/ruv/ruvltra-claude-code"
+            },
+            {
+              "name": "LFM2.5 1.2B Instruct",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct"
+            },
+            {
+              "name": "Qwen3.6 27B Coder uncensored MXFP4",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/lemuralabs/Qwen3.6-27B-Coder-uncensored-MXFP4"
+            },
+            {
+              "name": "LFM2.5 2.6B",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/LiquidAI/LFM2.5-2.6B"
+            },
+            {
+              "name": "Zwen Prime",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/zwenai13/Zwen-Prime"
+            },
+            {
+              "name": "Ornith 1.0 9B CoreAI",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/mlboydaisuke/Ornith-1.0-9B-CoreAI"
+            },
+            {
+              "name": "Hunyuan MT1.5 1.8B MNN",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/wangjazz/Hunyuan-MT1.5-1.8B-MNN"
+            },
+            {
+              "name": "Tennda Reason",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/MLA299/Tennda-Reason"
+            }
+          ],
+          "seconds": 6.3,
+          "tokens": 161764
+        }
+      },
+      "id": "q007",
+      "question": "What can run locally on an Apple silicon laptop with 16 GB of memory?",
+      "retrieved": 9,
+      "union": [
+        "https://huggingface.co/Goekdeniz-Guelmez/JOSIE-4B-Thinking",
+        "https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct",
+        "https://huggingface.co/LiquidAI/LFM2.5-2.6B",
+        "https://huggingface.co/MLA299/Tennda-Nano",
+        "https://huggingface.co/MLA299/Tennda-Reason",
+        "https://huggingface.co/desert-ant-labs/title",
+        "https://huggingface.co/lemuralabs/Qwen3.6-27B-Coder-uncensored-MXFP4",
+        "https://huggingface.co/mlboydaisuke/Ornith-1.0-9B-CoreAI",
+        "https://huggingface.co/mlx-community/Hy-MT2-1.8B",
+        "https://huggingface.co/ruv/ruvltra-claude-code",
+        "https://huggingface.co/wangjazz/Hunyuan-MT1.5-1.8B-MNN",
+        "https://huggingface.co/zwenai13/Zwen-Prime"
+      ]
+    },
+    {
+      "agreed": [
+        "https://huggingface.co/IndexTeam/IndexTTS-2.5",
+        "https://huggingface.co/ai4bharat/IndicF5",
+        "https://huggingface.co/samuel-vitorino/sopro"
+      ],
+      "agreement": 0.214,
+      "by_judge": {
+        "anthropic/claude-opus-5": {
+          "cost_usd": 1.26445,
+          "error": "",
+          "relevant": [
+            {
+              "name": "IndexTTS 2.5",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/IndexTeam/IndexTTS-2.5"
+            },
+            {
+              "name": "chatterbox",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/ResembleAI/chatterbox"
+            },
+            {
+              "name": "XTTS v2",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/tts-hub/XTTS-v2"
+            },
+            {
+              "name": "IndicF5",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/ai4bharat/IndicF5"
+            },
+            {
+              "name": "sopro",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/samuel-vitorino/sopro"
+            },
+            {
+              "name": "neutts air",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/neuphonic/neutts-air"
+            },
+            {
+              "name": "dots tts soar",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/dots-studio/dots.tts-soar"
+            },
+            {
+              "name": "VoxCPM 0.5B",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/openbmb/VoxCPM-0.5B"
+            }
+          ],
+          "seconds": 10.5,
+          "tokens": 246384
+        },
+        "openai/gpt-5.6-sol": {
+          "cost_usd": 1.019147,
+          "error": "",
+          "relevant": [
+            {
+              "name": "ThonburianTTS",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/biodatlab/ThonburianTTS"
+            },
+            {
+              "name": "Dia 1.6B",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/nari-labs/Dia-1.6B"
+            },
+            {
+              "name": "neutts nano",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/neuphonic/neutts-nano"
+            },
+            {
+              "name": "IndicF5",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/ai4bharat/IndicF5"
+            },
+            {
+              "name": "NAMAA Saudi TTS V2",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/NAMAA-Space/NAMAA-Saudi-TTS-V2"
+            },
+            {
+              "name": "sopro",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/samuel-vitorino/sopro"
+            },
+            {
+              "name": "sooktam2",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/bharatgenai/sooktam2"
+            },
+            {
+              "name": "IndexTTS 2.5",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/IndexTeam/IndexTTS-2.5"
+            },
+            {
+              "name": "Breeze TTS 2",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/BreezeBlue/Breeze-TTS-2"
+            }
+          ],
+          "seconds": 6.6,
+          "tokens": 160537
+        }
+      },
+      "id": "q017",
+      "question": "Text to speech models that can clone or condition on a reference voice.",
+      "retrieved": 9,
+      "union": [
+        "https://huggingface.co/BreezeBlue/Breeze-TTS-2",
+        "https://huggingface.co/IndexTeam/IndexTTS-2.5",
+        "https://huggingface.co/NAMAA-Space/NAMAA-Saudi-TTS-V2",
+        "https://huggingface.co/ResembleAI/chatterbox",
+        "https://huggingface.co/ai4bharat/IndicF5",
+        "https://huggingface.co/bharatgenai/sooktam2",
+        "https://huggingface.co/biodatlab/ThonburianTTS",
+        "https://huggingface.co/dots-studio/dots.tts-soar",
+        "https://huggingface.co/nari-labs/Dia-1.6B",
+        "https://huggingface.co/neuphonic/neutts-air",
+        "https://huggingface.co/neuphonic/neutts-nano",
+        "https://huggingface.co/openbmb/VoxCPM-0.5B",
+        "https://huggingface.co/samuel-vitorino/sopro",
+        "https://huggingface.co/tts-hub/XTTS-v2"
+      ]
+    },
+    {
+      "agreed": [
+        "https://huggingface.co/anktechsol/anki-2.5",
+        "https://huggingface.co/sarvamai/sarvam-1",
+        "https://huggingface.co/sarvamai/sarvam-1-v0.5"
+      ],
+      "agreement": 0.214,
+      "by_judge": {
+        "anthropic/claude-opus-5": {
+          "cost_usd": 1.323675,
+          "error": "",
+          "relevant": [
+            {
+              "name": "IndicNER",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/ai4bharat/IndicNER"
+            },
+            {
+              "name": "indic sentence similarity sbert",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/l3cube-pune/indic-sentence-similarity-sbert"
+            },
+            {
+              "name": "sarvam 1",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/sarvamai/sarvam-1"
+            },
+            {
+              "name": "anki 2.5",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/anktechsol/anki-2.5"
+            },
+            {
+              "name": "sarvam 1 v0.5",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/sarvamai/sarvam-1-v0.5"
+            },
+            {
+              "name": "sarvam 105b",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/sarvamai/sarvam-105b"
+            },
+            {
+              "name": "IndicF5",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/ai4bharat/IndicF5"
+            },
+            {
+              "name": "gnani evon v3.3 30B A3B",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/gnani/gnani-evon-v3.3-30B-A3B"
+            },
+            {
+              "name": "sarvam 30b",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/sarvamai/sarvam-30b"
+            }
+          ],
+          "seconds": 9.6,
+          "tokens": 260109
+        },
+        "openai/gpt-5.6-sol": {
+          "cost_usd": 1.079287,
+          "error": "",
+          "relevant": [
+            {
+              "name": "anki 2.5",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/anktechsol/anki-2.5"
+            },
+            {
+              "name": "IndicF5",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/Aditya02/IndicF5"
+            },
+            {
+              "name": "sarvam 1 v0.5",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/sarvamai/sarvam-1-v0.5"
+            },
+            {
+              "name": "sarvam 1",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/sarvamai/sarvam-1"
+            },
+            {
+              "name": "sarvam m",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/sarvamai/sarvam-m"
+            },
+            {
+              "name": "sarvam translate",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/sarvamai/sarvam-translate"
+            },
+            {
+              "name": "Akshara 8B Llama Multilingual V0.1",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/SVECTOR-CORPORATION/Akshara-8B-Llama-Multilingual-V0.1"
+            },
+            {
+              "name": "Nandi Mini 600M Early Checkpoint",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/FrontiersMind/Nandi-Mini-600M-Early-Checkpoint"
+            }
+          ],
+          "seconds": 7.6,
+          "tokens": 169654
+        }
+      },
+      "id": "q026",
+      "question": "Models supporting Indian languages such as Hindi, Tamil, or Telugu.",
+      "retrieved": 9,
+      "union": [
+        "https://huggingface.co/Aditya02/IndicF5",
+        "https://huggingface.co/FrontiersMind/Nandi-Mini-600M-Early-Checkpoint",
+        "https://huggingface.co/SVECTOR-CORPORATION/Akshara-8B-Llama-Multilingual-V0.1",
+        "https://huggingface.co/ai4bharat/IndicF5",
+        "https://huggingface.co/ai4bharat/IndicNER",
+        "https://huggingface.co/anktechsol/anki-2.5",
+        "https://huggingface.co/gnani/gnani-evon-v3.3-30B-A3B",
+        "https://huggingface.co/l3cube-pune/indic-sentence-similarity-sbert",
+        "https://huggingface.co/sarvamai/sarvam-1",
+        "https://huggingface.co/sarvamai/sarvam-1-v0.5",
+        "https://huggingface.co/sarvamai/sarvam-105b",
+        "https://huggingface.co/sarvamai/sarvam-30b",
+        "https://huggingface.co/sarvamai/sarvam-m",
+        "https://huggingface.co/sarvamai/sarvam-translate"
+      ]
+    },
+    {
+      "agreed": [
+        "https://huggingface.co/Aiden1020/LocalSubs-EN-ZH-TW-0.6B",
+        "https://huggingface.co/KBlueLeaf/DanTagGen-beta",
+        "https://huggingface.co/NetherQuartz/ilo-toki-1.1-MiLMMT-46-1b-merged",
+        "https://huggingface.co/NuclearManD/pythink-qwen2-1.5b-v0.0.1-safetensors",
+        "https://huggingface.co/superwhisper/s1-mini"
+      ],
+      "agreement": 0.385,
+      "by_judge": {
+        "anthropic/claude-opus-5": {
+          "cost_usd": 1.25765,
+          "error": "",
+          "relevant": [
+            {
+              "name": "s1 mini",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/superwhisper/s1-mini"
+            },
+            {
+              "name": "ilo toki 1.1 MiLMMT 46 1b merged",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/NetherQuartz/ilo-toki-1.1-MiLMMT-46-1b-merged"
+            },
+            {
+              "name": "Laguna XS 2.1 NVFP4",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/poolside/Laguna-XS-2.1-NVFP4"
+            },
+            {
+              "name": "pythink qwen2 1.5b v0.0.1 safetensors",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/NuclearManD/pythink-qwen2-1.5b-v0.0.1-safetensors"
+            },
+            {
+              "name": "LocalSubs EN ZH TW 0.6B",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/Aiden1020/LocalSubs-EN-ZH-TW-0.6B"
+            },
+            {
+              "name": "Laguna XS 2.1 TQ3 4S",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/YTan2000/Laguna-XS-2.1-TQ3_4S"
+            },
+            {
+              "name": "Ranger 7B",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/axonlabsai/Ranger-7B"
+            },
+            {
+              "name": "sqlcoder2",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/defog/sqlcoder2"
+            },
+            {
+              "name": "DanTagGen beta",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/KBlueLeaf/DanTagGen-beta"
+            }
+          ],
+          "seconds": 11.2,
+          "tokens": 245607
+        },
+        "openai/gpt-5.6-sol": {
+          "cost_usd": 1.039973,
+          "error": "",
+          "relevant": [
+            {
+              "name": "ilo toki 1.1 MiLMMT 46 1b merged",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/NetherQuartz/ilo-toki-1.1-MiLMMT-46-1b-merged"
+            },
+            {
+              "name": "octo net",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/NexaAI/octo-net"
+            },
+            {
+              "name": "nb llama 3.2 1B",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/NbAiLab/nb-llama-3.2-1B"
+            },
+            {
+              "name": "s1 mini",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/superwhisper/s1-mini"
+            },
+            {
+              "name": "ilo toki 1.4 MiLMMT 46 1b merged",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/NetherQuartz/ilo-toki-1.4-MiLMMT-46-1b-merged"
+            },
+            {
+              "name": "pythink qwen2 1.5b v0.0.1 safetensors",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/NuclearManD/pythink-qwen2-1.5b-v0.0.1-safetensors"
+            },
+            {
+              "name": "LocalSubs EN ZH TW 0.6B",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/Aiden1020/LocalSubs-EN-ZH-TW-0.6B"
+            },
+            {
+              "name": "Qwen3 4b Z Image Engineer V4",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/BennyDaBall/Qwen3-4b-Z-Image-Engineer-V4"
+            },
+            {
+              "name": "DanTagGen beta",
+              "relevance": "relevant",
+              "score": 0,
+              "url": "https://huggingface.co/KBlueLeaf/DanTagGen-beta"
+            }
+          ],
+          "seconds": 21.1,
+          "tokens": 162352
+        }
+      },
+      "id": "q033",
+      "question": "Quantized builds of a model I can run on a laptop.",
+      "retrieved": 9,
+      "union": [
+        "https://huggingface.co/Aiden1020/LocalSubs-EN-ZH-TW-0.6B",
+        "https://huggingface.co/BennyDaBall/Qwen3-4b-Z-Image-Engineer-V4",
+        "https://huggingface.co/KBlueLeaf/DanTagGen-beta",
+        "https://huggingface.co/NbAiLab/nb-llama-3.2-1B",
+        "https://huggingface.co/NetherQuartz/ilo-toki-1.1-MiLMMT-46-1b-merged",
+        "https://huggingface.co/NetherQuartz/ilo-toki-1.4-MiLMMT-46-1b-merged",
+        "https://huggingface.co/NexaAI/octo-net",
+        "https://huggingface.co/NuclearManD/pythink-qwen2-1.5b-v0.0.1-safetensors",
+        "https://huggingface.co/YTan2000/Laguna-XS-2.1-TQ3_4S",
+        "https://huggingface.co/axonlabsai/Ranger-7B",
+        "https://huggingface.co/defog/sqlcoder2",
+        "https://huggingface.co/poolside/Laguna-XS-2.1-NVFP4",
+        "https://huggingface.co/superwhisper/s1-mini"
+      ]
+    },
+    {
+      "agreed": [
+        "https://huggingface.co/andrewdalpino/ESM2-150M-Protein-Molecular-Function",
+        "https://huggingface.co/biomap-research/proteinglm-10b-mlm",
+        "https://huggingface.co/genbio-ai/GB.Protein-16B",
+        "https://huggingface.co/vandijklab/C2S-Scale-Gemma-2-27B",
+        "https://huggingface.co/vandijklab/C2S-Scale-Gemma-2-2B",
+        "https://huggingface.co/yosshstd/ProTrek_650M_UniRef50_protein_encoder"
+      ],
+      "agreement": 0.5,
+      "by_judge": {
+        "anthropic/claude-opus-5": {
+          "cost_usd": 1.362005,
+          "error": "",
+          "relevant": [
+            {
+              "name": "C2S Scale Gemma 2 2B",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/vandijklab/C2S-Scale-Gemma-2-2B"
+            },
+            {
+              "name": "OpenMed NER ProteinDetect EuroMed 212M",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/OpenMed/OpenMed-NER-ProteinDetect-EuroMed-212M"
+            },
+            {
+              "name": "GB Protein 16B",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/genbio-ai/GB.Protein-16B"
+            },
+            {
+              "name": "ProTrek 650M UniRef50 protein encoder",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/yosshstd/ProTrek_650M_UniRef50_protein_encoder"
+            },
+            {
+              "name": "OpenMed NER GenomicDetect ElectraMed 560M",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/OpenMed/OpenMed-NER-GenomicDetect-ElectraMed-560M"
+            },
+            {
+              "name": "C2S Scale Gemma 2 27B",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/vandijklab/C2S-Scale-Gemma-2-27B"
+            },
+            {
+              "name": "ESM2 150M Protein Molecular Function",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/andrewdalpino/ESM2-150M-Protein-Molecular-Function"
+            },
+            {
+              "name": "OpenMed NER ProteinDetect SnowMed 568M",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/OpenMed/OpenMed-NER-ProteinDetect-SnowMed-568M"
+            },
+            {
+              "name": "proteinglm 10b mlm",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/biomap-research/proteinglm-10b-mlm"
+            }
+          ],
+          "seconds": 13.0,
+          "tokens": 263670
+        },
+        "openai/gpt-5.6-sol": {
+          "cost_usd": 1.069137,
+          "error": "",
+          "relevant": [
+            {
+              "name": "ESM2 150M Protein Molecular Function",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/andrewdalpino/ESM2-150M-Protein-Molecular-Function"
+            },
+            {
+              "name": "proteinglm 10b mlm",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/biomap-research/proteinglm-10b-mlm"
+            },
+            {
+              "name": "METAGENE 1",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/metagene-ai/METAGENE-1"
+            },
+            {
+              "name": "ProTrek 650M UniRef50 protein encoder",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/yosshstd/ProTrek_650M_UniRef50_protein_encoder"
+            },
+            {
+              "name": "C2S Scale Gemma 2 27B",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/vandijklab/C2S-Scale-Gemma-2-27B"
+            },
+            {
+              "name": "GB Protein RAG 16B proteingym dms zeroshot",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/genbio-ai/GB.Protein-RAG-16B-proteingym-dms-zeroshot"
+            },
+            {
+              "name": "C2S Scale Gemma 2 2B",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/vandijklab/C2S-Scale-Gemma-2-2B"
+            },
+            {
+              "name": "GB Protein 16B",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/genbio-ai/GB.Protein-16B"
+            },
+            {
+              "name": "llama molinst protein 7b",
+              "relevance": "strong",
+              "score": 90,
+              "url": "https://huggingface.co/zjunlp/llama-molinst-protein-7b"
+            }
+          ],
+          "seconds": 8.3,
+          "tokens": 168109
+        }
+      },
+      "id": "q041",
+      "question": "Models that actually know about molecular biology, not ones that merely cite a biology benchmark.",
+      "retrieved": 9,
+      "union": [
+        "https://huggingface.co/OpenMed/OpenMed-NER-GenomicDetect-ElectraMed-560M",
+        "https://huggingface.co/OpenMed/OpenMed-NER-ProteinDetect-EuroMed-212M",
+        "https://huggingface.co/OpenMed/OpenMed-NER-ProteinDetect-SnowMed-568M",
+        "https://huggingface.co/andrewdalpino/ESM2-150M-Protein-Molecular-Function",
+        "https://huggingface.co/biomap-research/proteinglm-10b-mlm",
+        "https://huggingface.co/genbio-ai/GB.Protein-16B",
+        "https://huggingface.co/genbio-ai/GB.Protein-RAG-16B-proteingym-dms-zeroshot",
+        "https://huggingface.co/metagene-ai/METAGENE-1",
+        "https://huggingface.co/vandijklab/C2S-Scale-Gemma-2-27B",
+        "https://huggingface.co/vandijklab/C2S-Scale-Gemma-2-2B",
+        "https://huggingface.co/yosshstd/ProTrek_650M_UniRef50_protein_encoder",
+        "https://huggingface.co/zjunlp/llama-molinst-protein-7b"
+      ]
+    }
+  ],
+  "queries": 10,
+  "queries_with_no_relevant_record": [],
+  "total_cost_usd": 4.7288,
+  "width": 100
+}
