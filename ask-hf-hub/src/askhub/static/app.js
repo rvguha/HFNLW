@@ -7,7 +7,7 @@ const askEndpoint = new URL(pageParams.get("ask") || "/ask", location.href);
 // scopes (sources.KINDS) filter the manifest section a collection sits in.
 let scope = "models";
 
-import { Threadstore } from "/threadstore.js?v=10";
+import { Threadstore } from "/threadstore.js?v=13";
 
 // A conversation is the unit now, not a page load. `store` persists it,
 // `thread` is the one being added to, and `turns` mirrors it in memory so a
@@ -445,10 +445,35 @@ $("clear-all").addEventListener("click", async () => {
   await refreshConversations();
 });
 
+// Whether the conversation list is showing. Remembered, because a panel that
+// reopens itself on every reload is not a preference, it is a suggestion -- and
+// the label says which way the button goes rather than leaving a bare icon to
+// be guessed at.
+const SIDEBAR_KEY = "ask-hf-hub:sidebar";
+
+function setSidebar(open) {
+  document.body.classList.toggle("sidebar-collapsed", !open);
+  const button = $("toggle-sidebar");
+  button.setAttribute("aria-expanded", String(open));
+  button.title = open ? "Hide conversations" : "Show conversations";
+  button.setAttribute("aria-label", button.title);
+  try {
+    localStorage.setItem(SIDEBAR_KEY, open ? "open" : "closed");
+  } catch {
+    // Private windows and blocked site data both land here; the toggle still
+    // works for this page, it just will not be remembered.
+  }
+}
+
 $("toggle-sidebar").addEventListener("click", () => {
-  const collapsed = document.body.classList.toggle("sidebar-collapsed");
-  $("toggle-sidebar").setAttribute("aria-expanded", String(!collapsed));
+  setSidebar(document.body.classList.contains("sidebar-collapsed"));
 });
+
+let sidebarWasOpen = true;
+try {
+  sidebarWasOpen = localStorage.getItem(SIDEBAR_KEY) !== "closed";
+} catch { /* default to open */ }
+setSidebar(sidebarWasOpen);
 
 // Enter sends, Shift+Enter makes a newline -- the composer is a textarea so a
 // long prompt can be written and read before it is sent.
