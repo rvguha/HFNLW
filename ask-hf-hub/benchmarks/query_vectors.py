@@ -30,9 +30,9 @@ def embed_queries(queries: list[str], config) -> dict[str, np.ndarray]:
 
     if missing:
         provider = OpenRouterProvider(
-            config.openrouter_api_key, config.llm_model, model,
-            config.openrouter_base_url, config.app_url, config.app_title,
-            config.llm_reasoning_effort,
+            config.embedding_endpoint[1], config.llm_model, model,
+            config.embedding_endpoint[0], config.app_url, config.app_title,
+            config.llm_reasoning_effort, cache_key=config.embedding_cache_key,
         )
         print(f"embedding {len(missing)} uncached queries")
         matrix = asyncio.run(provider.embed(missing))

@@ -185,9 +185,9 @@ def _vector_report(documents, queries, golds, traps, keep):
 
     config = Config.from_env()
     provider = OpenRouterProvider(
-        config.openrouter_api_key, config.llm_model, config.embedding_model,
-        config.openrouter_base_url, config.app_url, config.app_title,
-        config.llm_reasoning_effort,
+        config.embedding_endpoint[1], config.llm_model, config.embedding_model,
+        config.embedding_endpoint[0], config.app_url, config.app_title,
+        config.llm_reasoning_effort, cache_key=config.embedding_cache_key,
     )
     catalog = asyncio.run(MemoryCatalog.load(
         CORPUS.parent, provider, cache_directory=CORPUS.parent / ".cache",

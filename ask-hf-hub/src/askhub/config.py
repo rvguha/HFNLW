@@ -95,6 +95,32 @@ DEFAULT_VECTOR_FIELD_WEIGHTS: dict[str, float] = {"name": 1.0, "description": 1.
 class Config:
     openrouter_api_key: str | None = None
     openrouter_base_url: str = "https://openrouter.ai/api/v1"
+    # Chat and embeddings can be served by different endpoints. Both default to
+    # the OpenRouter settings above, so an unset deployment behaves exactly as
+    # before; pointing `llm_base_url` at another OpenAI-compatible endpoint --
+    # the Hugging Face router, say -- moves only the chat calls.
+    #
+    # The embedding endpoint is deliberately separate and deliberately sticky:
+    # the corpus vectors were produced by a specific model, and a query embedded
+    # by a different one lands in a different space. Moving it means re-embedding
+    # 9,465 records, so it does not follow the chat endpoint by accident.
+    llm_base_url: str | None = None
+    llm_api_key: str | None = None
+    # The same model is served by OpenAI directly and by proxies in front of it,
+    # and the vectors are identical whichever one answers. So the embedding
+    # endpoint can be repointed -- to OpenAI's own API when an intermediary's
+    # key expires, say -- without touching the chat endpoint or the corpus.
+    embedding_base_url: str | None = None
+    embedding_api_key: str | None = None
+    # The fingerprint the embedding cache is keyed on. Pin it when the same
+    # model is reached under a different name (`text-embedding-3-small` direct
+    # from OpenAI, `openai/text-embedding-3-small` through a proxy): the vectors
+    # match, so the stored matrices must keep their key or all 9,465 records
+    # are re-embedded for nothing.
+    embedding_cache_key: str | None = None
+    # Read a corpus hosted in a private Hub repository. Sent only to
+    # huggingface.co, never to another host a manifest happens to name.
+    source_token: str | None = None
     llm_model: str = "openai/gpt-oss-120b"
     ranking_model: str | None = None
     ranking_reasoning_effort: str | None = None
@@ -155,6 +181,25 @@ class Config:
         default_factory=lambda: dict(DEFAULT_VECTOR_FIELD_WEIGHTS)
     )
 
+    @property
+    def chat_endpoint(self) -> tuple[str, str | None]:
+        """(base_url, key) for chat completions -- the OpenRouter pair unless
+        an LLM endpoint is configured separately."""
+        return (self.llm_base_url or self.openrouter_base_url,
+                self.llm_api_key or self.openrouter_api_key)
+
+    @property
+    def embedding_endpoint(self) -> tuple[str, str | None]:
+        """(base_url, key) for embeddings -- the OpenRouter pair unless an
+        embedding endpoint is configured separately."""
+        return (self.embedding_base_url or self.openrouter_base_url,
+                self.embedding_api_key or self.openrouter_api_key)
+
+    @property
+    def chat_is_openrouter(self) -> bool:
+        """Whether the chat endpoint accepts OpenRouter's request extensions."""
+        return "openrouter.ai" in (self.llm_base_url or self.openrouter_base_url)
+
     @classmethod
     def from_env(cls) -> Config:
         load_dotenv()
@@ -185,6 +230,14 @@ class Config:
         return cls(
             openrouter_api_key=os.getenv("OPENROUTER_API_KEY") or None,
             openrouter_base_url=os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1"),
+            llm_base_url=os.getenv("ASKHUB_LLM_BASE_URL") or None,
+            # HF_TOKEN is what a Hugging Face Space injects, so it is accepted
+            # under its own name rather than requiring the value be copied.
+            llm_api_key=(os.getenv("ASKHUB_LLM_API_KEY") or os.getenv("HF_TOKEN") or None),
+            embedding_base_url=os.getenv("ASKHUB_EMBEDDING_BASE_URL") or None,
+            embedding_api_key=os.getenv("ASKHUB_EMBEDDING_API_KEY") or None,
+            embedding_cache_key=os.getenv("ASKHUB_EMBEDDING_CACHE_KEY") or None,
+            source_token=(os.getenv("ASKHUB_SOURCE_TOKEN") or os.getenv("HF_TOKEN") or None),
             llm_model=os.getenv("OPENROUTER_MODEL", "openai/gpt-oss-120b"),
             ranking_model=os.getenv("OPENROUTER_RANKING_MODEL") or None,
             ranking_reasoning_effort=os.getenv("OPENROUTER_RANKING_REASONING_EFFORT") or None,

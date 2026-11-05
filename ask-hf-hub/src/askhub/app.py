@@ -22,6 +22,7 @@ from .config import Config
 from .mcp_api import create_mcp
 from .models import Mode, SearchRequest
 from .pipeline import Services, search
+from .pricing import fetch_price_table
 from .providers import HashEmbeddings, NullLanguageModel, OpenRouterProvider
 from .ranking_models import (
     DEFAULT_RANKING_MODEL,
@@ -204,20 +205,42 @@ def create_app(config: Config | None = None, services: Services | None = None) -
     @contextlib.asynccontextmanager
     async def lifespan(app: Starlette) -> AsyncIterator[None]:
         if holder["services"] is None:
-            if config.openrouter_api_key:
-                provider = OpenRouterProvider(
-                    config.openrouter_api_key,
+            embedding_url, embedding_key = config.embedding_endpoint
+            if embedding_key or config.chat_endpoint[1]:
+                chat_url, chat_key = config.chat_endpoint
+                extensions = config.chat_is_openrouter
+                # OpenRouter states a cost per call, so it needs no table. Any
+                # other endpoint may not, and an unpriced call reads as a gap in
+                # the usage panel rather than as a free one.
+                prices = {} if extensions else await fetch_price_table(chat_url)
+                if chat_url != embedding_url:
+                    logger.info("chat via %s; embeddings via %s", chat_url, embedding_url)
+                # Embeddings keep their own endpoint and key. The corpus vectors
+                # were produced by this model, and a query embedded by a
+                # different one lands in a different space.
+                embedder = OpenRouterProvider(
+                    embedding_key,
                     config.llm_model,
                     config.embedding_model,
-                    config.openrouter_base_url,
+                    embedding_url,
+                    config.app_url,
+                    config.app_title,
+                    cache_key=config.embedding_cache_key,
+                )
+                llm = OpenRouterProvider(
+                    chat_key,
+                    config.llm_model,
+                    config.embedding_model,
+                    chat_url,
                     config.app_url,
                     config.app_title,
                     # Decontextualisation and composition are short, bounded
                     # tasks; the utility model should not spend its output
                     # budget reasoning about them.
                     config.llm_reasoning_effort,
+                    routing_extensions=extensions,
+                    prices=prices,
                 )
-                embedder, llm = provider, provider
                 default_ranking_model = config.ranking_model or DEFAULT_RANKING_MODEL
                 if default_ranking_model not in RANKING_MODELS:
                     logger.warning(
@@ -228,14 +251,16 @@ def create_app(config: Config | None = None, services: Services | None = None) -
                     default_ranking_model = DEFAULT_RANKING_MODEL
                 rankers = {
                     option.id: OpenRouterProvider(
-                        config.openrouter_api_key,
+                        chat_key,
                         option.id,
                         config.embedding_model,
-                        config.openrouter_base_url,
+                        chat_url,
                         config.app_url,
                         config.app_title,
                         option.reasoning_effort,
-                        config.ranking_provider_sort or "throughput",
+                        config.ranking_provider_sort or "throughput" if extensions else None,
+                        routing_extensions=extensions,
+                        prices=prices,
                     )
                     for option in RANKING_MODEL_OPTIONS
                 }

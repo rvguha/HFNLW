@@ -337,8 +337,14 @@ async def _retrieve_and_rank(
             )
         except asyncio.CancelledError:
             raise
-        except Exception:
-            notices.append("Vector retrieval unavailable; returning BM25 results.")
+        except Exception as exc:
+            # The reason travels with the notice. Swallowed silently, an expired
+            # embedding key is indistinguishable from a corpus with no vectors.
+            logger.warning("query embedding failed", exc_info=exc)
+            notices.append(
+                "Vector retrieval unavailable "
+                f"({type(exc).__name__}: {str(exc)[:200]}); returning BM25 results."
+            )
 
     candidates = bm25_candidates + vector_candidates
     if request.ranking_count is not None:

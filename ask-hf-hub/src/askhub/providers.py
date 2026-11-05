@@ -9,6 +9,7 @@ from typing import Any, Protocol
 import numpy as np
 from openai import AsyncOpenAI
 
+from .pricing import PriceTable, cost_of, provider_of
 from .usage import UsageLedger
 
 
@@ -69,6 +70,9 @@ class OpenRouterProvider:
         app_title: str = "ask-hf-hub",
         reasoning_effort: str | None = None,
         provider_sort: str | None = None,
+        routing_extensions: bool = True,
+        prices: PriceTable | None = None,
+        cache_key: str | None = None,
     ):
         headers = {"X-OpenRouter-Title": app_title}
         if app_url:
@@ -78,7 +82,17 @@ class OpenRouterProvider:
         self.embedding_model = embedding_model
         self.reasoning_effort = reasoning_effort
         self.provider_sort = provider_sort
-        self.cache_key = f"openrouter:{embedding_model}"
+        # `reasoning` and `provider` are OpenRouter extensions to the OpenAI
+        # request body. Another OpenAI-compatible endpoint -- the Hugging Face
+        # router, say -- may reject them outright, so they are only sent where
+        # they mean something.
+        self.routing_extensions = routing_extensions
+        # Only consulted when the endpoint bills nothing in its own response.
+        self.prices: PriceTable = prices or {}
+        # Feeds the embedding cache fingerprint. Changing it invalidates every
+        # stored matrix, so it names the embedding model and nothing about which
+        # endpoint served it.
+        self.cache_key = cache_key or f"openrouter:{embedding_model}"
 
     async def embed(
         self,
@@ -102,6 +116,21 @@ class OpenRouterProvider:
         self.dimensions = matrix.shape[1]
         return matrix
 
+    def _fallback_cost(self, response: Any, raw: Any) -> float | None:
+        """Cost from published rates, for an endpoint that reports none itself."""
+        if not self.prices:
+            return None
+        usage_data = getattr(response, "usage", None)
+        if usage_data is None:
+            return None
+        return cost_of(
+            self.prices,
+            self.llm_model,
+            provider_of(raw),
+            int(getattr(usage_data, "prompt_tokens", 0) or 0),
+            int(getattr(usage_data, "completion_tokens", 0) or 0),
+        )
+
     async def structured(
         self,
         instruction: str,
@@ -121,12 +150,24 @@ class OpenRouterProvider:
             options["user"] = usage.query_id
         extra_body: dict[str, Any] = {}
         if self.reasoning_effort:
-            extra_body["reasoning"] = {"effort": self.reasoning_effort}
-        if self.provider_sort:
+            if self.routing_extensions:
+                extra_body["reasoning"] = {"effort": self.reasoning_effort}
+            else:
+                # The OpenAI top-level spelling. OpenRouter's `reasoning` object
+                # is rejected outright elsewhere -- the Hugging Face router
+                # answers 400 "property 'reasoning' is unsupported" -- and
+                # dropping the control instead is not an option: without it a
+                # gpt-oss model spends most of a small budget on reasoning
+                # tokens and returns empty content.
+                options["reasoning_effort"] = self.reasoning_effort
+        if self.provider_sort and self.routing_extensions:
             extra_body["provider"] = {"sort": self.provider_sort}
         if extra_body:
             options["extra_body"] = extra_body
-        response = await self.client.chat.completions.create(
+        # The raw response is needed for its headers: an endpoint that does not
+        # bill in the body names the provider that served the call there, and
+        # that is what makes the price exact.
+        raw = await self.client.chat.completions.with_raw_response.create(
             model=self.llm_model,
             messages=[
                 {"role": "system", "content": instruction},
@@ -135,11 +176,13 @@ class OpenRouterProvider:
             response_format={"type": "json_object"},
             **options,
         )
+        response = raw.parse()
         if usage is not None:
             usage.record(
                 response.model or self.llm_model,
                 usage_phase,
                 getattr(response, "usage", None),
+                fallback_cost=self._fallback_cost(response, raw),
             )
         content = response.choices[0].message.content
         if not content:
